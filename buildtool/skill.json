@@ -1,0 +1,718 @@
+{
+    "なし": {
+        "maxlevel": 1
+    },
+    "アイアンクラッド": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "エンゲージ": {
+        "type": "normal",
+        "maxlevel": 2
+    },
+    "カバーリング": {
+        "type": "normal",
+        "maxlevel": 2
+    },
+    "シールドマスタリー": {
+        "type": "normal",
+        "maxlevel": 3
+    },
+    "スマッシュ": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "ソードマスタリー": {
+        "type": "normal",
+        "maxlevel": 3
+    },
+    "ディフレクション": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "バッシュ": {
+        "type": "initial",
+        "maxlevel": 4,
+        "growth": {
+            "0": [
+                {
+                    "txt": "ダメージ+1",
+                    "eff": "damage,+1"
+                },
+                {
+                    "txt": "命中判定+1",
+                    "eff": "hitjudge,+1"
+                }
+            ],
+            "1": [
+                {
+                    "txt": "ダメージ+2",
+                    "eff": "damage,+2"
+                },
+                {
+                    "txt": "命中判定+2",
+                    "eff": "hitjudge,+2"
+                }
+            ],
+            "2": [
+                {
+                    "txt": "ダメージ+1d",
+                    "eff": "damage,+1d"
+                },
+                {
+                    "txt": "命中判定+1d",
+                    "eff": "hitjudge,+1d"
+                },
+                {
+                    "txt": "ダメージ+2, 命中判定+1",
+                    "eff": "damage,+2,hitjudge,+1"
+                },
+                {
+                    "txt": "ダメージ+1, 命中判定+2",
+                    "eff": "damage,+1,hitjudge,+2"
+                },
+                {
+                    "txt": "ダメージ+2, 消費SP-1",
+                    "eff": "damage,+2,sp,+1"
+                },
+                {
+                    "txt": "命中判定+2, 消費SP-1",
+                    "eff": "hitjudge,+2,sp,-1"
+                },
+                {
+                    "txt": "ダメージ+1, 命中判定+1, 消費SP-1",
+                    "eff": "damage,+1,hitjudge,+2,sp,-1"
+                }
+            ]
+        },
+        "detail": ""
+    },
+    "マイティガード": {
+        "type": "only",
+        "maxlevel": 1
+    },
+    "レイジ": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "ダガーマスタリー": {
+        "type": "normal",
+        "maxlevel": 3
+    },
+    "バタフライダンス": {
+        "type": "normal",
+        "maxlevel": 3
+    },
+    "トラップマスタリー": {
+        "type": "normal",
+        "maxlevel": 3
+    },
+    "クイックトリック": {
+        "type": "initial",
+        "maxlevel": 4
+    },
+    "インビジブルアタック": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "フェイント": {
+        "type": "normal",
+        "maxlevel": 3
+    },
+    "ダッシュ": {
+        "type": "normal",
+        "maxlevel": 2
+    },
+    "プレパレーション": {
+        "type": "normal",
+        "maxlevel": 3
+    },
+    "絶対回避": {
+        "type": "only",
+        "maxlevel": 1
+    },
+    "バックステップ": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "ボウマスタリー": {
+        "type": "normal",
+        "maxlevel": 3
+    },
+    "ホークアイ": {
+        "type": "initial",
+        "maxlevel": 4
+    },
+    "クイックドロウ": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "スナイピング": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "アローシャワー": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "ダブルショット": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "クイックステップ": {
+        "type": "normal",
+        "maxlevel": 2
+    },
+    "影纏い": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "フェアリーステップ": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "インタラプト": {
+        "type": "only",
+        "maxlevel": 1
+    },
+    "マジックマスタリー": {
+        "type": "normal",
+        "maxlevel": 3
+    },
+    "マジックアロー": {
+        "type": "initial",
+        "maxlevel": 4
+    },
+    "ファイアーボール": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "ウォータースピア": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "ブリーズ": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "スペルエンハンス": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "スリーピング": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "コンセントレイション": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "リフレクション": {
+        "type": "only",
+        "maxlevel": 1
+    },
+    "カウンタースペル": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "メイスマスタリー": {
+        "type": "normal",
+        "maxlevel": 3
+    },
+    "マジックヴェール": {
+        "type": "normal",
+        "maxlevel": 3
+    },
+    "ヒール": {
+        "type": "initial",
+        "maxlevel": 4
+    },
+    "リフレッシュ": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "ブレッシング": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "ヘイスト": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "ホーリーライト": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "骨砕き": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "リザレクション": {
+        "type": "only",
+        "maxlevel": 1
+    },
+    "プロテクション": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "ユニゾン": {
+        "type": "initial",
+        "maxlevel": 1
+    },
+    "ソードダンス": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "ワルツ": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "ポルカ": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "ジグ": {
+        "type": "normal",
+        "maxlevel": 3
+    },
+    "アンコール": {
+        "type": "normal",
+        "maxlevel": 3
+    },
+    "カーテンコール": {
+        "type": "only",
+        "maxlevel": 1
+    },
+    "チャーム": {
+        "type": "normal",
+        "maxlevel": 2
+    },
+    "セイムフット": {
+        "type": "normal",
+        "maxlevel": 3
+    },
+    "フロントステップ": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "バックスタブ": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "アサルトスタンス": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "クローキング": {
+        "type": "initial",
+        "maxlevel": 2
+    },
+    "インベナム": {
+        "type": "normal",
+        "maxlevel": 3
+    },
+    "デッドエンド": {
+        "type": "only",
+        "maxlevel": 1
+    },
+    "スローイングナイフ": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "スニークアタック": {
+        "type": "normal",
+        "maxlevel": 3
+    },
+    "シャドウムーブ": {
+        "type": "normal",
+        "maxlevel": 2
+    },
+    "ブレイクスルー": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "アンブッシュ": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "スピアマスタリー": {
+        "type": "normal",
+        "maxlevel": 3
+    },
+    "ディボーション": {
+        "type": "normal",
+        "maxlevel": 3
+    },
+    "ガッツ": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "ピアース": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "ブランディッシュ": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "シールドバッシュ": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "ガーディアン": {
+        "type": "initial",
+        "maxlevel": 3
+    },
+    "ディフェンスライン": {
+        "type": "normal",
+        "maxlevel": 2
+    },
+    "ラストスタンド": {
+        "type": "only",
+        "maxlevel": 1
+    },
+    "フルディフェンス": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "リコレクト": {
+        "type": "normal",
+        "maxlevel": 1
+    },
+    "リーフエッジ": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "バインドゾーン": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "メディテーション": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "ポーレン": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "プレフィル": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "アースシェイク": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "ミラージュ": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "プラーナ": {
+        "type": "only",
+        "maxlevel": 1
+    },
+    "プレイ": {
+        "type": "initial",
+        "maxlevel": 2
+    },
+    "メドレー": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "アレンジ": {
+        "type": "normal",
+        "maxlevel": 2
+    },
+    "アリア": {
+        "type": "only",
+        "maxlevel": 1
+    },
+    "プレリュード": {
+        "type": "initial",
+        "maxlevel": 2
+    },
+    "バラード": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "ノクターン": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "フォルテシモ": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "アドリブ": {
+        "type": "normal",
+        "maxlevel": 2
+    },
+    "ディスコード": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "ハウリング": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "アクスマスタリー": {
+        "type": "normal",
+        "maxlevel": 3
+    },
+    "タフネス": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "インデュア": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "フューリー": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "オーバーロード": {
+        "type": "initial",
+        "maxlevel": 2
+    },
+    "ウォークライ": {
+        "type": "normal",
+        "maxlevel": 2
+    },
+    "デスパレート": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "トマホーク": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "プロヴォーグ": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "ソウルバスター": {
+        "type": "only",
+        "maxlevel": 1
+    },
+    "デストルドー": {
+        "type": "normal",
+        "maxlevel": 1
+    },
+    "ネクロポーテンス": {
+        "type": "initial",
+        "maxlevel": 4
+    },
+    "ドゥーム": {
+        "type": "only",
+        "maxlevel": 1
+    },
+    "シャドウボール": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "ブラックホール": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "カース": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "ドレインライフ": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "テラー": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "マインドブラスト": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "ソウルシフト": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+
+    "ドラマティカ": {
+        "type": "normal",
+        "maxlevel": 3
+    },
+    "イリュージョン": {
+        "type": "initial",
+        "maxlevel": 1
+    },
+    "ショータイム": {
+        "type": "only",
+        "maxlevel": 1
+    },
+    "スワップ": {
+        "type": "normal",
+        "maxlevel": 2
+    },
+    "ディスアピア": {
+        "type": "normal",
+        "maxlevel": 2
+    },
+    "ジャグリング": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "アピール": {
+        "type": "normal",
+        "maxlevel": 3
+    },
+    "ミミック": {
+        "type": "normal",
+        "maxlevel": 1
+    },
+    "ジョーク": {
+        "type": "normal",
+        "maxlevel": 2
+    },
+    "スケープゴート": {
+        "type": "normal",
+        "maxlevel": 2
+    },
+
+    "カーム": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "セカンドキャスト": {
+        "type": "normal",
+        "maxlevel": 2
+    },
+    "バリア": {
+        "type": "initial",
+        "maxlevel": 4
+    },
+    "ディファレンス": {
+        "type": "only",
+        "maxlevel": 1
+    },
+    "ファーストエイド": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "ショック": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "レスキュー": {
+        "type": "normal",
+        "maxlevel": 2
+    },
+    "エンサイクロペディア": {
+        "type": "normal",
+        "maxlevel": 2
+    },
+    "ディナイ": {
+        "type": "normal",
+        "maxlevel": 2
+    },
+    "インスパイア": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+
+    "ブレードワーク": {
+        "type": "normal",
+        "maxlevel": 3
+    },
+    "デュエリスト": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "オブリージュ": {
+        "type": "normal",
+        "maxlevel": 3
+    },
+    "ベネトレイト": {
+        "type": "normal",
+        "maxlevel": 3
+    },
+    "ファント": {
+        "type": "initial",
+        "maxlevel": 4
+    },
+    "フラッシュリープ": {
+        "type": "only",
+        "maxlevel": 1
+    },
+    "パリィ": {
+        "type": "normal",
+        "maxlevel": 2
+    },
+    "チャレンジ": {
+        "type": "normal",
+        "maxlevel": 2
+    },
+    "リポスト": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "スイッチ": {
+        "type": "normal",
+        "maxlevel": 2
+    },
+
+    "アルカナドロー": {
+        "type": "initial",
+        "maxlevel": 1
+    },
+    "エタニティ": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "サンアンドムーン": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "スターゲイザー": {
+        "type": "normal",
+        "maxlevel": 2
+    },
+    "オラクル": {
+        "type": "only",
+        "maxlevel": 1
+    },
+    "シューティングスター": {
+        "type": "normal",
+        "maxlevel": 4
+    },
+    "エクリプス": {
+        "type": "normal",
+        "maxlevel": 2
+    },
+    "リパルション": {
+        "type": "normal",
+        "maxlevel": 2
+    },
+    "ワイルドカード": {
+        "type": "normal",
+        "maxlevel": 2
+    },
+    "ソードアルカナ": {
+        "type": "arcana",
+        "maxlevel": 1
+    },
+    "チャリスアルカナ": {
+        "type": "arcana",
+        "maxlevel": 1
+    },
+    "ペンタクルアルカナ": {
+        "type": "arcana",
+        "maxlevel": 1
+    },
+    "セプターアルカナ": {
+        "type": "arcana",
+        "maxlevel": 1
+    },
+    "フェイト": {
+        "type": "normal",
+        "maxlevel": 4
+    }
+}
