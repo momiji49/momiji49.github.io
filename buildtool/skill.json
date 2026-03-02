@@ -487,7 +487,7 @@
         "type": "normal",
         "maxlevel": 4
     },
-    "プロヴォーグ": {
+    "プロヴォーク": {
         "type": "normal",
         "maxlevel": 4
     },
@@ -589,7 +589,7 @@
         "type": "initial",
         "maxlevel": 4
     },
-    "ディファレンス": {
+    "デファイアンス": {
         "type": "only",
         "maxlevel": 1
     },
@@ -630,7 +630,7 @@
         "type": "normal",
         "maxlevel": 3
     },
-    "ベネトレイト": {
+    "ペネトレイト": {
         "type": "normal",
         "maxlevel": 3
     },
