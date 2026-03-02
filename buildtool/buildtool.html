@@ -1,0 +1,914 @@
+<html>
+
+<head>
+    <style>
+        :root {
+            --border-color: #07b7c0;
+            --border-color2: #2481ce;
+        }
+
+        body {
+            max-width: 650px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .card {
+            border-bottom: 2px solid var(--border-color);
+            padding: 10px;
+        }
+
+        .status_box {
+            display: flex;
+        }
+
+        .status_ui {
+            display: block;
+            width: min-content;
+        }
+
+        .status_button {
+            background-color: #EEE;
+            width: 40px;
+            height: 30px;
+            border-radius: 5px;
+            border: 1px solid #BBB;
+            margin: 5px 10px;
+        }
+
+        .status_button:hover {
+            background-color: #DDD;
+        }
+
+        .status_button:active {
+            background-color: #CCC;
+        }
+
+        .status_value {
+            width: 50px;
+            height: 30px;
+            border-radius: 5px;
+            border: 1px solid #BBB;
+            margin: 5px 10px;
+        }
+
+        .stlabel {
+            display: inline-block;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 20px;
+            width: 40px;
+            height: 30px;
+            margin: 5px 10px;
+        }
+
+        .aclabel {
+            display: inline-table;
+            vertical-align: middle;
+            text-align: center;
+            font-size: 15px;
+            width: 30px;
+            height: 30px;
+            margin: 5px 0px;
+        }
+
+        .skill_select {
+            width: 200px;
+            height: 25px;
+        }
+
+        .level_select {
+            width: 100px;
+            height: 25px;
+        }
+
+        .parameter {
+            display: flex;
+            width: min-content;
+        }
+
+        .paramtext {
+            height: 27px;
+        }
+
+        .equipmenttext {
+            height: 27px;
+            width: 100px;
+            text-align: center;
+        }
+
+        .equipmentselect {
+            height: 27px;
+            width: 175px;
+        }
+
+        .equipmentattselect {
+            height: 27px;
+            width: 70px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>クエストノーツ ビルドツール</h1>
+
+    <div class="card">
+        <div style="display: flex; justify-content: center; align-items: center;">
+            <div id="btn-4" class="status_ui">
+                <input type="button" class="status_button" id="str_-4" value="-4" onclick=ChangeStatusButton(this.id)>
+                <input type="button" class="status_button" id="con_-4" value="-4" onclick=ChangeStatusButton(this.id)>
+                <input type="button" class="status_button" id="dex_-4" value="-4" onclick=ChangeStatusButton(this.id)>
+                <input type="button" class="status_button" id="agi_-4" value="-4" onclick=ChangeStatusButton(this.id)>
+                <input type="button" class="status_button" id="sen_-4" value="-4" onclick=ChangeStatusButton(this.id)>
+                <input type="button" class="status_button" id="int_-4" value="-4" onclick=ChangeStatusButton(this.id)>
+            </div>
+            <div id="btn-1" class="status_ui">
+                <input type="button" class="status_button" id="str_-1" value="-1" onclick=ChangeStatusButton(this.id)>
+                <input type="button" class="status_button" id="con_-1" value="-1" onclick=ChangeStatusButton(this.id)>
+                <input type="button" class="status_button" id="dex_-1" value="-1" onclick=ChangeStatusButton(this.id)>
+                <input type="button" class="status_button" id="agi_-1" value="-1" onclick=ChangeStatusButton(this.id)>
+                <input type="button" class="status_button" id="sen_-1" value="-1" onclick=ChangeStatusButton(this.id)>
+                <input type="button" class="status_button" id="int_-1" value="-1" onclick=ChangeStatusButton(this.id)>
+            </div>
+            <div class="status_ui">
+                <div class="stlabel">STR</div>
+                <div class="stlabel">CON</div>
+                <div class="stlabel">DEX</div>
+                <div class="stlabel">AGI</div>
+                <div class="stlabel">SEN</div>
+                <div class="stlabel">INT</div>
+            </div>
+            <div id="st_value" class="status_ui">
+                <input type="number" class="status_value" value="6" id="str" onchange=ChangeStatus(this.id)>
+                <input type="number" class="status_value" value="6" id="con" onchange=ChangeStatus(this.id)>
+                <input type="number" class="status_value" value="6" id="dex" onchange=ChangeStatus(this.id)>
+                <input type="number" class="status_value" value="6" id="agi" onchange=ChangeStatus(this.id)>
+                <input type="number" class="status_value" value="6" id="sen" onchange=ChangeStatus(this.id)>
+                <input type="number" class="status_value" value="6" id="int" onchange=ChangeStatus(this.id)>
+            </div>
+            <div class="status_ui">
+                <div class="aclabel" id="ac_str">+0</div>
+                <div class="aclabel" id="ac_con">+0</div>
+                <div class="aclabel" id="ac_dex">+0</div>
+                <div class="aclabel" id="ac_agi">+0</div>
+                <div class="aclabel" id="ac_sen">+0</div>
+                <div class="aclabel" id="ac_int">+0</div>
+            </div>
+            <div class="status_ui">
+                <div class="stlabel" id="modi_str">-1</div>
+                <div class="stlabel" id="modi_con">-1</div>
+                <div class="stlabel" id="modi_dex">-1</div>
+                <div class="stlabel" id="modi_agi">-1</div>
+                <div class="stlabel" id="modi_sen">-1</div>
+                <div class="stlabel" id="modi_int">-1</div>
+            </div>
+            <div id="btn+1" class="status_ui">
+                <input type="button" class="status_button" id="str_+1" value="+1" onclick=ChangeStatusButton(this.id)>
+                <input type="button" class="status_button" id="con_+1" value="+1" onclick=ChangeStatusButton(this.id)>
+                <input type="button" class="status_button" id="dex_+1" value="+1" onclick=ChangeStatusButton(this.id)>
+                <input type="button" class="status_button" id="agi_+1" value="+1" onclick=ChangeStatusButton(this.id)>
+                <input type="button" class="status_button" id="sen_+1" value="+1" onclick=ChangeStatusButton(this.id)>
+                <input type="button" class="status_button" id="int_+1" value="+1" onclick=ChangeStatusButton(this.id)>
+            </div>
+            <div id="btn+4" class="status_ui">
+                <input type="button" class="status_button" id="str_+4" value="+4" onclick=ChangeStatusButton(this.id)>
+                <input type="button" class="status_button" id="con_+4" value="+4" onclick=ChangeStatusButton(this.id)>
+                <input type="button" class="status_button" id="dex_+4" value="+4" onclick=ChangeStatusButton(this.id)>
+                <input type="button" class="status_button" id="agi_+4" value="+4" onclick=ChangeStatusButton(this.id)>
+                <input type="button" class="status_button" id="sen_+4" value="+4" onclick=ChangeStatusButton(this.id)>
+                <input type="button" class="status_button" id="int_+4" value="+4" onclick=ChangeStatusButton(this.id)>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <spam id="cp">CP 300</spam>
+        <select id="class_select" onchange=ChangeClass(this.value)>
+            <option value="0">無職</option>
+            <option value="1">ウォリアー</option>
+            <option value="2">シーフ</option>
+            <option value="3">アーチャー</option>
+            <option value="4">メイジ</option>
+            <option value="5">アコライト</option>
+            <option value="6">ダンサー</option>
+            <option value="7">アサシン</option>
+            <option value="8">ナイト</option>
+            <option value="9">ドルイド</option>
+            <option value="10">バード</option>
+            <option value="11">バーサーカー</option>
+            <option value="12">ウォーロック</option>
+            <option value="13">クラウン</option>
+            <option value="14">セージ</option>
+            <option value="15">フェンサー</option>
+            <option value="16">アストロロジャ</option>
+        </select>
+
+        <div style="display: flex; flex-direction: row;">
+            <div style="display: flex; flex-direction: column; width: min-content;">
+                <div id="sk_sel0" style="height: 25px;background-color: aqua;">なし</div>
+                <div id="sk_sel1" style="height: 25px;background-color: aqua;">なし</div>
+                <select id="sk_sel2" class="skill_select" onchange=ChangeSkill(2)>
+                    <option>-</option>
+                </select>
+                <select id="sk_sel3" class="skill_select" onchange=ChangeSkill(3)>
+                    <option>-</option>
+                </select>
+                <select id="sk_sel4" class="skill_select" onchange=ChangeSkill(4)>
+                    <option>-</option>
+                </select>
+                <select id="sk_sel5" class="skill_select" onchange=ChangeSkill(5)>
+                    <option>-</option>
+                </select>
+            </div>
+            <div style="display: flex; flex-direction: column; width: min-content;">
+                <select id="lv_sel0" class="level_select" onchange=ChangeParam()>
+                    <option value="1">Level 1</option>
+                </select>
+                <select id="lv_sel1" class="level_select" onchange=ChangeParam()>
+                    <option value="1">Level 1</option>
+                </select>
+                <select id="lv_sel2" class="level_select" onchange=ChangeParam()>
+                    <option value="1">Level 1</option>
+                </select>
+                <select id="lv_sel3" class="level_select" onchange=ChangeParam()>
+                    <option value="1">Level 1</option>
+                </select>
+                <select id="lv_sel4" class="level_select" onchange=ChangeParam()>
+                    <option value="1">Level 1</option>
+                </select>
+                <select id="lv_sel5" class="level_select" onchange=ChangeParam()>
+                    <option value="1">Level 1</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="parameter">
+            <div style="width: 100px; border-right:3px double #2481ce;text-align: center;">
+                <div class="paramtext">HP</div>
+                <div class="paramtext">SP</div>
+                <div class="paramtext">ATK</div>
+                <div class="paramtext">DEF</div>
+                <div class="paramtext">MATK</div>
+                <div class="paramtext">MDEF</div>
+                <div class="paramtext">HIT</div>
+                <div class="paramtext">FLEE </div>
+                <div class="paramtext">RESIST</div>
+            </div>
+            <div style="width: 100px; padding: 0 10;border-right:3px solid #11b7c0; text-align: left;">
+                <div id="prm_hp">0</div>
+                <div class="paramtext" id="prm_sp">0</div>
+                <div class="paramtext" id="prm_atk">0</div>
+                <div class="paramtext" id="prm_def">0</div>
+                <div class="paramtext" id="prm_matk">0</div>
+                <div class="paramtext" id="prm_mdef">0</div>
+                <div class="paramtext" id="prm_hit">0</div>
+                <div class="paramtext" id="prm_flee">0</div>
+                <div class="paramtext" id="prm_resist">0</div>
+            </div>
+            <div style="display: inline-flex; flex-direction: column; border-right:3px double #2481ce;">
+                <div class="equipmenttext">右手</div>
+                <div class="equipmenttext">左手</div>
+                <div class="equipmenttext">兜</div>
+                <div class="equipmenttext">鎧</div>
+                <div class="equipmenttext">靴</div>
+                <div class="equipmenttext">アクセ1</div>
+                <div class="equipmenttext">アクセ2</div>
+                <div class="equipmenttext">アクセ3</div>
+            </div>
+            <div style="width: min-content; padding-left: 5px;">
+                <select class="equipmentselect" id="weapon" onchange=ChangeEquipment(this.id)>
+                    <option>なし</option>
+                    <optgroup label="剣">
+                        <option>ロングソード</option>
+                        <option>ショートソード</option>
+                        <option>ファルシオン</option>
+                        <option>レイピア</option>
+                        <option>ブロードソード</option>
+                        <option>クレイモア</option>
+                        <option>ツヴァイハンダー</option>
+                    </optgroup>
+                    <optgroup label="短剣">
+                        <option>ダガー</option>
+                        <option>マインゴーシュ</option>
+                        <option>スティレット</option>
+                        <option>ククリ</option>
+                    </optgroup>
+                    <optgroup label="弓">
+                        <option>ショートボウ</option>
+                        <option>ロングボウ</option>
+                        <option>クロスボウ</option>
+                        <option>アーバレスト</option>
+                        <option>コンポジットボウ</option>
+                    </optgroup>
+                    <optgroup label="杖">
+                        <option>ロッド</option>
+                        <option>スタッフ</option>
+                        <option>ワンド</option>
+                    </optgroup>
+                    <optgroup label="鈍器">
+                        <option>メイス</option>
+                        <option>フレイル</option>
+                        <option>ウォーハンマー</option>
+                    </optgroup>
+                    <optgroup label="槍">
+                        <option>スピア</option>
+                        <option>ショートスピア</option>
+                        <option>ハルバード</option>
+                        <option>パイク</option>
+                        <option>ランス</option>
+                    </optgroup>
+                    <optgroup label="斧">
+                        <option>ハンドアクス</option>
+                        <option>ブロードアクス</option>
+                        <option>ブローヴァ</option>
+                        <option>フランキスカ</option>
+                        <option>バトルアクス</option>
+                    </optgroup>
+                    <optgroup label="楽器">
+                        <option>リュート</option>
+                        <option>タンバリン</option>
+                        <option>フィドル</option>
+                        <option>ハープ</option>
+                    </optgroup>
+                    <optgroup label="盾">
+                        <option>バックラー</option>
+                        <option>カイトシールド</option>
+                        <option>ラウンドシールド</option>
+                        <option>ルーンシールド</option>
+                    </optgroup>
+
+                </select>
+                <select class="equipmentselect" id="shield" onchange=ChangeEquipment(this.id)>
+                    <option>なし</option>
+                    <option>バックラー</option>
+                    <option>カイトシールド</option>
+                    <option>ラウンドシールド</option>
+                    <option>ルーンシールド</option>
+                </select>
+                <select class="equipmentselect" id="helmet" onchange=ChangeEquipment(this.id)>
+                    <option>なし</option>
+                    <option>ドミノ</option>
+                    <option>ハット</option>
+                    <option>ビレッタ</option>
+                    <option>ヘルム</option>
+                    <option>メイジハット</option>
+                    <option>サークレット</option>
+                    <option>ねじり鉢巻き</option>
+                    <option>疾風のバンダナ</option>
+                    <option>鷹羽のフード</option>
+                    <option>司祭帽</option>
+                    <option>学者の帽子</option>
+                </select>
+                <select class="equipmentselect" id="armor" onchange=ChangeEquipment(this.id)>
+                    <option>なし</option>
+                    <option>クロースアーマー</option>
+                    <option>プレートメイル</option>
+                    <option>ローブ</option>
+                    <option>チェインメイル</option>
+                    <option>レザーアーマー</option>
+                    <option>スケイルアーマー</option>
+                </select>
+                <select class="equipmentselect" id="shoes" onchange=ChangeEquipment(this.id)>
+                    <option>なし</option>
+                    <option>サンダル</option>
+                    <option>シューズ</option>
+                    <option>ブーツ</option>
+                </select>
+                <select class="equipmentselect" id="ac1" onchange=ChangeEquipment(this.id)>
+                    <option>なし</option>
+                    <option value="バングル">バングル(+STR)</option>
+                    <option value="ベルト">ベルト(+CON)</option>
+                    <option value="リング">リング(+DEX)</option>
+                    <option value="ブローチ">ブローチ(+AGI)</option>
+                    <option value="ペンダント">ペンダント(+SEN)</option>
+                    <option value="イヤリング">イヤリング(+INT)</option>
+                    <option value="牙のお守り">牙のお守り(+ATK)</option>
+                    <option value="甲羅のお守り">甲羅のお守り(+DEF)</option>
+                    <option value="角のお守り">角のお守り(+MATK)</option>
+                    <option value="爪のお守り">爪のお守り(+HIT)</option>
+                    <option value="翼のお守り">翼のお守り(+FLEE)</option>
+                    <option value="鱗のお守り">鱗のお守り(+RESIST)</option>
+                </select>
+                <select class="equipmentselect" id="ac2" onchange=ChangeEquipment(this.id)>
+                    <option>なし</option>
+                    <option value="バングル">バングル(+STR)</option>
+                    <option value="ベルト">ベルト(+CON)</option>
+                    <option value="リング">リング(+DEX)</option>
+                    <option value="ブローチ">ブローチ(+AGI)</option>
+                    <option value="ペンダント">ペンダント(+SEN)</option>
+                    <option value="イヤリング">イヤリング(+INT)</option>
+                    <option value="牙のお守り">牙のお守り(+ATK)</option>
+                    <option value="甲羅のお守り">甲羅のお守り(+DEF)</option>
+                    <option value="角のお守り">角のお守り(+MATK)</option>
+                    <option value="爪のお守り">爪のお守り(+HIT)</option>
+                    <option value="翼のお守り">翼のお守り(+FLEE)</option>
+                    <option value="鱗のお守り">鱗のお守り(+RESIST)</option>
+                </select>
+                <select class="equipmentselect" id="ac3" onchange=ChangeEquipment(this.id)>
+                    <option>なし</option>
+                    <option value="バングル">バングル(+STR)</option>
+                    <option value="ベルト">ベルト(+CON)</option>
+                    <option value="リング">リング(+DEX)</option>
+                    <option value="ブローチ">ブローチ(+AGI)</option>
+                    <option value="ペンダント">ペンダント(+SEN)</option>
+                    <option value="イヤリング">イヤリング(+INT)</option>
+                    <option value="牙のお守り">牙のお守り(+ATK)</option>
+                    <option value="甲羅のお守り">甲羅のお守り(+DEF)</option>
+                    <option value="角のお守り">角のお守り(+MATK)</option>
+                    <option value="爪のお守り">爪のお守り(+HIT)</option>
+                    <option value="翼のお守り">翼のお守り(+FLEE)</option>
+                    <option value="鱗のお守り">鱗のお守り(+RESIST)</option>
+                </select>
+            </div>
+            <div style="width: min-content; padding-left: 5px;">
+                <select class="equipmentattselect" id="weapon_att" onchange=ChangeParam()>
+                    <option>(無名)</option>
+                    <option disabled>熟練</option>
+                    <option disabled>小鬼</option>
+                    <option disabled>蛮族</option>
+                    <option disabled>古樹</option>
+                    <option disabled>骨</option>
+                    <option disabled>湿潤</option>
+                </select>
+                <select class="equipmentattselect" id="shield_att" onchange=ChangeParam()>
+                    <option>(無名)</option>
+                    <option disabled>熟練</option>
+                    <option disabled>小鬼</option>
+                    <option disabled>蛮族</option>
+                    <option disabled>古樹</option>
+                    <option disabled>骨</option>
+                    <option disabled>湿潤</option>
+                </select>
+                <select class="equipmentattselect" id="helmet_att" onchange=ChangeParam()>
+                    <option>(無名)</option>
+                    <option disabled>熟練</option>
+                    <option disabled>小鬼</option>
+                    <option disabled>蛮族</option>
+                    <option disabled>古樹</option>
+                    <option disabled>骨</option>
+                    <option disabled>湿潤</option>
+                </select>
+                <select class="equipmentattselect" id="armor_att" onchange=ChangeParam()>
+                    <option>(無名)</option>
+                    <option disabled>熟練</option>
+                    <option disabled>小鬼</option>
+                    <option disabled>蛮族</option>
+                    <option disabled>古樹</option>
+                    <option disabled>骨</option>
+                    <option disabled>湿潤</option>
+                </select>
+                <select class="equipmentattselect" id="shoes_att" onchange=ChangeParam()>
+                    <option>(無名)</option>
+                    <option disabled>熟練</option>
+                    <option disabled>小鬼</option>
+                    <option disabled>蛮族</option>
+                    <option disabled>古樹</option>
+                    <option disabled>骨</option>
+                    <option disabled>湿潤</option>
+                </select>
+                <select class="equipmentattselect" id="ac1_att" onchange=ChangeParam()>
+                    <option>(無名)</option>
+                    <option disabled>熟練</option>
+                    <option disabled>小鬼</option>
+                    <option disabled>蛮族</option>
+                    <option disabled>古樹</option>
+                    <option disabled>骨</option>
+                    <option disabled>湿潤</option>
+                    <option disabled>勝利</option>
+                    <option disabled>泰然</option>
+                    <option disabled>勇気</option>
+                </select>
+                <select class="equipmentattselect" id="ac2_att" onchange=ChangeParam()>
+                    <option>(無名)</option>
+                    <option disabled>熟練</option>
+                    <option disabled>小鬼</option>
+                    <option disabled>蛮族</option>
+                    <option disabled>古樹</option>
+                    <option disabled>骨</option>
+                    <option disabled>湿潤</option>
+                    <option disabled>勝利</option>
+                    <option disabled>泰然</option>
+                    <option disabled>勇気</option>
+                </select>
+                <select class="equipmentattselect" id="ac3_att" onchange=ChangeParam()>
+                    <option>(無名)</option>
+                    <option disabled>熟練</option>
+                    <option disabled>小鬼</option>
+                    <option disabled>蛮族</option>
+                    <option disabled>古樹</option>
+                    <option disabled>骨</option>
+                    <option disabled>湿潤</option>
+                    <option disabled>勝利</option>
+                    <option disabled>泰然</option>
+                    <option disabled>勇気</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <input type="button" value="保存" onclick=BuildSave()>
+</body>
+<script>
+    let classes;
+    let skills;
+    let equipment;
+    fetch('class.json').then((response) => { return response.json() }).then((data) => { classes = data; })
+    fetch('skill.json').then((response) => { return response.json() }).then((data) => { skills = data; })
+    fetch('equipment.json').then((response) => { return response.json() }).then((data) => { equipment = data; InitialSet(); })
+
+
+
+    async function ChangeClass(value) {
+        document.getElementById('sk_sel0').innerText = classes[value]["0"];
+        document.getElementById('sk_sel1').innerText = classes[value]["1"];
+        let sels = document.getElementsByClassName('skill_select');
+
+        let sk_opts = ['<option>-</option>'];
+        for (let x = 0; x < 3; x++) {
+            if (classes[value][x == 0 ? 'passive' : x == 1 ? 'action' : 'reaction'].length != 0) {
+                sk_opts.push(`<optgroup label="${x == 0 ? 'パッシヴスキル' : x == 1 ? 'アクションスキル' : 'リアクションスキル'}">`);
+                classes[value][x == 0 ? 'passive' : x == 1 ? 'action' : 'reaction'].forEach(element => {
+                    sk_opts.push(`<option>${element}</option>`);
+                });
+                sk_opts.push(`</optgroup>`);
+            }
+        };
+        for (x of sels) {
+            x.innerHTML = sk_opts.join('\n')
+        }
+        for(let int = 0; int < 6; int++)ChangeSkill(int);
+        ChangeParam();
+        return true;
+    }
+
+    async function ChangeSkill(num) {
+        if (num < 2) {
+            let skillname = document.getElementById(`sk_sel${num}`).innerText;
+            let lv_opts = [`<option value="1">Level 1</option>`];
+            for (let x = 1; x < skills[skillname].maxlevel; x++) { lv_opts.push(`<option value="${x + 1}">Level ${x + 1}</option>`) };
+            document.getElementById(`lv_sel${num}`).innerHTML = lv_opts.join('\n');
+        }
+        else {
+            let skillname = document.getElementById(`sk_sel${num}`).value;
+            let lv_opts = [`<option value="1">Level 1</option>`];
+            if (skillname != '-') {
+                for (let x = 1; x < skills[skillname].maxlevel; x++) { lv_opts.push(`<option value="${x + 1}">Level ${x + 1}</option>`) };
+            }
+            document.getElementById(`lv_sel${num}`).innerHTML = lv_opts.join('\n');
+        }
+        return true;
+    }
+
+    function ChangeParam() {
+        let cp = {
+            'str': Number.parseInt(document.getElementById('str').value),
+            'con': Number.parseInt(document.getElementById('con').value),
+            'dex': Number.parseInt(document.getElementById('dex').value),
+            'agi': Number.parseInt(document.getElementById('agi').value),
+            'sen': Number.parseInt(document.getElementById('sen').value),
+            'int': Number.parseInt(document.getElementById('int').value),
+            'skilllv_0': document.getElementById('lv_sel0').value,
+            'skilllv_1': document.getElementById('lv_sel1').value,
+            'skilllv_2': document.getElementById('lv_sel2').value,
+            'skilllv_3': document.getElementById('lv_sel3').value,
+            'skilllv_4': document.getElementById('lv_sel4').value,
+            'skilllv_5': document.getElementById('lv_sel5').value
+        }
+
+        let effects = {
+            "hp": 0,
+            "sp": 0,
+            "atk": 0,
+            "atk_d": 1,
+            "def": 0,
+            "def_re": 0,
+            "matk": 0,
+            "matk_d": 0,
+            "mdef": 0,
+            "hit": 0,
+            "flee": 0,
+            "resist": 0,
+            'str': 0,
+            'con': 0,
+            'dex': 0,
+            'agi': 0,
+            'sen': 0,
+            'int': 0,
+        };
+
+        for (es of document.getElementsByClassName("equipmentselect")) {
+            for (eseff of equipment[es.value].effect) {
+                let fanfan = eseff.split(',');
+                effects[fanfan[0]] += Number.parseInt(fanfan[1]);
+            }
+            let attval = document.getElementById(es.id + '_att').value;
+            if (equipment[es.value]['addeffect'][attval] != undefined) {
+                for (effe of equipment[es.value]['addeffect'][attval]) {
+                    let fanfan = effe.split(',');
+                    effects[fanfan[0]] += Number.parseInt(fanfan[1]);
+                }
+            }
+        }
+
+        for (let xac = 2; xac < 6; xac++) {
+            let aa = SkillEffect(document.getElementById(`sk_sel${xac}`).value, document.getElementById(`lv_sel${xac}`).value, equipment[document.getElementById('weapon').value].type, document.getElementById('shield').value != 'なし');
+            if (aa[0]) {
+                effects[aa[1]] += aa[2];
+            }
+        }
+
+        let status = {
+            'str': cp['str'] + effects['str'],
+            "con": cp['con'] + effects['con'],
+            "dex": cp['dex'] + effects['dex'],
+            "agi": cp['agi'] + effects['agi'],
+            "sen": cp['sen'] + effects['sen'],
+            "int": cp['int'] + effects['int']
+        };
+        let modi = {
+            "str": Math.trunc((status['str'] - 10) / 4),
+            "con": Math.trunc((status['con'] - 10) / 4),
+            "dex": Math.trunc((status['dex'] - 10) / 4),
+            "agi": Math.trunc((status['agi'] - 10) / 4),
+            "sen": Math.trunc((status['sen'] - 10) / 4),
+            "int": Math.trunc((status['int'] - 10) / 4)
+        }
+
+        let weapondata = equipment[document.getElementById('weapon').value];
+
+        //HP＝（30＋筋力＋体力×2）÷4＋(レベル+2)÷3＋各種補正(鎧、アクセサリ等)
+        document.getElementById("prm_hp").innerText = Math.floor(Math.ceil((30 + status["str"] + status["con"] * 2) / 4) + 32 / 3);
+        //SP＝（30＋知力＋感覚×2）÷4＋(レベル+2)÷3＋各種補正(兜、鎧等)
+        document.getElementById("prm_sp").innerText = Math.floor(Math.ceil((30 + status["int"] + status["sen"] * 2) / 4) + 32 / 3);
+        //atkめんどすぎ
+        /*  剣、短剣、杖、鈍器、槍、装備なしの場合：　筋力補正値×2＋各種補正
+            短剣の場合：　筋力補正値×1.5(切り上げ)＋器用補正値×0.5(切り上げ)＋各種補正
+            斧の場合：　筋力補正値×1.5(切り上げ)＋体力補正値×0.5(切り上げ)＋各種補正
+            弓の場合：　器用補正値×1＋各種補正
+            杖の場合：　筋力補正値×1＋各種補正
+            両手武器（弓とワンド以外の杖もサイズ大であれば該当）の場合：さらに筋力補正値÷3(切り捨て)を加算
+        */
+        let prmatk = 0;
+        switch (weapondata.type) {
+            case 'dagger':
+                prmatk += Math.ceil(modi['str']) + Math.ceil(modi['dex']) + effects['atk'];
+                break;
+            case 'axe':
+                prmatk += Math.ceil(modi['str']) + Math.ceil(modi['con']) + effects['atk'];
+                break;
+            case 'bow':
+                prmatk += modi['dex'] + effects['atk'];
+                break;
+            case 'rod':
+                prmatk += modi['str'] + effects['atk'];
+                break;
+            default:
+                prmatk += modi['str'] * 2 + effects['atk'];
+                break;
+        }
+        if (weapondata.size == 'large') prmatk += Math.trunc(modi['str'] / 3);
+        document.getElementById('prm_atk').innerText = `${effects['atk_d'] != 0 ? effects['atk_d'] + 'd' : ''}${(prmatk < 0 ? '' : '+') + prmatk}`;
+        //MATK=知力補正値×1＋各種補正
+        let prmmatk = weapondata.type == 'rod' ? Math.ceil(modi['int'] * 1.5) : modi['int'];
+        document.getElementById('prm_matk').innerText = `${effects['matk_d'] != 0 ? effects['matk_d'] + 'd' : ''}${(prmmatk < 0 ? '' : '+') + prmmatk}`
+        //DEF=体力補正値×1+各種補正
+        let prmdef = modi["con"] + effects['def'];
+        document.getElementById("prm_def").innerText = prmdef + `(${prmdef + Math.ceil(prmdef / 2) + effects['def_re']})`;
+        //MDEF=感覚補正値×1+各種補正
+        let prmmdef = modi['sen'] + effects['mdef'];
+        document.getElementById("prm_mdef").innerText = prmmdef + `(${prmmdef + Math.ceil(prmdef / 2)})`;
+        //HIT=器用補正値×1+各種補正
+        document.getElementById("prm_hit").innerText = modi["dex"] + effects['hit'];
+        //FLEE=敏捷補正値×1+各種補正
+        document.getElementById("prm_flee").innerText = modi["agi"] + effects['flee'];
+        //RESIST=感覚補正値×1+各種補正
+        document.getElementById("prm_resist").innerText = modi["sen"] + effects['resist'];
+
+        document.getElementById('ac_str').innerText = `${effects['str'] >= 0 ? '+' : ''}` + effects['str'];
+        document.getElementById('ac_con').innerText = `${effects['con'] >= 0 ? '+' : ''}` + effects['con'];
+        document.getElementById('ac_dex').innerText = `${effects['dex'] >= 0 ? '+' : ''}` + effects['dex'];
+        document.getElementById('ac_agi').innerText = `${effects['agi'] >= 0 ? '+' : ''}` + effects['agi'];
+        document.getElementById('ac_sen').innerText = `${effects['sen'] >= 0 ? '+' : ''}` + effects['sen'];
+        document.getElementById('ac_int').innerText = `${effects['int'] >= 0 ? '+' : ''}` + effects['int'];
+
+        document.getElementById('modi_str').innerText = modi['str'];
+        document.getElementById('modi_con').innerText = modi['con'];
+        document.getElementById('modi_dex').innerText = modi['dex'];
+        document.getElementById('modi_agi').innerText = modi['agi'];
+        document.getElementById('modi_sen').innerText = modi['sen'];
+        document.getElementById('modi_int').innerText = modi['int'];
+
+
+        //cp計算
+        let cpval = 0;
+
+        for (let int = 0; int < 6; int++) {
+            let sttname = Sttnum(int);
+            if (cp[sttname] <= 20) { cpval += (cp[sttname] - 6) * 2; }
+            else if (cp[sttname] <= 40) { cpval += (cp[sttname] - 20) * 3 + 28; }
+            else if (cp[sttname] <= 60) { cpval += (cp[sttname] - 40) * 4 + 88; }
+            else if (cp[sttname] <= 80) { cpval += (cp[sttname] - 60) * 5 + 168; }
+            else if (cp[sttname] <= 100) { cpval += (cp[sttname] - 80) * 6 + 268; }
+            cpval += (cp['skilllv_' + int] - 1) * 3;
+        }
+
+        document.getElementById('cp').innerText = `CP ${300 - cpval}`;
+    }
+
+    function ChangeStatusButton(id) {
+        let stid = id.split('_')[0];
+        let stval = Number.parseInt(document.getElementById(stid).value) + Number.parseInt(id.split('_')[1]);
+        if (stval < 6) stval = 6;
+        document.getElementById(stid).value = stval;
+        ChangeParam();
+    }
+
+    function ChangeStatus(id) {
+        let stval = Number.parseInt(document.getElementById(id).value);
+        if (stval == NaN || stval < 6) stval = 6;
+        document.getElementById(id).value = stval;
+        ChangeParam();
+    }
+
+    function ChangeEquipment(id) {
+        let eqval = document.getElementById(id).value;
+        let opts = document.getElementById(id + '_att').children;
+        document.getElementById(id + '_att').value = '(無名)';
+        for (let cnt = 1; cnt < opts.length; cnt++) {
+            opts[cnt].disabled = equipment[eqval]['attribute'][cnt - 1] ? false : true;
+        }
+        ChangeParam();
+    }
+
+    function SkillEffect(skillname, level, weapontype, ifshield) {
+        let effect = [false];
+        switch (skillname) {
+            case 'ソードマスタリー':
+                if (weapontype == 'sword') { if (level == 1) effect = [true, 'hit', 1]; else if (level == 2) effect = [true, 'hit', 2]; else if (level == 3) effect = [true, 'hit', 3]; }
+                break;
+            case 'シールドマスタリー':
+                if (weapontype == 'shield' || ifshield == true) { if (level == 1) effect = [true, 'def_re', 1]; else if (level == 2) effect = [true, 'def_re', 2]; else if (level == 3) effect = [true, 'def_re', 3]; }
+                break;
+            case 'ダガーマスタリー':
+                if (weapontype == 'dagger') { if (level == 1) effect = [true, 'hit', 1]; else if (level == 2) effect = [true, 'hit', 2]; else if (level == 3) effect = [true, 'hit', 3]; }
+                break;
+            case 'バタフライダンス':
+                if (level == 1) effect = [true, 'flee', 1]; else if (level == 2) effect = [true, 'flee', 2]; else if (level == 3) effect = [true, 'flee', 3];
+                break;
+            case 'ボウマスタリー':
+                if (weapontype == 'bow') { if (level == 1) effect = [true, 'hit', 1]; else if (level == 2) effect = [true, 'hit', 2]; else if (level == 3) effect = [true, 'hit', 3]; }
+                break;
+            case 'マジックマスタリー':
+                if (weapontype == 'rod') { if (level == 1) effect = [true, 'hit', 1]; else if (level == 2) effect = [true, 'hit', 2]; else if (level == 3) effect = [true, 'hit', 3]; }
+                break;
+            case 'メイスマスタリー':
+                if (weapontype == 'mace') { if (level == 1) effect = [true, 'hit', 1]; else if (level == 2) effect = [true, 'hit', 2]; else if (level == 3) effect = [true, 'hit', 3]; }
+                break;
+            case 'マジックヴェール':
+                if (level == 1) effect = [true, 'resist', 1]; else if (level == 2) effect = [true, 'resist', 2]; else if (level == 3) effect = [true, 'resist', 3];
+                break;
+            case 'スピアマスタリー':
+                if (weapontype == 'spear') { if (level == 1) effect = [true, 'hit', 1]; else if (level == 2) effect = [true, 'hit', 2]; else if (level == 3) effect = [true, 'hit', 3]; }
+                break;
+            case 'アクスマスタリー':
+                if (weapontype == 'axe') { if (level == 1) effect = [true, 'hit', 1]; else if (level == 2) effect = [true, 'hit', 2]; else if (level == 3) effect = [true, 'hit', 3]; }
+                break;
+            case 'タフネス':
+                if (level == 1) effect = [true, 'hp', 3]; else if (level == 2) effect = [true, 'hp', 5]; else if (level == 3) effect = [true, 'hp', 7]; else if (level == 4) effect = [true, 'hp', 9];
+                break;
+        }
+        return effect;
+    }
+
+    function Sttnum(num) {
+        let ret = 0;
+        switch (num) {
+            case 0: ret = 'str'; break;
+            case 1: ret = 'con'; break;
+            case 2: ret = 'dex'; break;
+            case 3: ret = 'agi'; break;
+            case 4: ret = 'sen'; break;
+            case 5: ret = 'int'; break;
+        }
+        return ret;
+    }
+
+    async function InitialSet() {
+        let params = new URL(document.location).searchParams;
+        console.log(params);
+        if (params != 0) {
+            let st = params.get('st').split('_');
+            for (let int = 0; int < 6; int++) { document.getElementById(Sttnum(int)).value = st[int]; }
+
+            let cl = params.get('cl');
+            document.getElementById('class_select').value = cl;
+            await ChangeClass(cl);
+
+            let sk = params.get('sk').split('_');
+            for (let int = 2; int < 6; int++) { document.getElementById('sk_sel' + int).value = sk[int - 2]; }
+
+            let skl = params.get('skl').split('_');
+            for (let int = 0; int < 6; int++) { ChangeSkill(int); document.getElementById('lv_sel' + int).value = skl[int] }
+
+            let wep = params.get('wep').split('_');
+            document.getElementById('weapon').value = wep[0];
+            document.getElementById('weapon_att').value = wep[1];
+            ChangeEquipment('weapon');
+
+            let shi = params.get('shi').split('_');
+            document.getElementById('shield').value = shi[0];
+            document.getElementById('shield_att').value = shi[1];
+            ChangeEquipment('shield');
+
+
+            let hel = params.get('hel').split('_');
+            document.getElementById('helmet').value = hel[0];
+            document.getElementById('helmet_att').value = hel[1];
+            ChangeEquipment('helmet');
+
+
+            let arm = params.get('arm').split('_');
+            document.getElementById('armor').value = arm[0];
+            document.getElementById('armor_att').value = arm[1];
+            ChangeEquipment('armor');
+
+
+            let sho = params.get('sho').split('_');
+            document.getElementById('shoes').value = sho[0];
+            document.getElementById('shoes_att').value = sho[1];
+            ChangeEquipment('shoes');
+
+
+            let ac1 = params.get('ac1').split('_');
+            document.getElementById('ac1').value = ac1[0];
+            document.getElementById('ac1_att').value = ac1[1];
+            ChangeEquipment('ac1');
+
+
+            let ac2 = params.get('ac2').split('_');
+            document.getElementById('ac2').value = ac2[0];
+            document.getElementById('ac2_att').value = ac2[1];
+            ChangeEquipment('ac2');
+
+            let ac3 = params.get('ac3').split('_');
+            document.getElementById('ac3').value = ac3[0];
+            document.getElementById('ac3_att').value = ac3[1];
+            ChangeEquipment('ac3');
+        }
+
+        ChangeParam();
+    }
+
+    function BuildSave() {
+        let st = [
+            document.getElementById('str').value,
+            document.getElementById('con').value,
+            document.getElementById('dex').value,
+            document.getElementById('agi').value,
+            document.getElementById('sen').value,
+            document.getElementById('int').value
+        ]
+        let cl = document.getElementById('class_select').value;
+        let sk = [
+            document.getElementById('sk_sel2').value,
+            document.getElementById('sk_sel3').value,
+            document.getElementById('sk_sel4').value,
+            document.getElementById('sk_sel5').value,
+        ]
+        let skl = [
+            document.getElementById('lv_sel0').value,
+            document.getElementById('lv_sel1').value,
+            document.getElementById('lv_sel2').value,
+            document.getElementById('lv_sel3').value,
+            document.getElementById('lv_sel4').value,
+            document.getElementById('lv_sel5').value,
+        ]
+        let wep = [document.getElementById('weapon').value, document.getElementById('weapon_att').value];
+        let shi = [document.getElementById('shield').value, document.getElementById('shield_att').value];
+        let hel = [document.getElementById('helmet').value, document.getElementById('helmet_att').value];
+        let arm = [document.getElementById('armor').value, document.getElementById('armor_att').value];
+        let sho = [document.getElementById('shoes').value, document.getElementById('shoes_att').value];
+        let ac1 = [document.getElementById('ac1').value, document.getElementById('ac1_att').value];
+        let ac2 = [document.getElementById('ac2').value, document.getElementById('ac2_att').value];
+        let ac3 = [document.getElementById('ac3').value, document.getElementById('ac3_att').value];
+
+        let url = new URL(window.location.href);
+        url.searchParams.set('st', st.join('_'));
+        url.searchParams.set('cl', cl);
+        url.searchParams.set('sk', sk.join('_'));
+        url.searchParams.set('skl', skl.join('_'));
+
+        url.searchParams.set('wep', wep.join('_'));
+        url.searchParams.set('shi', shi.join('_'));
+        url.searchParams.set('hel', hel.join('_'));
+        url.searchParams.set('arm', arm.join('_'));
+        url.searchParams.set('sho', sho.join('_'));
+        url.searchParams.set('ac1', ac1.join('_'));
+        url.searchParams.set('ac2', ac2.join('_'));
+        url.searchParams.set('ac3', ac3.join('_'));
+        console.log(url.toString());
+        location.assign(url);
+
+    }
+</script>
+
+</html>
