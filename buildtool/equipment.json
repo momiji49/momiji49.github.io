@@ -1,0 +1,1567 @@
+{
+    "なし": {
+        "type": "none",
+        "size": "medium",
+        "effect": [],
+        "attribute": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+        ],
+        "addeffect": {}
+    },
+    "ロングソード": {
+        "type": "sword",
+        "size": "medium",
+        "effect": [
+            "atk_d,+1",
+            "atk,+1"
+        ],
+        "attribute": [
+            true,
+            true,
+            false,
+            true,
+            true,
+            false
+        ],
+        "addeffect": {
+            "熟練": [
+                "atk,+1"
+            ],
+            "小鬼": [
+                "atk,-1"
+            ]
+        }
+    },
+    "ショートソード": {
+        "type": "sword",
+        "size": "medium",
+        "effect": [
+            "atk,+3",
+            "flee,+1"
+        ],
+        "attribute": [
+            false,
+            true,
+            false,
+            false,
+            true,
+            false
+        ],
+        "addeffect": {
+            "熟練": [
+                "atk,+1"
+            ],
+            "小鬼": [
+                "atk,-1"
+            ]
+        }
+    },
+    "ファルシオン": {
+        "type": "sword",
+        "size": "medium",
+        "effect": [
+            "atk_d,+1",
+            "hit,+1"
+        ],
+        "attribute": [
+            false,
+            true,
+            true,
+            false,
+            true,
+            false
+        ],
+        "addeffect": {
+            "小鬼": [
+                "atk,-1"
+            ]
+        }
+    },
+    "レイピア": {
+        "type": "sword",
+        "size": "medium",
+        "effect": [
+            "atk_d,+1"
+        ],
+        "attribute": [
+            false,
+            true,
+            false,
+            false,
+            true,
+            false
+        ],
+        "addeffect": {
+            "小鬼": [
+                "atk,-1"
+            ]
+        }
+    },
+    "ブロードソード": {
+        "type": "sword",
+        "size": "medium",
+        "effect": [
+            "atk_d,+1",
+            "def,+1"
+        ],
+        "attribute": [
+            false,
+            true,
+            true,
+            true,
+            true,
+            false
+        ],
+        "addeffect": {
+            "小鬼": [
+                "atk,-1"
+            ]
+        }
+    },
+    "クレイモア": {
+        "type": "sword",
+        "size": "large",
+        "effect": [
+            "atk_d,+2"
+        ],
+        "attribute": [
+            true,
+            true,
+            true,
+            false,
+            true,
+            false
+        ],
+        "addeffect": {
+            "熟練": [
+                "atk,+2"
+            ],
+            "小鬼": [
+                "atk,-2"
+            ]
+        }
+    },
+    "ツヴァイハンダー": {
+        "type": "sword",
+        "size": "large",
+        "effect": [
+            "atk_d,+2",
+            "hit,-1",
+            "def,+1"
+        ],
+        "attribute": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+        ],
+        "addeffect": {}
+    },
+    "ダガー": {
+        "type": "dagger",
+        "size": "small",
+        "effect": [
+            "atk_d,+1"
+        ],
+        "attribute": [
+            true,
+            true,
+            true,
+            false,
+            true,
+            true
+        ],
+        "addeffect": {
+            "熟練": [
+                "atk,+1"
+            ],
+            "小鬼": [
+                "atk,-1"
+            ]
+        }
+    },
+    "マインゴーシュ": {
+        "type": "dagger",
+        "size": "small",
+        "effect": [
+            "atk_d,+1",
+            "flee,+1"
+        ],
+        "attribute": [
+            false,
+            true,
+            false,
+            false,
+            true,
+            false
+        ],
+        "addeffect": {
+            "小鬼": [
+                "atk,-1"
+            ]
+        }
+    },
+    "スティレット": {
+        "type": "dagger",
+        "size": "small",
+        "effect": [
+            "atk_d,+1"
+        ],
+        "attribute": [
+            false,
+            true,
+            false,
+            false,
+            true,
+            false
+        ],
+        "addeffect": {
+            "小鬼": [
+                "atk,-1"
+            ]
+        }
+    },
+    "ククリ": {
+        "type": "dagger",
+        "size": "small",
+        "effect": [
+            "atk_d,+1",
+            "hit,+1"
+        ],
+        "attribute": [
+            false,
+            true,
+            true,
+            false,
+            true,
+            true
+        ],
+        "addeffect": {
+            "小鬼": [
+                "atk,-1"
+            ]
+        }
+    },
+    "ショートボウ": {
+        "type": "bow",
+        "size": "large",
+        "effect": [
+            "atk_d,+1"
+        ],
+        "attribute": [
+            true,
+            true,
+            false,
+            true,
+            true,
+            false
+        ],
+        "addeffect": {
+            "熟練": [
+                "atk,+1"
+            ],
+            "小鬼": [
+                "atk,-1"
+            ]
+        }
+    },
+    "ロングボウ": {
+        "type": "bow",
+        "size": "large",
+        "effect": [
+            "atk_d,+1"
+        ],
+        "attribute": [
+            false,
+            true,
+            false,
+            true,
+            false,
+            false
+        ],
+        "addeffect": {
+            "小鬼": [
+                "atk,-1"
+            ]
+        }
+    },
+    "クロスボウ": {
+        "type": "bow",
+        "size": "large",
+        "effect": [
+            "atk_d,+1",
+            "hit,+1"
+        ],
+        "attribute": [
+            false,
+            true,
+            false,
+            false,
+            true,
+            false
+        ],
+        "addeffect": {
+            "小鬼": [
+                "atk,-1"
+            ]
+        }
+    },
+    "アーバレスト": {
+        "type": "bow",
+        "size": "large",
+        "effect": [
+            "atk_d,+1",
+            "atk,+1",
+            "hit,-1"
+        ],
+        "attribute": [
+            false,
+            true,
+            false,
+            true,
+            true,
+            false
+        ],
+        "addeffect": {
+            "小鬼": [
+                "atk,-1"
+            ]
+        }
+    },
+    "コンポジットボウ": {
+        "type": "bow",
+        "size": "large",
+        "effect": [],
+        "attribute": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+        ],
+        "addeffect": {}
+    },
+    "ロッド": {
+        "type": "rod",
+        "size": "large",
+        "effect": [
+            "matk_d,+1",
+            "matk,+1"
+        ],
+        "attribute": [
+            true,
+            true,
+            false,
+            true,
+            false,
+            false
+        ],
+        "addeffect": {
+            "熟練": [
+                "matk,+1"
+            ],
+            "小鬼": [
+                "matk,-1"
+            ]
+        }
+    },
+    "スタッフ": {
+        "type": "rod",
+        "size": "large",
+        "effect": [
+            "matk_d,+1",
+            "hit,+1"
+        ],
+        "attribute": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+        ],
+        "addeffect": {}
+    },
+    "ワンド": {
+        "type": "rod",
+        "size": "medium",
+        "effect": [
+            "matk_d,+1",
+            "matk,-1",
+            "mdef,+1"
+        ],
+        "attribute": [
+            false,
+            false,
+            false,
+            true,
+            false,
+            false
+        ],
+        "addeffect": {}
+    },
+    "メイス": {
+        "type": "mace",
+        "size": "medium",
+        "effect": [
+            "atk_d,+1",
+            "resist,+1"
+        ],
+        "attribute": [
+            true,
+            false,
+            false,
+            true,
+            false,
+            false
+        ],
+        "addeffect": {
+            "熟練": [
+                "atk,+1"
+            ]
+        }
+    },
+    "フレイル": {
+        "type": "mace",
+        "size": "medium",
+        "effect": [
+            "atk_d,+1",
+            "hit,+1"
+        ],
+        "attribute": [
+            false,
+            true,
+            false,
+            false,
+            true,
+            false
+        ],
+        "addeffect": {
+            "小鬼": [
+                "atk,-1"
+            ]
+        }
+    },
+    "ウォーハンマー": {
+        "type": "mace",
+        "size": "large",
+        "effect": [
+            "atk_d,+2"
+        ],
+        "attribute": [
+            false,
+            true,
+            true,
+            false,
+            true,
+            false
+        ],
+        "addeffect": {
+            "小鬼": [
+                "atk,-1"
+            ]
+        }
+    },
+    "スピア": {
+        "type": "spear",
+        "size": "medium",
+        "effect": [
+            "atk_d,+1",
+            "atk,+1"
+        ],
+        "attribute": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false
+        ],
+        "addeffect": {
+            "熟練": [
+                "atk,+1"
+            ]
+        }
+    },
+    "ショートスピア": {
+        "type": "spear",
+        "size": "medium",
+        "effect": [
+            "atk_d,+1",
+            "flee,+1"
+        ],
+        "attribute": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+        ],
+        "addeffect": {}
+    },
+    "ハルバード": {
+        "type": "spear",
+        "size": "medium",
+        "effect": [
+            "atk_d,+1"
+        ],
+        "attribute": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+        ],
+        "addeffect": {}
+    },
+    "パイク": {
+        "type": "spear",
+        "size": "medium",
+        "effect": [
+            "atk_d,+1",
+            "hit,+1"
+        ],
+        "attribute": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+        ],
+        "addeffect": {}
+    },
+    "ランス": {
+        "type": "spear",
+        "size": "large",
+        "effect": [
+            "atk_d,+2"
+        ],
+        "attribute": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+        ],
+        "addeffect": {}
+    },
+    "ハンドアクス": {
+        "type": "axe",
+        "size": "medium",
+        "effect": [
+            "atk_d,+1",
+            "hit,+1"
+        ],
+        "attribute": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false
+        ],
+        "addeffect": {
+            "熟練": [
+                "atk,+1"
+            ]
+        }
+    },
+    "ブロードアクス": {
+        "type": "axe",
+        "size": "medium",
+        "effect": [
+            "atk_d,+1",
+            "def,+1"
+        ],
+        "attribute": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+        ],
+        "addeffect": {}
+    },
+    "ブローヴァ": {
+        "type": "axe",
+        "size": "medium",
+        "effect": [
+            "atk_d,+1"
+        ],
+        "attribute": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+        ],
+        "addeffect": {}
+    },
+    "フランキスカ": {
+        "type": "axe",
+        "size": "medium",
+        "effect": [
+            "atk_d,+1"
+        ],
+        "attribute": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+        ],
+        "addeffect": {}
+    },
+    "バトルアクス": {
+        "type": "axe",
+        "size": "large",
+        "effect": [
+            "atk_d,+2"
+        ],
+        "attribute": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+        ],
+        "addeffect": {}
+    },
+    "リュート": {
+        "type": "musical",
+        "size": "large",
+        "effect": [
+            "dex,+3",
+            "hit,+1"
+        ],
+        "attribute": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+        ],
+        "addeffect": {}
+    },
+    "タンバリン": {
+        "type": "musical",
+        "size": "large",
+        "effect": [
+            "dex,+3",
+            "flee,+1"
+        ],
+        "attribute": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+        ],
+        "addeffect": {}
+    },
+    "フィドル": {
+        "type": "musical",
+        "size": "large",
+        "effect": [
+            "dex,+3",
+            "resist,+1"
+        ],
+        "attribute": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+        ],
+        "addeffect": {}
+    },
+    "ハープ": {
+        "type": "musical",
+        "size": "large",
+        "effect": [
+            "dex,+3",
+            "sp,+3"
+        ],
+        "attribute": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+        ],
+        "addeffect": {}
+    },
+    "バックラー": {
+        "type": "shield",
+        "size": "medium",
+        "effect": [
+            "flee,+1",
+            "def_re,+2"
+        ],
+        "attribute": [
+            true,
+            true,
+            true,
+            false,
+            false,
+            true
+        ],
+        "addeffect": {
+            "熟練": [
+                "def_re,+1"
+            ],
+            "小鬼": [
+                "def_re,-1"
+            ]
+        }
+    },
+    "カイトシールド": {
+        "type": "shield",
+        "size": "medium",
+        "effect": [
+            "def,+1",
+            "def_re,+1"
+        ],
+        "attribute": [
+            true,
+            true,
+            true,
+            false,
+            true,
+            false
+        ],
+        "addeffect": {
+            "熟練": [
+                "def_re,+1"
+            ],
+            "小鬼": [
+                "def_re,-1"
+            ]
+        }
+    },
+    "ラウンドシールド": {
+        "type": "shield",
+        "size": "medium",
+        "effect": [
+            "def_re,+4"
+        ],
+        "attribute": [
+            true,
+            true,
+            true,
+            false,
+            true,
+            true
+        ],
+        "addeffect": {
+            "熟練": [
+                "def_re,+1"
+            ],
+            "小鬼": [
+                "def_re,-1"
+            ]
+        }
+    },
+    "ルーンシールド": {
+        "type": "shield",
+        "size": "medium",
+        "effect": [
+            "resist,+1",
+            "def_re,+2"
+        ],
+        "attribute": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false
+        ],
+        "addeffect": {
+            "熟練": [
+                "def_re,+1"
+            ]
+        }
+    },
+    "ドミノ": {
+        "type": "helmet",
+        "size": "medium",
+        "effect": [
+            "flee,+1",
+            "resist,+1"
+        ],
+        "attribute": [
+            true,
+            true,
+            false,
+            false,
+            false,
+            false
+        ],
+        "addeffect": {
+            "熟練": [
+                "resist,+1"
+            ],
+            "小鬼": [
+                "resist,-1"
+            ]
+        }
+    },
+    "ハット": {
+        "type": "helmet",
+        "size": "medium",
+        "effect": [
+            "hit,+1",
+            "resist,+1"
+        ],
+        "attribute": [
+            true,
+            false,
+            false,
+            true,
+            true,
+            true
+        ],
+        "addeffect": {
+            "熟練": [
+                "resist,+1"
+            ]
+        }
+    },
+    "ビレッタ": {
+        "type": "helmet",
+        "size": "medium",
+        "effect": [
+            "mdef,+1",
+            "resist,+1"
+        ],
+        "attribute": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            true
+        ],
+        "addeffect": {
+            "熟練": [
+                "resist,+1"
+            ]
+        }
+    },
+    "ヘルム": {
+        "type": "helmet",
+        "size": "medium",
+        "effect": [
+            "def,+1",
+            "resist,+1"
+        ],
+        "attribute": [
+            true,
+            true,
+            true,
+            false,
+            true,
+            false
+        ],
+        "addeffect": {
+            "熟練": [
+                "resist,+1"
+            ],
+            "小鬼": [
+                "resist,-1"
+            ]
+        }
+    },
+    "メイジハット": {
+        "type": "helmet",
+        "size": "medium",
+        "effect": [
+            "matk,+1",
+            "resist,+1"
+        ],
+        "attribute": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            true
+        ],
+        "addeffect": {
+            "熟練": [
+                "resist,+1"
+            ]
+        }
+    },
+    "サークレット": {
+        "type": "helmet",
+        "size": "medium",
+        "effect": [
+            "def,+1",
+            "mdef,+1"
+        ],
+        "attribute": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+        ],
+        "addeffect": {}
+    },
+    "ねじり鉢巻き": {
+        "type": "helmet",
+        "size": "small",
+        "effect": [
+            "atk,+2",
+            "resist,+1"
+        ],
+        "attribute": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+        ],
+        "addeffect": {}
+    },
+    "疾風のバンダナ": {
+        "type": "helmet",
+        "size": "small",
+        "effect": [
+            "flee,+2",
+            "resist,+1"
+        ],
+        "attribute": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+        ],
+        "addeffect": {}
+    },
+    "鷹羽のフード": {
+        "type": "helmet",
+        "size": "small",
+        "effect": [
+            "hit,+2",
+            "resist,+1"
+        ],
+        "attribute": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+        ],
+        "addeffect": {}
+    },
+    "司祭帽": {
+        "type": "helmet",
+        "size": "small",
+        "effect": [
+            "resist,+3"
+        ],
+        "attribute": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+        ],
+        "addeffect": {}
+    },
+    "学者の帽子": {
+        "type": "helmet",
+        "size": "small",
+        "effect": [
+            "sp,+5",
+            "resist,+1"
+        ],
+        "attribute": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+        ],
+        "addeffect": {}
+    },
+    "クロースアーマー": {
+        "type": "armor",
+        "size": "large",
+        "effect": [
+            "hp,+4",
+            "def,+1",
+            "mdef,+1"
+        ],
+        "attribute": [
+            true,
+            true,
+            true,
+            true,
+            false,
+            false
+        ],
+        "addeffect": {
+            "熟練": [
+                "hp,+2"
+            ],
+            "小鬼": [
+                "hp,-2"
+            ]
+        }
+    },
+    "プレートメイル": {
+        "type": "armor",
+        "size": "large",
+        "effect": [
+            "hp,+5",
+            "def,+2"
+        ],
+        "attribute": [
+            true,
+            true,
+            true,
+            false,
+            true,
+            false
+        ],
+        "addeffect": {
+            "熟練": [
+                "hp,+2"
+            ],
+            "小鬼": [
+                "hp,-2"
+            ]
+        }
+    },
+    "ローブ": {
+        "type": "armor",
+        "size": "large",
+        "effect": [
+            "hp,+2",
+            "sp,+2",
+            "mdef,+2"
+        ],
+        "attribute": [
+            true,
+            true,
+            true,
+            true,
+            false,
+            true
+        ],
+        "addeffect": {
+            "熟練": [
+                "hp,+1","sp,+1"
+            ],
+            "小鬼": [
+                "hp,-1","sp,-1"
+            ]
+        }
+    },
+    "チェインメイル": {
+        "type": "armor",
+        "size": "large",
+        "effect": [
+            "hp,+5",
+            "def,+1"
+        ],
+        "attribute": [
+            false,
+            true,
+            true,
+            false,
+            false,
+            false
+        ],
+        "addeffect": {
+            "小鬼": [
+                "hp,-2"
+            ]
+        }
+    },
+    "レザーアーマー": {
+        "type": "armor",
+        "size": "large",
+        "effect": [
+            "hp,+5",
+            "def,+1"
+        ],
+        "attribute": [
+            false,
+            false,
+            false,
+            false,
+            true,
+            false
+        ],
+        "addeffect": {        }
+    },
+    "スケイルアーマー": {
+        "type": "armor",
+        "size": "large",
+        "effect": [
+            "hp,+5",
+            "def,+1"
+        ],
+        "attribute": [
+            false,
+            true,
+            true,
+            true,
+            false,
+            false
+        ],
+        "addeffect": {
+            "小鬼": [
+                "hp,-2"
+            ]
+        }
+    },
+    "サンダル": {
+        "type": "shoes",
+        "size": "medium",
+        "effect": [
+            "mdef,+1",
+            "flee,+1"
+        ],
+        "attribute": [
+            true,
+            true,
+            true,
+            false,
+            true,
+            true
+        ],
+        "addeffect": {
+            "熟練": [
+                "flee,+1"
+            ],
+            "小鬼": [
+                "flee,-1"
+            ]
+        }
+    },
+    "シューズ": {
+        "type": "shoes",
+        "size": "medium",
+        "effect": [
+            "flee,+2"
+        ],
+        "attribute": [
+            true,
+            true,
+            false,
+            false,
+            false,
+            true
+        ],
+        "addeffect": {
+            "熟練": [
+                "flee,+1"
+            ],
+            "小鬼": [
+                "flee,-1"
+            ]
+        }
+    },
+    "ブーツ": {
+        "type": "shoes",
+        "size": "medium",
+        "effect": [
+            "def,+1",
+            "flee,+1"
+        ],
+        "attribute": [
+            true,
+            false,
+            false,
+            true,
+            true,
+            false
+        ],
+        "addeffect": {
+            "熟練": [
+                "flee,+1"
+            ]
+        }
+    },
+    "バングル": {
+        "type": "accessory",
+        "size": "small",
+        "effect": [
+            "str,+2",
+            "int,-1"
+        ],
+        "attribute": [
+            true,
+            true,
+            false,
+            true,
+            false,
+            false,
+            true,
+            true,
+            true
+        ],
+        "addeffect": {
+            "熟練": [
+                "str,+1"
+            ],
+            "小鬼": [
+                "str,-1"
+            ],
+            "勝利": [
+                "str,-1",
+                "hp,+3"
+            ],
+            "泰然": [
+                "str,-1",
+                "atk,+1",
+                "matk,+1"
+            ],
+            "勇気": [
+                "str,-1"
+            ]
+        }
+    },
+    "ベルト": {
+        "type": "accessory",
+        "size": "small",
+        "effect": [
+            "con,+2",
+            "sen,-1"
+        ],
+        "attribute": [
+            true,
+            false,
+            true,
+            false,
+            false,
+            false,
+            true,
+            true,
+            true
+        ],
+        "addeffect": {
+            "熟練": [
+                "con,+1"
+            ],
+            "勝利": [
+                "con,-1",
+                "hp,+3"
+            ],
+            "泰然": [
+                "con,-1",
+                "atk,+1",
+                "matk,+1"
+            ],
+            "勇気": [
+                "con,-1"
+            ]
+        }
+    },
+    "リング": {
+        "type": "accessory",
+        "size": "small",
+        "effect": [
+            "dex,+2",
+            "agi,-1"
+        ],
+        "attribute": [
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true
+        ],
+        "addeffect": {
+            "熟練": [
+                "dex,+1"
+            ],
+            "勝利": [
+                "dex,-1",
+                "hp,+3"
+            ],
+            "泰然": [
+                "dex,-1",
+                "atk,+1",
+                "matk,+1"
+            ],
+            "勇気": [
+                "dex,-1"
+            ]
+        }
+    },
+    "ブローチ": {
+        "type": "accessory",
+        "size": "small",
+        "effect": [
+            "agi,+2",
+            "dex,-1"
+        ],
+        "attribute": [
+            true,
+            true,
+            false,
+            false,
+            false,
+            false,
+            true,
+            true,
+            true
+        ],
+        "addeffect": {
+            "熟練": [
+                "agi,+1"
+            ],
+            "小鬼": [
+                "agi,-1"
+            ],
+            "勝利": [
+                "agi,-1",
+                "hp,+3"
+            ],
+            "泰然": [
+                "agi,-1",
+                "atk,+1",
+                "matk,+1"
+            ],
+            "勇気": [
+                "agi,-1"
+            ]
+        }
+    },
+    "ペンダント": {
+        "type": "accessory",
+        "size": "small",
+        "effect": [
+            "sen,+2",
+            "con,-1"
+        ],
+        "attribute": [
+            true,
+            true,
+            false,
+            false,
+            false,
+            true,
+            true,
+            true,
+            true
+        ],
+        "addeffect": {
+            "熟練": [
+                "sen,+1"
+            ],
+            "小鬼": [
+                "sen,-1"
+            ],
+            "勝利": [
+                "sen,-1",
+                "hp,+3"
+            ],
+            "泰然": [
+                "sen,-1",
+                "atk,+1",
+                "matk,+1"
+            ],
+            "勇気": [
+                "sen,-1"
+            ]
+        }
+    },
+    "イヤリング": {
+        "type": "accessory",
+        "size": "small",
+        "effect": [
+            "int,+2",
+            "str,-1"
+        ],
+        "attribute": [
+            true,
+            true,
+            false,
+            false,
+            false,
+            true,
+            true,
+            true,
+            true
+        ],
+        "addeffect": {
+            "熟練": [
+                "int,+1"
+            ],
+            "小鬼": [
+                "int,-1"
+            ],
+            "勝利": [
+                "int,-1",
+                "hp,+3"
+            ],
+            "泰然": [
+                "int,-1",
+                "atk,+1",
+                "matk,+1"
+            ],
+            "勇気": [
+                "int,-1"
+            ]
+        }
+    },
+    "牙のお守り": {
+        "type": "accessory",
+        "size": "small",
+        "effect": [
+            "atk,+1",
+            "def,-1"
+        ],
+        "attribute": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+        ],
+        "addeffect": {}
+    },
+    "甲羅のお守り": {
+        "type": "accessory",
+        "size": "small",
+        "effect": [
+            "def,+1",
+            "atk,-1"
+        ],
+        "attribute": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+        ],
+        "addeffect": {}
+    },
+    "角のお守り": {
+        "type": "accessory",
+        "size": "small",
+        "effect": [
+            "matk,+1",
+            "mdef,-1"
+        ],
+        "attribute": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+        ],
+        "addeffect": {}
+    },
+    "爪のお守り": {
+        "type": "accessory",
+        "size": "small",
+        "effect": [
+            "hit,+1",
+            "flee,-1"
+        ],
+        "attribute": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+        ],
+        "addeffect": {}
+    },
+    "翼のお守り": {
+        "type": "accessory",
+        "size": "small",
+        "effect": [
+            "flee,+1",
+            "hit,-1"
+        ],
+        "attribute": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+        ],
+        "addeffect": {}
+    },
+    "鱗のお守り": {
+        "type": "accessory",
+        "size": "small",
+        "effect": [
+            "resist,+1",
+            "hit,-1"
+        ],
+        "attribute": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+        ],
+        "addeffect": {}
+    }
+}
