@@ -751,8 +751,8 @@
             else if (cp[sttname] <= 100) { cpval += (cp[sttname] - 80) * 6 + 268; }
             cpval += (cp['skilllv_' + int] - 1) * 3;
         }
-
         document.getElementById('cp').innerText = `CP ${300 - cpval}`;
+        document.getElementById('cp').style.color = cpval <= 300 ? '#000' : '#F00';
     }
 
     function ChangeStatusButton(id) {
