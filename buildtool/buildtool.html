@@ -1,6 +1,7 @@
 <html>
 
 <head>
+    <title>クエストノーツ ビルドツール</title>
     <style>
         :root {
             --border-color: #07b7c0;
@@ -9,13 +10,18 @@
 
         body {
             max-width: 800px;
-            margin-right: auto;
-            margin-left: auto;
+            margin: 0px auto;
         }
 
         .card {
             border-bottom: 2px solid var(--border-color);
             padding: 10px;
+        }
+
+        .cardinline {
+            margin: auto;
+            display: flex;
+            justify-content: center;
         }
 
         .status_box {
@@ -75,11 +81,13 @@
         .skill_select {
             width: 200px;
             height: 25px;
+            border-radius: 5px;
         }
 
         .level_select {
             width: 100px;
             height: 25px;
+            border-radius: 5px;
         }
 
         .parameter {
@@ -100,11 +108,26 @@
         .equipmentselect {
             height: 27px;
             width: 175px;
+            border-radius: 5px;
         }
 
         .equipmentattselect {
             height: 27px;
             width: 70px;
+            border-radius: 5px;
+        }
+
+        .save_button {
+            background-color: #EEE;
+            width: 150px;
+            height: 30px;
+            border-radius: 5px;
+            border: 1px solid #BBB;
+            margin: 10px;
+        }
+
+        .save_button:active {
+            background-color: #CCC;
         }
     </style>
 </head>
@@ -112,13 +135,13 @@
 <body>
     <div class="card">
         <h1 style="margin: 0px;">クエストノーツ ビルドツール</h1>
-        <div style="font-size: 12px;">更新日 2026/03/03 <a
+        <div style="font-size: 12px;">最終更新日 2026/03/03 <a
                 href="https://marshmallow-qa.com/54hp6vc7wt3b8lb">バグ報告などはこちらから</a></div>
     </div>
 
 
     <div class="card">
-        <div style="display: flex; justify-content: center; align-items: center;">
+        <div class="cardinline">
             <div id="btn-4" class="status_ui">
                 <input type="button" class="status_button" id="str_-4" value="-4" onclick=ChangeStatusButton(this.id)>
                 <input type="button" class="status_button" id="con_-4" value="-4" onclick=ChangeStatusButton(this.id)>
@@ -185,69 +208,79 @@
             </div>
         </div>
     </div>
-    <div class="card">
-        <spam id="cp">CP 300</spam>
-        <select id="class_select" onchange=ChangeClass(this.value)>
-            <option value="0">無職</option>
-            <option value="1">ウォリアー</option>
-            <option value="2">シーフ</option>
-            <option value="3">アーチャー</option>
-            <option value="4">メイジ</option>
-            <option value="5">アコライト</option>
-            <option value="6">ダンサー</option>
-            <option value="7">アサシン</option>
-            <option value="8">ナイト</option>
-            <option value="9">ドルイド</option>
-            <option value="10">バード</option>
-            <option value="11">バーサーカー</option>
-            <option value="12">ウォーロック</option>
-            <option value="13">クラウン</option>
-            <option value="14">セージ</option>
-            <option value="15">フェンサー</option>
-            <option value="16">アストロロジャ</option>
-        </select>
-
-        <div style="display: flex; flex-direction: row;">
-            <div style="display: flex; flex-direction: column; width: min-content;">
-                <div id="sk_sel0" style="height: 25px;background-color: aqua;">なし</div>
-                <div id="sk_sel1" style="height: 25px;background-color: aqua;">なし</div>
-                <select id="sk_sel2" class="skill_select" onchange=ChangeSkill(2)>
-                    <option>-</option>
-                </select>
-                <select id="sk_sel3" class="skill_select" onchange=ChangeSkill(3)>
-                    <option>-</option>
-                </select>
-                <select id="sk_sel4" class="skill_select" onchange=ChangeSkill(4)>
-                    <option>-</option>
-                </select>
-                <select id="sk_sel5" class="skill_select" onchange=ChangeSkill(5)>
-                    <option>-</option>
+    <div class="card" style="display: flex;">
+        <div class="cardinline">
+            <div style="display: inline-flex;flex-direction: column; margin:auto 0px;padding: 0px 10px;">
+                <spam id="cp" style="font-size: large;text-align: center;">CP 300</spam>
+                <select id="class_select" onchange=ChangeClass(this.value)
+                    style="width: 150px;height: 27px;border-radius: 5px;">
+                    <option value="0">無職</option>
+                    <option value="1">ウォリアー</option>
+                    <option value="2">シーフ</option>
+                    <option value="3">アーチャー</option>
+                    <option value="4">メイジ</option>
+                    <option value="5">アコライト</option>
+                    <option value="6">ダンサー</option>
+                    <option value="7">アサシン</option>
+                    <option value="8">ナイト</option>
+                    <option value="9">ドルイド</option>
+                    <option value="10">バード</option>
+                    <option value="11">バーサーカー</option>
+                    <option value="12">ウォーロック</option>
+                    <option value="13">クラウン</option>
+                    <option value="14">セージ</option>
+                    <option value="15">フェンサー</option>
+                    <option value="16">アストロロジャ</option>
                 </select>
             </div>
-            <div style="display: flex; flex-direction: column; width: min-content;">
-                <select id="lv_sel0" class="level_select" onchange=ChangeParam()>
-                    <option value="1">Level 1</option>
-                </select>
-                <select id="lv_sel1" class="level_select" onchange=ChangeParam()>
-                    <option value="1">Level 1</option>
-                </select>
-                <select id="lv_sel2" class="level_select" onchange=ChangeParam()>
-                    <option value="1">Level 1</option>
-                </select>
-                <select id="lv_sel3" class="level_select" onchange=ChangeParam()>
-                    <option value="1">Level 1</option>
-                </select>
-                <select id="lv_sel4" class="level_select" onchange=ChangeParam()>
-                    <option value="1">Level 1</option>
-                </select>
-                <select id="lv_sel5" class="level_select" onchange=ChangeParam()>
-                    <option value="1">Level 1</option>
-                </select>
+
+            <div style="display: flex; flex-direction: row;">
+                <div style="display: flex; flex-direction: column; width: min-content;">
+                    <div
+                        style="height: 23px;background-color: #f4ffd9; border-radius: 5px;border: 1px solid #7a7a7a;font-size: 15px;">
+                        <span id="sk_sel0" style="padding-left: 2px;">なし</span></div>
+                    <div
+                        style="height: 23px;background-color: #f4ffd9; border-radius: 5px;border: 1px solid #7a7a7a;font-size: 15px;">
+                        <span id="sk_sel1" style="padding-left: 2px;">なし</span></div>
+                    <select id="sk_sel2" class="skill_select" onchange=ChangeSkill(2)>
+                        <option>-</option>
+                    </select>
+                    <select id="sk_sel3" class="skill_select" onchange=ChangeSkill(3)>
+                        <option>-</option>
+                    </select>
+                    <select id="sk_sel4" class="skill_select" onchange=ChangeSkill(4)>
+                        <option>-</option>
+                    </select>
+                    <select id="sk_sel5" class="skill_select" onchange=ChangeSkill(5)>
+                        <option>-</option>
+                    </select>
+                </div>
+                <div style="display: flex; flex-direction: column; width: min-content;">
+                    <select id="lv_sel0" class="level_select" onchange=ChangeParam()>
+                        <option value="1">Level 1</option>
+                    </select>
+                    <select id="lv_sel1" class="level_select" onchange=ChangeParam()>
+                        <option value="1">Level 1</option>
+                    </select>
+                    <select id="lv_sel2" class="level_select" onchange=ChangeParam()>
+                        <option value="1">Level 1</option>
+                    </select>
+                    <select id="lv_sel3" class="level_select" onchange=ChangeParam()>
+                        <option value="1">Level 1</option>
+                    </select>
+                    <select id="lv_sel4" class="level_select" onchange=ChangeParam()>
+                        <option value="1">Level 1</option>
+                    </select>
+                    <select id="lv_sel5" class="level_select" onchange=ChangeParam()>
+                        <option value="1">Level 1</option>
+                    </select>
+                </div>
             </div>
         </div>
+
     </div>
     <div class="card">
-        <div class="parameter">
+        <div class="cardinline">
             <div style="width: 100px; border-right:3px double #2481ce;text-align: center;">
                 <div class="paramtext">HP</div>
                 <div class="paramtext">SP</div>
@@ -510,8 +543,11 @@
             </div>
         </div>
     </div>
-    <input type="button" value="保存" onclick=BuildSave()>
+    <div class="cardinline" ><input class="save_button" type="button" value="ビルドを保存"   onclick=BuildSave()></div>
 </body>
+
+
+
 <script>
     let classes;
     let skills;
