@@ -810,7 +810,9 @@
         if (id == 'weapon') {
             if (equipment[eqval]['size'] == 'large') {
                 document.getElementById('shield').disabled = true;
+                document.getElementById('shield').value = 'なし';
                 document.getElementById('shield_att').disabled = true;
+                document.getElementById('shield_att').value = '(無名)';
             }
             else {
                 document.getElementById('shield').disabled = false;
