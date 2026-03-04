@@ -134,8 +134,8 @@
 
 <body>
     <div class="card">
-        <h1 style="margin: 0px;">クエストノーツ ビルドツール</h1>
-        <div style="font-size: 12px;">最終更新日 2026/03/03 <a
+        <h1 style="margin: 0px;">クエストノーツ ビルドツール+&alpha;</h1>
+        <div style="font-size: 12px;">最終更新日 2026/03/05 <a
                 href="https://marshmallow-qa.com/54hp6vc7wt3b8lb">バグ報告などはこちらから</a></div>
     </div>
 
@@ -208,6 +208,7 @@
             </div>
         </div>
     </div>
+
     <div class="card" style="display: flex;">
         <div class="cardinline">
             <div style="display: inline-flex;flex-direction: column; margin:auto 0px;padding: 0px 10px;">
@@ -238,10 +239,12 @@
                 <div style="display: flex; flex-direction: column; width: min-content;">
                     <div
                         style="height: 23px;background-color: #f4ffd9; border-radius: 5px;border: 1px solid #7a7a7a;font-size: 15px;">
-                        <span id="sk_sel0" style="padding-left: 2px;">なし</span></div>
+                        <span id="sk_sel0" style="padding-left: 2px;">なし</span>
+                    </div>
                     <div
                         style="height: 23px;background-color: #f4ffd9; border-radius: 5px;border: 1px solid #7a7a7a;font-size: 15px;">
-                        <span id="sk_sel1" style="padding-left: 2px;">なし</span></div>
+                        <span id="sk_sel1" style="padding-left: 2px;">なし</span>
+                    </div>
                     <select id="sk_sel2" class="skill_select" onchange=ChangeSkill(2)>
                         <option>-</option>
                     </select>
@@ -279,6 +282,7 @@
         </div>
 
     </div>
+
     <div class="card">
         <div class="cardinline">
             <div style="width: 100px; border-right:3px double #2481ce;text-align: center;">
@@ -543,9 +547,11 @@
             </div>
         </div>
     </div>
-    <div class="cardinline" ><input class="save_button" type="button" value="ビルドを保存"   onclick=BuildSave()></div>
-</body>
 
+    <div class="card">
+        <div class="cardinline"><input class="save_button" type="button" value="ビルドを保存" onclick=BuildSave()></div>
+    </div>
+</body>
 
 
 <script>
@@ -555,7 +561,6 @@
     fetch('class.json').then((response) => { return response.json() }).then((data) => { classes = data; })
     fetch('skill.json').then((response) => { return response.json() }).then((data) => { skills = data; })
     fetch('equipment.json').then((response) => { return response.json() }).then((data) => { equipment = data; InitialSet(); })
-
 
 
     async function ChangeClass(value) {
@@ -633,7 +638,7 @@
             'dex': 0,
             'agi': 0,
             'sen': 0,
-            'int': 0,
+            'int': 0
         };
 
         for (es of document.getElementsByClassName("equipmentselect")) {
@@ -739,7 +744,7 @@
         document.getElementById('modi_int').innerText = modi['int'];
 
 
-        //cp計算
+        //cp計算;
         let cpval = 0;
 
         for (let int = 0; int < 6; int++) {
@@ -753,6 +758,30 @@
         }
         document.getElementById('cp').innerText = `CP ${300 - cpval}`;
         document.getElementById('cp').style.color = cpval <= 300 ? '#000' : '#F00';
+
+        /*期待値計算;
+        let dice = [];
+
+        for (let i = 0; i < effects.atk_d; i++) dice.push(1);
+
+        let ifcontinue = true;
+        let atk_values = [];
+        //ATKダメージ;
+        while (ifcontinue) {
+            atk_values.push(dice.reduce((sum, ele) => { return sum + ele }, 0));
+
+            ifcontinue = false;
+            dice.forEach((elem) => { if (elem != 6) ifcontinue = true });
+            dice[dice.length - 1]++;
+            for (let i = 0; i < dice.length; i++) {
+                if (dice[dice.length - i - 1] > 6) {
+                    dice[dice.length - i - 1] = 1;
+                    dice[dice.length - i - 2]++;
+                }
+            }
+        }
+        console.log(atk_values);
+        document.getElementById('kitai_atk').innerText = Math.round((atk_values.reduce((sum, ele) => { return sum + ele }, 0) / atk_values.length + prmatk) * 100) / 100;*/
     }
 
     function ChangeStatusButton(id) {
@@ -777,6 +806,37 @@
         for (let cnt = 1; cnt < opts.length; cnt++) {
             opts[cnt].disabled = equipment[eqval]['attribute'][cnt - 1] ? false : true;
         }
+
+        if (id == 'weapon') {
+            if (equipment[eqval]['size'] == 'large') {
+                document.getElementById('shield').disabled = true;
+                document.getElementById('shield_att').disabled = true;
+            }
+            else {
+                document.getElementById('shield').disabled = false;
+                document.getElementById('shield_att').disabled = false;
+            }
+        }
+
+        if (id == 'weapon' || id == 'shield') {
+            let wepsel = document.getElementById('weapon');
+            let shisel = document.getElementById('shield');
+
+            if (wepsel.value != 'なし') { for (elm of shisel.children) elm.disabled = elm.value == wepsel.value ? true : false; }
+            if (shisel.value != 'なし') { for (elm of wepsel.children[9].children) elm.disabled = elm.value == shisel.value ? true : false; }
+        }
+
+        if (id == 'ac1' || id == 'ac2' || id == 'ac3') {
+            let ac1sel = document.getElementById('ac1');
+            let ac2sel = document.getElementById('ac2');
+            let ac3sel = document.getElementById('ac3');
+
+            for (elm of ac1sel.children) { if (elm.value != 'なし') elm.disabled = (elm.value == ac2sel.value || elm.value == ac3sel.value) ? true : false }
+            for (elm of ac2sel.children) { if (elm.value != 'なし') elm.disabled = (elm.value == ac1sel.value || elm.value == ac3sel.value) ? true : false }
+            for (elm of ac3sel.children) { if (elm.value != 'なし') elm.disabled = (elm.value == ac1sel.value || elm.value == ac2sel.value) ? true : false }
+
+        }
+
         ChangeParam();
     }
 
@@ -852,48 +912,46 @@
 
             let wep = params.get('wep').split('_');
             document.getElementById('weapon').value = wep[0];
-            document.getElementById('weapon_att').value = wep[1];
             ChangeEquipment('weapon');
+            document.getElementById('weapon_att').value = wep[1];
 
             let shi = params.get('shi').split('_');
             document.getElementById('shield').value = shi[0];
-            document.getElementById('shield_att').value = shi[1];
             ChangeEquipment('shield');
-
+            document.getElementById('shield_att').value = shi[1];
 
             let hel = params.get('hel').split('_');
             document.getElementById('helmet').value = hel[0];
-            document.getElementById('helmet_att').value = hel[1];
             ChangeEquipment('helmet');
+            document.getElementById('helmet_att').value = hel[1];
 
 
             let arm = params.get('arm').split('_');
             document.getElementById('armor').value = arm[0];
-            document.getElementById('armor_att').value = arm[1];
             ChangeEquipment('armor');
-
+            document.getElementById('armor_att').value = arm[1];
 
             let sho = params.get('sho').split('_');
             document.getElementById('shoes').value = sho[0];
-            document.getElementById('shoes_att').value = sho[1];
             ChangeEquipment('shoes');
-
+            document.getElementById('shoes_att').value = sho[1];
 
             let ac1 = params.get('ac1').split('_');
             document.getElementById('ac1').value = ac1[0];
-            document.getElementById('ac1_att').value = ac1[1];
             ChangeEquipment('ac1');
+            document.getElementById('ac1_att').value = ac1[1];
 
 
             let ac2 = params.get('ac2').split('_');
             document.getElementById('ac2').value = ac2[0];
-            document.getElementById('ac2_att').value = ac2[1];
             ChangeEquipment('ac2');
+            document.getElementById('ac2_att').value = ac2[1];
 
             let ac3 = params.get('ac3').split('_');
             document.getElementById('ac3').value = ac3[0];
-            document.getElementById('ac3_att').value = ac3[1];
             ChangeEquipment('ac3');
+            document.getElementById('ac3_att').value = ac3[1];
+
         }
 
         ChangeParam();

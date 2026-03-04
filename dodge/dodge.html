@@ -1,0 +1,118 @@
+<html>
+
+<head>
+    <style>
+        .input {
+            width: 50px;
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        攻撃側 +<input class="input" id="atk_d" type="number" value="0">d+<input class="input" id="atk_b" type="number"
+            value="0">
+    </div>
+    <div>
+        守備側 +<input class="input" id="def_d" type="number" value="0">d+<input class="input" id="def_b" type="number"
+            value="0">
+    </div>
+
+    <input type="button" onclick=Keisan() value="計算開始">
+    <div id="result">計算結果</div>
+</body>
+<script>
+    function Keisan() {
+        let atk_dice = Number.parseInt(document.getElementById('atk_d').value), atk_bonus = Number.parseInt(document.getElementById('atk_b').value);
+        let def_dice = Number.parseInt(document.getElementById('def_d').value), def_bonus = Number.parseInt(document.getElementById('def_b').value);
+        let res = [];
+        let counter = [0,0];
+        let dice_a = [1, 1, 1], dice_d = [1, 1, 1];
+
+        for (let i = 0; i < atk_dice; i++) dice_a.push(1);
+        for (let i = 0; i < def_dice; i++) dice_d.push(1);
+
+        let back = 0;
+
+        while (true) {
+            if (back > 9999999) break;
+            let at_res;
+            if (dice_a[0] == dice_a[1] && dice_a[0] == dice_a[2]) {
+                if (dice_a[0] <= 3) { at_res = ['fumble', `[${dice_a.join(',')}]+${atk_bonus}`] }
+                else { at_res = ['critical', `[${dice_a.join(',')}]+${atk_bonus}`] }
+            }
+            else { at_res = [dice_a.reduce((sum, ele) => { return sum + ele }, 0) + atk_bonus, `[${dice_a.join(',')}]+${atk_bonus}`] }
+
+            for (let i = 0; i < dice_d.length; i++) { dice_d[i] = 1 }
+
+            let fin_d = true;
+            while (fin_d) {
+
+                let df_res;
+                if (dice_d[0] == dice_d[1] && dice_d[0] == dice_d[2]) {
+                    if (dice_d[0] <= 3) { df_res = ['fumble', `[${dice_d.join(',')}]+${def_bonus}`] }
+                    else { df_res = ['critical', `[${dice_d.join(',')}]+${def_bonus}`] }
+                }
+                else { df_res = [dice_d.reduce((sum, ele) => { return sum + ele }, 0) + def_bonus, `[${dice_d.join(',')}]+${def_bonus}`] }
+
+                let resst;
+                let resulttype;
+                if (at_res[0] == 'fumble') {
+                    resulttype = 1;
+                }
+                else if (at_res[0] == 'critical') {
+                    if (df_res[0] == 'critical') { resulttype = 1 }
+                    else { resulttype = 1 }
+                }
+                else {
+                    if (df_res[0] == 'critical') { resulttype = 1 }
+                    else if (df_res[0] == 'funble') { resulttype = 0 }
+                    else { resulttype = at_res[0] <= df_res[0] ? 1 : 0}
+                }
+                res.push(`${at_res} ${resulttype == 0 ? '>' : '<'} ${df_res}`);
+                counter[resulttype]++;
+
+                let fin_ddd = true;
+                for (let i = 0; i < dice_d.length; i++) {
+                    if (dice_d[i] != 6) fin_ddd = false;
+                }
+                if(fin_ddd)fin_d = false;
+                
+
+                dice_d[dice_d.length - 1]++;
+                for (let i = 0; i < dice_d.length; i++) {
+                    if (dice_d[dice_d.length - i - 1] == 7) {
+                        dice_d[dice_d.length - i - 1] = 1;
+                        dice_d[dice_d.length - i - 2]++;
+                    }
+                }
+                back++;
+            }
+
+            let fin_a = true;
+            for (let i = 0; i < dice_a.length; i++) {
+                if (dice_a[i] != 6) fin_a = false;
+            }
+            if (fin_a) break;
+
+            dice_a[dice_a.length - 1]++;
+            for (let i = 0; i < dice_a.length; i++) {
+                if (dice_a[dice_a.length - i - 1] == 7) {
+                    dice_a[dice_a.length - i - 1] = 1;
+                    dice_a[dice_a.length - i - 2]++;
+                }
+            }
+            back++;
+        }
+
+        document.getElementById('result').innerText =
+            `計算結果
+            ${counter[0]} / ${counter[1]}
+            ヒット確率 ${Math.round((counter[0] / res.length)*100)}%`
+        ;
+    }
+</script>
+
+</html>
