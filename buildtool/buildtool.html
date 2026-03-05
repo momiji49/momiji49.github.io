@@ -13,6 +13,12 @@
             margin: 0px auto;
         }
 
+        h1,
+        h2,
+        h3 {
+            margin: 0;
+        }
+
         .card {
             border-bottom: 2px solid var(--border-color);
             padding: 10px;
@@ -95,11 +101,7 @@
             width: min-content;
         }
 
-        .paramtext {
-            height: 27px;
-        }
-
-        .equipmenttext {
+        .labeltext {
             height: 27px;
             width: 100px;
             text-align: center;
@@ -301,37 +303,37 @@
 
     <div class="card">
         <div class="cardinline">
-            <div style="width: 100px; border-right:3px double #2481ce;text-align: center;">
-                <div class="paramtext">HP</div>
-                <div class="paramtext">SP</div>
-                <div class="paramtext">ATK</div>
-                <div class="paramtext">DEF</div>
-                <div class="paramtext">MATK</div>
-                <div class="paramtext">MDEF</div>
-                <div class="paramtext">HIT</div>
-                <div class="paramtext">FLEE </div>
-                <div class="paramtext">RESIST</div>
+            <div style="border-right:3px double #2481ce;">
+                <div class="labeltext">HP</div>
+                <div class="labeltext">SP</div>
+                <div class="labeltext">ATK</div>
+                <div class="labeltext">DEF</div>
+                <div class="labeltext">MATK</div>
+                <div class="labeltext">MDEF</div>
+                <div class="labeltext">HIT</div>
+                <div class="labeltext">FLEE </div>
+                <div class="labeltext">RESIST</div>
             </div>
             <div style="width: 100px; padding: 0 10;border-right:3px solid #11b7c0; text-align: left;">
                 <div id="prm_hp">0</div>
-                <div class="paramtext" id="prm_sp">0</div>
-                <div class="paramtext" id="prm_atk">0</div>
-                <div class="paramtext" id="prm_def">0</div>
-                <div class="paramtext" id="prm_matk">0</div>
-                <div class="paramtext" id="prm_mdef">0</div>
-                <div class="paramtext" id="prm_hit">0</div>
-                <div class="paramtext" id="prm_flee">0</div>
-                <div class="paramtext" id="prm_resist">0</div>
+                <div id="prm_sp">0</div>
+                <div id="prm_atk">0</div>
+                <div id="prm_def">0</div>
+                <div id="prm_matk">0</div>
+                <div id="prm_mdef">0</div>
+                <div id="prm_hit">0</div>
+                <div id="prm_flee">0</div>
+                <div id="prm_resist">0</div>
             </div>
-            <div style="display: inline-flex; flex-direction: column; border-right:3px double #2481ce;">
-                <div class="equipmenttext">右手</div>
-                <div class="equipmenttext">左手</div>
-                <div class="equipmenttext">兜</div>
-                <div class="equipmenttext">鎧</div>
-                <div class="equipmenttext">靴</div>
-                <div class="equipmenttext">アクセ1</div>
-                <div class="equipmenttext">アクセ2</div>
-                <div class="equipmenttext">アクセ3</div>
+            <div style="border-right:3px double #2481ce;">
+                <div class="labeltext">右手</div>
+                <div class="labeltext">左手</div>
+                <div class="labeltext">兜</div>
+                <div class="labeltext">鎧</div>
+                <div class="labeltext">靴</div>
+                <div class="labeltext">アクセ1</div>
+                <div class="labeltext">アクセ2</div>
+                <div class="labeltext">アクセ3</div>
             </div>
             <div style="width: min-content; padding-left: 5px;">
                 <select class="equipmentselect" id="weapon" onchange=ChangeEquipment(this.id)>
@@ -480,7 +482,7 @@
             </div>
             <div style="width: min-content; padding-left: 5px;">
                 <select class="equipmentattselect" id="weapon_att" onchange=ChangeParam()>
-                    <option value="0" >(無名)</option>
+                    <option value="0">(無名)</option>
                     <option value="1" disabled>熟練</option>
                     <option value="2" disabled>小鬼</option>
                     <option value="3" disabled>蛮族</option>
@@ -489,7 +491,7 @@
                     <option value="6" disabled>湿潤</option>
                 </select>
                 <select class="equipmentattselect" id="shield_att" onchange=ChangeParam()>
-                    <option value="0" >(無名)</option>
+                    <option value="0">(無名)</option>
                     <option value="1" disabled>熟練</option>
                     <option value="2" disabled>小鬼</option>
                     <option value="3" disabled>蛮族</option>
@@ -498,7 +500,7 @@
                     <option value="6" disabled>湿潤</option>
                 </select>
                 <select class="equipmentattselect" id="helmet_att" onchange=ChangeParam()>
-                    <option value="0" >(無名)</option>
+                    <option value="0">(無名)</option>
                     <option value="1" disabled>熟練</option>
                     <option value="2" disabled>小鬼</option>
                     <option value="3" disabled>蛮族</option>
@@ -507,7 +509,7 @@
                     <option value="6" disabled>湿潤</option>
                 </select>
                 <select class="equipmentattselect" id="armor_att" onchange=ChangeParam()>
-                    <option value="0" >(無名)</option>
+                    <option value="0">(無名)</option>
                     <option value="1" disabled>熟練</option>
                     <option value="2" disabled>小鬼</option>
                     <option value="3" disabled>蛮族</option>
@@ -516,7 +518,7 @@
                     <option value="6" disabled>湿潤</option>
                 </select>
                 <select class="equipmentattselect" id="shoes_att" onchange=ChangeParam()>
-                    <option value="0" >(無名)</option>
+                    <option value="0">(無名)</option>
                     <option value="1" disabled>熟練</option>
                     <option value="2" disabled>小鬼</option>
                     <option value="3" disabled>蛮族</option>
@@ -525,7 +527,7 @@
                     <option value="6" disabled>湿潤</option>
                 </select>
                 <select class="equipmentattselect" id="ac1_att" onchange=ChangeParam()>
-                    <option value="0" >(無名)</option>
+                    <option value="0">(無名)</option>
                     <option value="1" disabled>熟練</option>
                     <option value="2" disabled>小鬼</option>
                     <option value="3" disabled>蛮族</option>
@@ -537,7 +539,7 @@
                     <option value="9" disabled>勇気</option>
                 </select>
                 <select class="equipmentattselect" id="ac2_att" onchange=ChangeParam()>
-                    <option value="0" >(無名)</option>
+                    <option value="0">(無名)</option>
                     <option value="1" disabled>熟練</option>
                     <option value="2" disabled>小鬼</option>
                     <option value="3" disabled>蛮族</option>
@@ -549,7 +551,7 @@
                     <option value="9" disabled>勇気</option>
                 </select>
                 <select class="equipmentattselect" id="ac3_att" onchange=ChangeParam()>
-                    <option value="0" >(無名)</option>
+                    <option value="0">(無名)</option>
                     <option value="1" disabled>熟練</option>
                     <option value="2" disabled>小鬼</option>
                     <option value="3" disabled>蛮族</option>
@@ -568,23 +570,62 @@
         <div class="cardinline"><input class="save_button" type="button" value="ビルドを保存" onclick=BuildSave()></div>
     </div>
 
-    <div id="aaneate">
-
-    </div>
+    <div class="card">
+        <h2>期待値計算機<span style="font-size: 20px;"> &シミュレーター</span></h2>
+        <div class="cardinline" style="margin-bottom: 10px;align-items: center;">
+            <div style="height: min-content;">
+                <div style="display:flex;;">
+                    <div style="width: 110px;">
+                        <div class="labeltext">ダイス数</div>
+                        <div class="labeltext">修正値</div>
+                        <div class="labeltext">追加修正値</div>
+                    </div>
+                    <div style="width: min-content;">
+                        <input id="exp_dice" type="number" value="1"
+                            style="width: 50px; height: 27px; border: 1px solid #BBB;border-radius: 5px;">
+                        <input id="exp_modi" type="number" value="0"
+                            style="width: 50px; height: 27px; border: 1px solid #BBB;border-radius: 5px;">
+                        <input id="exp_remodi" type="number" value="0"
+                            style="width: 50px; height: 27px; border: 1px solid #BBB;border-radius: 5px;">
+                    </div>
+                </div>
+            </div>
+            <div style="align-content: center; width: min-content;">
+                <input type="button" class="save_button" value="計算開始" onclick=Expected()>
+                <input type="button" class="save_button" value="試し振り" onclick=Simulation()>
+            </div>
+        </div>
+        <div class="cardinline">
+            <div style="flex-direction: column;">
+                <div id="exp_result"></div>
+                <div id="simu_result"></div>
+            </div>
+        </div>
 </body>
 
-
+<script src="diceExpected.js"></script>
 <script>
+    async function fetchData(url){
+        const response = await fetch(url);
+        const data = await response.json();
+        return data;
+    }
+
+    async function Load(){
+        let pe = [true,true,true]
+        classes = await fetchData('class.json');
+        skills = await fetchData('skill.json');
+        equipment = await fetchData('equipment.json');
+        InitialSet();
+    }
+
     let classes;
     let skills;
     let equipment;
-    fetch('class.json').then((response) => { return response.json() }).then((data) => { classes = data; })
-    fetch('skill.json').then((response) => { return response.json() }).then((data) => { skills = data; })
-    fetch('equipment.json').then((response) => { return response.json() }).then((data) => { equipment = data; InitialSet(); })
-
     let skill_hozon = {};
+    Load();
 
-    async function ChangeClass(value) {
+    function ChangeClass(value) {
         document.getElementById('sk_sel0').innerText = classes[value]["0"];
         document.getElementById('sk_sel1').innerText = classes[value]["1"];
         let sels = document.getElementsByClassName('skill_select');
@@ -607,10 +648,9 @@
         }
         for (let int = 0; int < 6; int++)ChangeSkill(int);
         ChangeParam();
-        return true;
     }
 
-    async function ChangeSkill(num) {
+    function ChangeSkill(num) {
         if (num < 2) {
             let skillname = document.getElementById(`sk_sel${num}`).innerText;
             let lv_opts = [`<option value="1">Level 1</option>`];
@@ -625,7 +665,6 @@
             }
             document.getElementById(`lv_sel${num}`).innerHTML = lv_opts.join('\n');
         }
-        return true;
     }
 
     function ChangeParam() {
@@ -664,8 +703,6 @@
             'sen': 0,
             'int': 0
         };
-
-
 
         for (es of document.getElementsByClassName("equipmentselect")) {
             for (eseff of equipment[es.value].effect) {
@@ -921,16 +958,15 @@
         return ret;
     }
 
-    async function InitialSet() {
+    function InitialSet() {
         let params = new URL(document.location).searchParams;
-        console.log(params);
         if (params != 0) {
             let st = params.get('st').split('_');
             for (let int = 0; int < 6; int++) { document.getElementById(Sttnum(int)).value = st[int]; }
 
             let cl = params.get('cl');
             document.getElementById('class_select').value = cl;
-            await ChangeClass(cl);
+            ChangeClass(cl);
 
             let sk = params.get('sk').split('_');
             for (let int = 2; int < 6; int++) { document.getElementById('sk_sel' + int).value = sk[int - 2]; }
@@ -1032,7 +1068,6 @@
         url.searchParams.set('ac1', ac1.join('_'));
         url.searchParams.set('ac2', ac2.join('_'));
         url.searchParams.set('ac3', ac3.join('_'));
-        console.log(url.toString());
         location.href = url;
     }
 </script>
