@@ -571,10 +571,10 @@
     </div>
 
     <div class="card">
-        <h2>期待値計算機</h2>
-        <div class="cardinline" style="margin-bottom: 10px;">
-            <div>
-                <div style="display:flex;">
+        <h2>期待値計算機<span style="font-size: 20px;"> &シミュレーター</span></h2>
+        <div class="cardinline" style="margin-bottom: 10px;align-items: center;">
+            <div style="height: min-content;">
+                <div style="display:flex;;">
                     <div style="width: 110px;">
                         <div class="labeltext">ダイス数</div>
                         <div class="labeltext">修正値</div>
@@ -590,12 +590,16 @@
                     </div>
                 </div>
             </div>
-            <div style="align-content: center;">
-                <input type="button" class="save_button" value="計算開始" onclick=expected()>
+            <div style="align-content: center; width: min-content;">
+                <input type="button" class="save_button" value="計算開始" onclick=Expected()>
+                <input type="button" class="save_button" value="試し振り" onclick=Simulation()>
             </div>
         </div>
         <div class="cardinline">
-            <span id="exp_result"></span>
+            <div style="flex-direction: column;">
+                <div id="exp_result"></div>
+                <div id="simu_result"></div>
+            </div>
         </div>
 </body>
 
