@@ -1,5 +1,6 @@
 {
-    "なし": {
+    "0": {
+        "name": "なし",
         "type": "none",
         "size": "medium",
         "effect": [],
@@ -13,7 +14,8 @@
         ],
         "addeffect": {}
     },
-    "ロングソード": {
+    "1": {
+        "name":"ロングソード",
         "type": "sword",
         "size": "medium",
         "effect": [
@@ -29,15 +31,16 @@
             false
         ],
         "addeffect": {
-            "熟練": [
+            "1": [
                 "atk,+1"
             ],
-            "小鬼": [
+            "2": [
                 "atk,-1"
             ]
         }
     },
-    "ショートソード": {
+    "2": {
+        "name":"ショートソード",
         "type": "sword",
         "size": "medium",
         "effect": [
@@ -53,15 +56,16 @@
             false
         ],
         "addeffect": {
-            "熟練": [
+            "1": [
                 "atk,+1"
             ],
-            "小鬼": [
+            "2": [
                 "atk,-1"
             ]
         }
     },
-    "ファルシオン": {
+    "3": {
+        "name":"ファルシオン",
         "type": "sword",
         "size": "medium",
         "effect": [
@@ -77,12 +81,13 @@
             false
         ],
         "addeffect": {
-            "小鬼": [
+            "2": [
                 "atk,-1"
             ]
         }
     },
-    "レイピア": {
+    "4": {
+        "name":"レイピア",
         "type": "sword",
         "size": "medium",
         "effect": [
@@ -97,12 +102,13 @@
             false
         ],
         "addeffect": {
-            "小鬼": [
+            "2": [
                 "atk,-1"
             ]
         }
     },
-    "ブロードソード": {
+    "5": {
+        "name":"ブロードソード",
         "type": "sword",
         "size": "medium",
         "effect": [
@@ -118,12 +124,13 @@
             false
         ],
         "addeffect": {
-            "小鬼": [
+            "2": [
                 "atk,-1"
             ]
         }
     },
-    "クレイモア": {
+    "6": {
+        "name":"クレイモア",
         "type": "sword",
         "size": "large",
         "effect": [
@@ -138,15 +145,16 @@
             false
         ],
         "addeffect": {
-            "熟練": [
+            "1": [
                 "atk,+2"
             ],
-            "小鬼": [
+            "2": [
                 "atk,-2"
             ]
         }
     },
-    "ツヴァイハンダー": {
+    "7": {
+        "name":"ツヴァイハンダー",
         "type": "sword",
         "size": "large",
         "effect": [
@@ -164,7 +172,8 @@
         ],
         "addeffect": {}
     },
-    "ダガー": {
+    "8": {
+        "name":"ダガー",
         "type": "dagger",
         "size": "small",
         "effect": [
@@ -179,15 +188,16 @@
             true
         ],
         "addeffect": {
-            "熟練": [
+            "1": [
                 "atk,+1"
             ],
-            "小鬼": [
+            "2": [
                 "atk,-1"
             ]
         }
     },
-    "マインゴーシュ": {
+    "9": {
+        "name":"マインゴーシュ",
         "type": "dagger",
         "size": "small",
         "effect": [
@@ -203,12 +213,13 @@
             false
         ],
         "addeffect": {
-            "小鬼": [
+            "2": [
                 "atk,-1"
             ]
         }
     },
-    "スティレット": {
+    "10": {
+        "name":"スティレット",
         "type": "dagger",
         "size": "small",
         "effect": [
@@ -223,12 +234,13 @@
             false
         ],
         "addeffect": {
-            "小鬼": [
+            "2": [
                 "atk,-1"
             ]
         }
     },
-    "ククリ": {
+    "11": {
+        "name":"ククリ",
         "type": "dagger",
         "size": "small",
         "effect": [
@@ -244,12 +256,13 @@
             true
         ],
         "addeffect": {
-            "小鬼": [
+            "2": [
                 "atk,-1"
             ]
         }
     },
-    "ショートボウ": {
+    "12": {
+        "name":"ショートボウ",
         "type": "bow",
         "size": "large",
         "effect": [
@@ -264,15 +277,16 @@
             false
         ],
         "addeffect": {
-            "熟練": [
+            "1": [
                 "atk,+1"
             ],
-            "小鬼": [
+            "2": [
                 "atk,-1"
             ]
         }
     },
-    "ロングボウ": {
+    "13": {
+        "name":"ロングボウ",
         "type": "bow",
         "size": "large",
         "effect": [
@@ -287,12 +301,13 @@
             false
         ],
         "addeffect": {
-            "小鬼": [
+            "2": [
                 "atk,-1"
             ]
         }
     },
-    "クロスボウ": {
+    "14": {
+        "name":"クロスボウ",
         "type": "bow",
         "size": "large",
         "effect": [
@@ -308,12 +323,13 @@
             false
         ],
         "addeffect": {
-            "小鬼": [
+            "2": [
                 "atk,-1"
             ]
         }
     },
-    "アーバレスト": {
+    "15": {
+        "name":"アーバレスト",
         "type": "bow",
         "size": "large",
         "effect": [
@@ -330,12 +346,13 @@
             false
         ],
         "addeffect": {
-            "小鬼": [
+            "2": [
                 "atk,-1"
             ]
         }
     },
-    "コンポジットボウ": {
+    "16": {
+        "name":"コンポジットボウ",
         "type": "bow",
         "size": "large",
         "effect": [],
@@ -349,7 +366,8 @@
         ],
         "addeffect": {}
     },
-    "ロッド": {
+    "17": {
+        "name":"ロッド",
         "type": "rod",
         "size": "large",
         "effect": [
@@ -365,15 +383,16 @@
             false
         ],
         "addeffect": {
-            "熟練": [
+            "1": [
                 "matk,+1"
             ],
-            "小鬼": [
+            "2": [
                 "matk,-1"
             ]
         }
     },
-    "スタッフ": {
+    "18": {
+        "name":"スタッフ",
         "type": "rod",
         "size": "large",
         "effect": [
@@ -390,7 +409,8 @@
         ],
         "addeffect": {}
     },
-    "ワンド": {
+    "19": {
+        "name":"ワンド",
         "type": "rod",
         "size": "medium",
         "effect": [
@@ -408,7 +428,8 @@
         ],
         "addeffect": {}
     },
-    "メイス": {
+    "20": {
+        "name":"メイス",
         "type": "mace",
         "size": "medium",
         "effect": [
@@ -424,12 +445,13 @@
             false
         ],
         "addeffect": {
-            "熟練": [
+            "1": [
                 "atk,+1"
             ]
         }
     },
-    "フレイル": {
+    "21": {
+        "name":"フレイル",
         "type": "mace",
         "size": "medium",
         "effect": [
@@ -445,12 +467,13 @@
             false
         ],
         "addeffect": {
-            "小鬼": [
+            "2": [
                 "atk,-1"
             ]
         }
     },
-    "ウォーハンマー": {
+    "22": {
+        "name":"ウォーハンマー",
         "type": "mace",
         "size": "large",
         "effect": [
@@ -465,12 +488,13 @@
             false
         ],
         "addeffect": {
-            "小鬼": [
+            "2": [
                 "atk,-2"
             ]
         }
     },
-    "スピア": {
+    "23": {
+        "name":"スピア",
         "type": "spear",
         "size": "medium",
         "effect": [
@@ -486,12 +510,13 @@
             false
         ],
         "addeffect": {
-            "熟練": [
+            "1": [
                 "atk,+1"
             ]
         }
     },
-    "ショートスピア": {
+    "24": {
+        "name":"ショートスピア",
         "type": "spear",
         "size": "medium",
         "effect": [
@@ -508,7 +533,8 @@
         ],
         "addeffect": {}
     },
-    "ハルバード": {
+    "25": {
+        "name":"ハルバード",
         "type": "spear",
         "size": "medium",
         "effect": [
@@ -524,7 +550,8 @@
         ],
         "addeffect": {}
     },
-    "パイク": {
+    "26": {
+        "name":"パイク",
         "type": "spear",
         "size": "medium",
         "effect": [
@@ -541,7 +568,8 @@
         ],
         "addeffect": {}
     },
-    "ランス": {
+    "27": {
+        "name":"ランス",
         "type": "spear",
         "size": "large",
         "effect": [
@@ -557,7 +585,8 @@
         ],
         "addeffect": {}
     },
-    "ハンドアクス": {
+    "28": {
+        "name":"ハンドアクス",
         "type": "axe",
         "size": "medium",
         "effect": [
@@ -573,12 +602,13 @@
             false
         ],
         "addeffect": {
-            "熟練": [
+            "1": [
                 "atk,+1"
             ]
         }
     },
-    "ブロードアクス": {
+    "29": {
+        "name":"ブロードアクス",
         "type": "axe",
         "size": "medium",
         "effect": [
@@ -595,7 +625,8 @@
         ],
         "addeffect": {}
     },
-    "ブローヴァ": {
+    "30": {
+        "name":"ブローヴァ",
         "type": "axe",
         "size": "medium",
         "effect": [
@@ -611,7 +642,8 @@
         ],
         "addeffect": {}
     },
-    "フランキスカ": {
+    "31": {
+        "name":"フランキスカ",
         "type": "axe",
         "size": "medium",
         "effect": [
@@ -627,7 +659,8 @@
         ],
         "addeffect": {}
     },
-    "バトルアクス": {
+    "32": {
+        "name":"バトルアクス",
         "type": "axe",
         "size": "large",
         "effect": [
@@ -643,7 +676,8 @@
         ],
         "addeffect": {}
     },
-    "リュート": {
+    "33": {
+        "name":"リュート",
         "type": "musical",
         "size": "large",
         "effect": [
@@ -660,7 +694,8 @@
         ],
         "addeffect": {}
     },
-    "タンバリン": {
+    "34": {
+        "name":"タンバリン",
         "type": "musical",
         "size": "large",
         "effect": [
@@ -677,7 +712,8 @@
         ],
         "addeffect": {}
     },
-    "フィドル": {
+    "35": {
+        "name":"フィドル",
         "type": "musical",
         "size": "large",
         "effect": [
@@ -694,7 +730,8 @@
         ],
         "addeffect": {}
     },
-    "ハープ": {
+    "36": {
+        "name":"ハープ",
         "type": "musical",
         "size": "large",
         "effect": [
@@ -711,7 +748,8 @@
         ],
         "addeffect": {}
     },
-    "バックラー": {
+    "37": {
+        "name":"バックラー",
         "type": "shield",
         "size": "medium",
         "effect": [
@@ -727,15 +765,16 @@
             true
         ],
         "addeffect": {
-            "熟練": [
+            "1": [
                 "def_re,+1"
             ],
-            "小鬼": [
+            "2": [
                 "def_re,-1"
             ]
         }
     },
-    "カイトシールド": {
+    "38": {
+        "name":"カイトシールド",
         "type": "shield",
         "size": "medium",
         "effect": [
@@ -751,15 +790,16 @@
             false
         ],
         "addeffect": {
-            "熟練": [
+            "1": [
                 "def_re,+1"
             ],
-            "小鬼": [
+            "2": [
                 "def_re,-1"
             ]
         }
     },
-    "ラウンドシールド": {
+    "39": {
+        "name":"ラウンドシールド",
         "type": "shield",
         "size": "medium",
         "effect": [
@@ -774,15 +814,16 @@
             true
         ],
         "addeffect": {
-            "熟練": [
+            "1": [
                 "def_re,+1"
             ],
-            "小鬼": [
+            "2": [
                 "def_re,-1"
             ]
         }
     },
-    "ルーンシールド": {
+    "40": {
+        "name":"ルーンシールド",
         "type": "shield",
         "size": "medium",
         "effect": [
@@ -798,12 +839,13 @@
             false
         ],
         "addeffect": {
-            "熟練": [
+            "1": [
                 "def_re,+1"
             ]
         }
     },
-    "ドミノ": {
+    "41": {
+        "name":"ドミノ",
         "type": "helmet",
         "size": "medium",
         "effect": [
@@ -819,15 +861,16 @@
             false
         ],
         "addeffect": {
-            "熟練": [
+            "1": [
                 "resist,+1"
             ],
-            "小鬼": [
+            "2": [
                 "resist,-1"
             ]
         }
     },
-    "ハット": {
+    "42": {
+        "name":"ハット",
         "type": "helmet",
         "size": "medium",
         "effect": [
@@ -843,12 +886,13 @@
             true
         ],
         "addeffect": {
-            "熟練": [
+            "1": [
                 "resist,+1"
             ]
         }
     },
-    "ビレッタ": {
+    "43": {
+        "name":"ビレッタ",
         "type": "helmet",
         "size": "medium",
         "effect": [
@@ -864,12 +908,13 @@
             true
         ],
         "addeffect": {
-            "熟練": [
+            "1": [
                 "resist,+1"
             ]
         }
     },
-    "ヘルム": {
+    "44": {
+        "name":"ヘルム",
         "type": "helmet",
         "size": "medium",
         "effect": [
@@ -885,15 +930,16 @@
             false
         ],
         "addeffect": {
-            "熟練": [
+            "1": [
                 "resist,+1"
             ],
-            "小鬼": [
+            "2": [
                 "resist,-1"
             ]
         }
     },
-    "メイジハット": {
+    "45": {
+        "name":"メイジハット",
         "type": "helmet",
         "size": "medium",
         "effect": [
@@ -909,12 +955,13 @@
             true
         ],
         "addeffect": {
-            "熟練": [
+            "1": [
                 "resist,+1"
             ]
         }
     },
-    "サークレット": {
+    "46": {
+        "name":"サークレット",
         "type": "helmet",
         "size": "medium",
         "effect": [
@@ -931,7 +978,8 @@
         ],
         "addeffect": {}
     },
-    "ねじり鉢巻き": {
+    "47": {
+        "name":"ねじり鉢巻き",
         "type": "helmet",
         "size": "small",
         "effect": [
@@ -948,7 +996,8 @@
         ],
         "addeffect": {}
     },
-    "疾風のバンダナ": {
+    "48": {
+        "name":"疾風のバンダナ",
         "type": "helmet",
         "size": "small",
         "effect": [
@@ -965,7 +1014,8 @@
         ],
         "addeffect": {}
     },
-    "鷹羽のフード": {
+    "49": {
+        "name":"鷹羽のフード",
         "type": "helmet",
         "size": "small",
         "effect": [
@@ -982,7 +1032,8 @@
         ],
         "addeffect": {}
     },
-    "司祭帽": {
+    "50": {
+        "name":"司祭帽",
         "type": "helmet",
         "size": "small",
         "effect": [
@@ -998,7 +1049,8 @@
         ],
         "addeffect": {}
     },
-    "学者の帽子": {
+    "51": {
+        "name":"学者の帽子",
         "type": "helmet",
         "size": "small",
         "effect": [
@@ -1015,7 +1067,8 @@
         ],
         "addeffect": {}
     },
-    "クロースアーマー": {
+    "52": {
+        "name":"クロースアーマー",
         "type": "armor",
         "size": "large",
         "effect": [
@@ -1032,15 +1085,16 @@
             false
         ],
         "addeffect": {
-            "熟練": [
+            "1": [
                 "hp,+2"
             ],
-            "小鬼": [
+            "2": [
                 "hp,-2"
             ]
         }
     },
-    "プレートメイル": {
+    "53": {
+        "name":"プレートメイル",
         "type": "armor",
         "size": "large",
         "effect": [
@@ -1056,15 +1110,16 @@
             false
         ],
         "addeffect": {
-            "熟練": [
+            "1": [
                 "hp,+2"
             ],
-            "小鬼": [
+            "2": [
                 "hp,-2"
             ]
         }
     },
-    "ローブ": {
+    "54": {
+        "name":"ローブ",
         "type": "armor",
         "size": "large",
         "effect": [
@@ -1081,15 +1136,16 @@
             true
         ],
         "addeffect": {
-            "熟練": [
+            "1": [
                 "hp,+1","sp,+1"
             ],
-            "小鬼": [
+            "2": [
                 "hp,-1","sp,-1"
             ]
         }
     },
-    "チェインメイル": {
+    "55": {
+        "name":"チェインメイル",
         "type": "armor",
         "size": "large",
         "effect": [
@@ -1105,12 +1161,13 @@
             false
         ],
         "addeffect": {
-            "小鬼": [
+            "2": [
                 "hp,-2"
             ]
         }
     },
-    "レザーアーマー": {
+    "56": {
+        "name":"レザーアーマー",
         "type": "armor",
         "size": "large",
         "effect": [
@@ -1127,7 +1184,8 @@
         ],
         "addeffect": {        }
     },
-    "スケイルアーマー": {
+    "57": {
+        "name":"スケイルアーマー",
         "type": "armor",
         "size": "large",
         "effect": [
@@ -1143,12 +1201,13 @@
             false
         ],
         "addeffect": {
-            "小鬼": [
+            "2": [
                 "hp,-2"
             ]
         }
     },
-    "サンダル": {
+    "58": {
+        "name":"サンダル",
         "type": "shoes",
         "size": "medium",
         "effect": [
@@ -1164,15 +1223,16 @@
             true
         ],
         "addeffect": {
-            "熟練": [
+            "1": [
                 "flee,+1"
             ],
-            "小鬼": [
+            "2": [
                 "flee,-1"
             ]
         }
     },
-    "シューズ": {
+    "59": {
+        "name":"シューズ",
         "type": "shoes",
         "size": "medium",
         "effect": [
@@ -1187,15 +1247,16 @@
             true
         ],
         "addeffect": {
-            "熟練": [
+            "1": [
                 "flee,+1"
             ],
-            "小鬼": [
+            "2": [
                 "flee,-1"
             ]
         }
     },
-    "ブーツ": {
+    "60": {
+        "name":"ブーツ",
         "type": "shoes",
         "size": "medium",
         "effect": [
@@ -1211,12 +1272,13 @@
             false
         ],
         "addeffect": {
-            "熟練": [
+            "1": [
                 "flee,+1"
             ]
         }
     },
-    "バングル": {
+    "61": {
+        "name":"バングル",
         "type": "accessory",
         "size": "small",
         "effect": [
@@ -1235,27 +1297,28 @@
             true
         ],
         "addeffect": {
-            "熟練": [
+            "1": [
                 "str,+1"
             ],
-            "小鬼": [
+            "2": [
                 "str,-1"
             ],
-            "勝利": [
+            "7": [
                 "str,-1",
                 "hp,+3"
             ],
-            "泰然": [
+            "8": [
                 "str,-1",
                 "atk,+1",
                 "matk,+1"
             ],
-            "勇気": [
+            "9": [
                 "str,-1"
             ]
         }
     },
-    "ベルト": {
+    "62": {
+        "name":"ベルト",
         "type": "accessory",
         "size": "small",
         "effect": [
@@ -1274,24 +1337,25 @@
             true
         ],
         "addeffect": {
-            "熟練": [
+            "1": [
                 "con,+1"
             ],
-            "勝利": [
+            "7": [
                 "con,-1",
                 "hp,+3"
             ],
-            "泰然": [
+            "8": [
                 "con,-1",
                 "atk,+1",
                 "matk,+1"
             ],
-            "勇気": [
+            "9": [
                 "con,-1"
             ]
         }
     },
-    "リング": {
+    "63": {
+        "name":"リング",
         "type": "accessory",
         "size": "small",
         "effect": [
@@ -1310,27 +1374,28 @@
             true
         ],
         "addeffect": {
-            "熟練": [
+            "1": [
                 "dex,+1"
             ],
-            "小鬼": [
+            "2": [
                 "dex,-1"
             ],
-            "勝利": [
+            "7": [
                 "dex,-1",
                 "hp,+3"
             ],
-            "泰然": [
+            "8": [
                 "dex,-1",
                 "atk,+1",
                 "matk,+1"
             ],
-            "勇気": [
+            "9": [
                 "dex,-1"
             ]
         }
     },
-    "ブローチ": {
+    "64": {
+        "name":"ブローチ",
         "type": "accessory",
         "size": "small",
         "effect": [
@@ -1349,27 +1414,28 @@
             true
         ],
         "addeffect": {
-            "熟練": [
+            "1": [
                 "agi,+1"
             ],
-            "小鬼": [
+            "2": [
                 "agi,-1"
             ],
-            "勝利": [
+            "7": [
                 "agi,-1",
                 "hp,+3"
             ],
-            "泰然": [
+            "8": [
                 "agi,-1",
                 "atk,+1",
                 "matk,+1"
             ],
-            "勇気": [
+            "9": [
                 "agi,-1"
             ]
         }
     },
-    "ペンダント": {
+    "65": {
+        "name":"ペンダント",
         "type": "accessory",
         "size": "small",
         "effect": [
@@ -1388,27 +1454,28 @@
             true
         ],
         "addeffect": {
-            "熟練": [
+            "1": [
                 "sen,+1"
             ],
-            "小鬼": [
+            "2": [
                 "sen,-1"
             ],
-            "勝利": [
+            "7": [
                 "sen,-1",
                 "hp,+3"
             ],
-            "泰然": [
+            "8": [
                 "sen,-1",
                 "atk,+1",
                 "matk,+1"
             ],
-            "勇気": [
+            "9": [
                 "sen,-1"
             ]
         }
     },
-    "イヤリング": {
+    "66": {
+        "name":"イヤリング",
         "type": "accessory",
         "size": "small",
         "effect": [
@@ -1427,27 +1494,28 @@
             true
         ],
         "addeffect": {
-            "熟練": [
+            "1": [
                 "int,+1"
             ],
-            "小鬼": [
+            "2": [
                 "int,-1"
             ],
-            "勝利": [
+            "7": [
                 "int,-1",
                 "hp,+3"
             ],
-            "泰然": [
+            "8": [
                 "int,-1",
                 "atk,+1",
                 "matk,+1"
             ],
-            "勇気": [
+            "9": [
                 "int,-1"
             ]
         }
     },
-    "牙のお守り": {
+    "67": {
+        "name":"牙のお守り",
         "type": "accessory",
         "size": "small",
         "effect": [
@@ -1467,7 +1535,8 @@
         ],
         "addeffect": {}
     },
-    "甲羅のお守り": {
+    "68": {
+        "name":"甲羅のお守り",
         "type": "accessory",
         "size": "small",
         "effect": [
@@ -1487,7 +1556,8 @@
         ],
         "addeffect": {}
     },
-    "角のお守り": {
+    "69": {
+        "name":"角のお守り",
         "type": "accessory",
         "size": "small",
         "effect": [
@@ -1507,7 +1577,8 @@
         ],
         "addeffect": {}
     },
-    "爪のお守り": {
+    "70": {
+        "name":"爪のお守り",
         "type": "accessory",
         "size": "small",
         "effect": [
@@ -1527,7 +1598,8 @@
         ],
         "addeffect": {}
     },
-    "翼のお守り": {
+    "71": {
+        "name":"翼のお守り",
         "type": "accessory",
         "size": "small",
         "effect": [
@@ -1547,7 +1619,8 @@
         ],
         "addeffect": {}
     },
-    "鱗のお守り": {
+    "72": {
+        "name":"鱗のお守り",
         "type": "accessory",
         "size": "small",
         "effect": [
