@@ -568,8 +568,6 @@
         <div class="cardinline"><input class="save_button" type="button" value="ビルドを保存" onclick=BuildSave()></div>
     </div>
 
-    <div id="aaneate">
-
     </div>
 </body>
 
@@ -624,6 +622,8 @@
                 for (let x = 1; x < skills[skill_hozon[skillvalue]].maxlevel; x++) { lv_opts.push(`<option value="${x + 1}">Level ${x + 1}</option>`) };
             }
             document.getElementById(`lv_sel${num}`).innerHTML = lv_opts.join('\n');
+
+
         }
         return true;
     }
@@ -1033,10 +1033,7 @@
         url.searchParams.set('ac2', ac2.join('_'));
         url.searchParams.set('ac3', ac3.join('_'));
         console.log(url.toString());
-
-
-
-
+        location.href = url;
     }
 </script>
 
