@@ -197,7 +197,7 @@
     },
     "スペルエンハンス": {
         "type": "normal",
-        "maxlevel": 4
+        "maxlevel": 2
     },
     "スリーピング": {
         "type": "normal",
