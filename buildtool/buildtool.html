@@ -779,7 +779,7 @@
         if (weapondata.size == 'large') prmatk += Math.trunc(modi['str'] / 3);
         document.getElementById('prm_atk').innerText = `${effects['atk_d'] != 0 ? effects['atk_d'] + 'd' : ''}${(prmatk < 0 ? '' : '+') + prmatk}`;
         //MATK=知力補正値×1＋各種補正
-        let prmmatk = weapondata.type == 'rod' ? Math.ceil(modi['int'] * 1.5) + effects['matk'] : modi['int'] + effects['matk'];
+        let prmmatk = weapondata.type == 'rod' ? Math.floor(modi['int'] * 1.5) + effects['matk'] : modi['int'] + effects['matk'];
         document.getElementById('prm_matk').innerText = `${effects['matk_d'] != 0 ? effects['matk_d'] + 'd' : ''}${(prmmatk < 0 ? '' : '+') + prmmatk}`
         //DEF=体力補正値×1+各種補正
         let prmdef = modi["con"] + effects['def'];
