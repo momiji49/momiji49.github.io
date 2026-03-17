@@ -1,6 +1,8 @@
 {
     "-": {
-        "maxlevel": 1
+        "type":"normal",
+        "maxlevel": 1,
+        "growth":{}
     },
     "アイアンクラッド": {
         "type": "normal",
@@ -32,60 +34,7 @@
     },
     "バッシュ": {
         "type": "initial",
-        "maxlevel": 4,
-        "growth": {
-            "0": [
-                {
-                    "txt": "ダメージ+1",
-                    "eff": "damage,+1"
-                },
-                {
-                    "txt": "命中判定+1",
-                    "eff": "hitjudge,+1"
-                }
-            ],
-            "1": [
-                {
-                    "txt": "ダメージ+2",
-                    "eff": "damage,+2"
-                },
-                {
-                    "txt": "命中判定+2",
-                    "eff": "hitjudge,+2"
-                }
-            ],
-            "2": [
-                {
-                    "txt": "ダメージ+1d",
-                    "eff": "damage,+1d"
-                },
-                {
-                    "txt": "命中判定+1d",
-                    "eff": "hitjudge,+1d"
-                },
-                {
-                    "txt": "ダメージ+2, 命中判定+1",
-                    "eff": "damage,+2,hitjudge,+1"
-                },
-                {
-                    "txt": "ダメージ+1, 命中判定+2",
-                    "eff": "damage,+1,hitjudge,+2"
-                },
-                {
-                    "txt": "ダメージ+2, 消費SP-1",
-                    "eff": "damage,+2,sp,+1"
-                },
-                {
-                    "txt": "命中判定+2, 消費SP-1",
-                    "eff": "hitjudge,+2,sp,-1"
-                },
-                {
-                    "txt": "ダメージ+1, 命中判定+1, 消費SP-1",
-                    "eff": "damage,+1,hitjudge,+2,sp,-1"
-                }
-            ]
-        },
-        "detail": ""
+        "maxlevel": 4
     },
     "マイティガード": {
         "type": "only",

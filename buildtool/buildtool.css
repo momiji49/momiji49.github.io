@@ -1,0 +1,145 @@
+:root {
+    --border-color: #07b7c0;
+    --border-color2: #2481ce;
+}
+
+body {
+    max-width: 800px;
+    margin: 0px auto;
+}
+
+h1,
+h2,
+h3 {
+    margin: 0;
+}
+
+.card1 {
+    border-bottom: 2px dashed var(--border-color);
+    padding: 10px;
+}
+
+.card2 {
+    border-bottom: 2px solid var(--border-color);
+    padding: 10px;
+}
+
+.cardinline {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.status_box {
+    display: flex;
+}
+
+.status_ui {
+    display: block;
+    width: min-content;
+}
+
+.status_button {
+    background-color: #EEE;
+    width: 40px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #BBB;
+    margin: 5px 10px;
+}
+
+.status_button:hover {
+    background-color: #DDD;
+}
+
+.status_button:active {
+    background-color: #CCC;
+}
+
+.status_value {
+    width: 50px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #BBB;
+    margin: 5px 10px;
+}
+
+.stlabel {
+    display: inline-block;
+    text-align: center;
+    align-content: center;
+    font-size: 20px;
+    width: 40px;
+    height: 30px;
+    margin: 5px 10px;
+}
+
+.aclabel {
+    display: inline-table;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 15px;
+    width: 30px;
+    height: 30px;
+    margin: 5px 0px;
+}
+
+.skill_select {
+    width: 200px;
+    height: 25px;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.level_select {
+    width: 100px;
+    height: 25px;
+    border-radius: 5px;
+}
+
+.labeltext {
+    height: 27px;
+    width: 100px;
+    text-align: center;
+    align-content: center;
+}
+
+.parametertext {
+    height: 27px;
+    width: 100px;
+    text-align: left;
+    align-content: center;
+}
+
+.equipmentselect {
+    height: 27px;
+    width: 175px;
+    border-radius: 5px;
+}
+
+.equipmentattselect {
+    height: 27px;
+    width: 70px;
+    border-radius: 5px;
+}
+
+.save_button {
+    background-color: #EEE;
+    width: 150px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #BBB;
+    margin: 10px;
+}
+
+.save_button:active {
+    background-color: #CCC;
+}
+
+.skill_card {
+    margin: 10px;
+    width: 700px;
+    border: 3px double #BBB;
+    padding: 10px;
+    border-radius: 10px;
+}
