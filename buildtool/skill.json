@@ -491,7 +491,7 @@
     },
     "イリュージョン": {
         "type": "initial",
-        "maxlevel": 1
+        "maxlevel": 2
     },
     "ショータイム": {
         "type": "only",
