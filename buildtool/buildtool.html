@@ -8,7 +8,7 @@
 <body>
     <div class="card1">
         <h1 style="margin: 0px;">クエストノーツ ビルドツール+&alpha;</h1>
-        <div style="font-size: 12px;">最終更新日 2026/04/25 <a
+        <div style="font-size: 12px;">最終更新日 2026/05/27 <a
                 href="https://marshmallow-qa.com/54hp6vc7wt3b8lb">バグ報告などはこちらから</a></div>
     </div>
 
@@ -101,6 +101,13 @@
         <div class="cardinline">
             <div style="display: inline-flex;flex-direction: column; margin:auto 0px;padding: 0px 10px;">
                 <spam id="cp" style="font-size: large;text-align: center;">CP 300</spam>
+                <select id="lvsync_select" onchange=ChangeSync(this.value)
+                    style="width: 60px;height: 27px;border-radius: 5px;margin:5px auto">
+                    <option value="0">Lv30</option>
+                    <option value="1">Lv20</option>
+                    <option value="2">Lv10</option>
+                    <option value="3">Lv5</option>
+                </select>
                 <select id="class_select" onchange=ChangeClass(this.value)
                     style="width: 150px;height: 27px;border-radius: 5px;">
                     <option value="0">無職</option>
@@ -121,6 +128,8 @@
                     <option value="15">フェンサー</option>
                     <option value="16">アストロロジャ</option>
                 </select>
+                
+                
             </div>
 
             <div style="display: flex; flex-direction: row;">

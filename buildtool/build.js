@@ -200,6 +200,8 @@ function ChangeParam() {
 
 
     //cp計算;
+    const lvsync_val = document.getElementById('lvsync_select').value;
+    let cpmax = lvsync_val == 0 ? 300 : lvsync_val == 1 ? 220 : lvsync_val == 2 ? 140 : 100;
     let cpval = 0;
 
     for (let int = 0; int < 6; int++) {
@@ -211,8 +213,8 @@ function ChangeParam() {
         else if (cp[sttname] <= 100) { cpval += (cp[sttname] - 80) * 6 + 268; }
         cpval += (cp['skilllv_' + int] - 1) * 3;
     }
-    document.getElementById('cp').innerText = `CP ${300 - cpval}`;
-    document.getElementById('cp').style.color = cpval <= 300 ? '#000' : '#F00';
+    document.getElementById('cp').innerText = `CP ${cpmax - cpval}`;
+    document.getElementById('cp').style.color = cpval <= cpmax ? '#000' : '#F00';
 
     /*期待値計算;
     let dice = [];
@@ -297,6 +299,38 @@ function ChangeEquipment(id) {
     ChangeParam();
 }
 
+function ChangeSync(lvsync_value) {
+    let cp = {
+        'str': Number.parseInt(document.getElementById('str').value),
+        'con': Number.parseInt(document.getElementById('con').value),
+        'dex': Number.parseInt(document.getElementById('dex').value),
+        'agi': Number.parseInt(document.getElementById('agi').value),
+        'sen': Number.parseInt(document.getElementById('sen').value),
+        'int': Number.parseInt(document.getElementById('int').value),
+        'skilllv_0': document.getElementById('lv_sel0').value,
+        'skilllv_1': document.getElementById('lv_sel1').value,
+        'skilllv_2': document.getElementById('lv_sel2').value,
+        'skilllv_3': document.getElementById('lv_sel3').value,
+        'skilllv_4': document.getElementById('lv_sel4').value,
+        'skilllv_5': document.getElementById('lv_sel5').value
+    }
+
+    let cpmax = lvsync_value == 0 ? 300 : lvsync_value == 1 ? 220 : lvsync_value == 2 ? 140 : 100;
+    let cpval = 0;
+
+    for (let int = 0; int < 6; int++) {
+        let sttname = Sttnum(int);
+        if (cp[sttname] <= 20) { cpval += (cp[sttname] - 6) * 2; }
+        else if (cp[sttname] <= 40) { cpval += (cp[sttname] - 20) * 3 + 28; }
+        else if (cp[sttname] <= 60) { cpval += (cp[sttname] - 40) * 4 + 88; }
+        else if (cp[sttname] <= 80) { cpval += (cp[sttname] - 60) * 5 + 168; }
+        else if (cp[sttname] <= 100) { cpval += (cp[sttname] - 80) * 6 + 268; }
+        cpval += (cp['skilllv_' + int] - 1) * 3;
+    }
+    document.getElementById('cp').innerText = `CP ${cpmax - cpval}`;
+    document.getElementById('cp').style.color = cpval <= cpmax ? '#000' : '#F00';
+}
+
 function SkillEffect(skillname, level, weapontype, ifshield) {
     let effect = [false];
     switch (skillname) {
@@ -353,6 +387,9 @@ function Sttnum(num) {
 function InitialSet() {
     let params = new URL(document.location).searchParams;
     if (params != 0) {
+        let lvsc = params.get('lvsc');
+        document.getElementById('lvsync_select').value = lvsc;
+
         let st = params.get('st').split('_');
         for (let int = 0; int < 6; int++) { document.getElementById(Sttnum(int)).value = st[int]; }
 
@@ -408,12 +445,14 @@ function InitialSet() {
         ChangeEquipment('ac3');
         document.getElementById('ac3_att').value = ac3[1];
 
+
     }
 
     ChangeParam();
 }
 
 function BuildSave() {
+    let lvsc = document.getElementById('lvsync_select').value;
     let st = [
         document.getElementById('str').value,
         document.getElementById('con').value,
@@ -447,6 +486,7 @@ function BuildSave() {
     let ac3 = [document.getElementById('ac3').value, document.getElementById('ac3_att').value];
 
     let url = new URL(window.location.href);
+    url.searchParams.set('lvsc',lvsc)
     url.searchParams.set('st', st.join('_'));
     url.searchParams.set('cl', cl);
     url.searchParams.set('sk', sk.join('_'));
