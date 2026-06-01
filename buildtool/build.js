@@ -415,53 +415,53 @@ function InitialSet() {
 
         let shi = params.get('shi').split('_');
         if (shi && shi.length == 2) {
-                    document.getElementById('shield').value = shi[0];
-        ChangeEquipment('shield');
-        document.getElementById('shield_att').value = shi[1];
+            document.getElementById('shield').value = shi[0];
+            ChangeEquipment('shield');
+            document.getElementById('shield_att').value = shi[1];
 
         }
 
         let hel = params.get('hel').split('_');
         if (hel && hel.length == 2) {
-        document.getElementById('helmet').value = hel[0];
-        ChangeEquipment('helmet');
-        document.getElementById('helmet_att').value = hel[1];
+            document.getElementById('helmet').value = hel[0];
+            ChangeEquipment('helmet');
+            document.getElementById('helmet_att').value = hel[1];
         }
 
         let arm = params.get('arm').split('_');
         if (arm && arm.length == 2) {
-         document.getElementById('armor').value = arm[0];
-        ChangeEquipment('armor');
-        document.getElementById('armor_att').value = arm[1];
+            document.getElementById('armor').value = arm[0];
+            ChangeEquipment('armor');
+            document.getElementById('armor_att').value = arm[1];
         }
-       
+
 
         let sho = params.get('sho').split('_');
         if (sho && sho.length == 2) {
-         document.getElementById('shoes').value = sho[0];
-        ChangeEquipment('shoes');
-        document.getElementById('shoes_att').value = sho[1];
+            document.getElementById('shoes').value = sho[0];
+            ChangeEquipment('shoes');
+            document.getElementById('shoes_att').value = sho[1];
         }
 
         let ac1 = params.get('ac1').split('_');
-if (ac1 && ac1.length == 2) {
-        document.getElementById('ac1').value = ac1[0];
-        ChangeEquipment('ac1');
-        document.getElementById('ac1_att').value = ac1[1];
+        if (ac1 && ac1.length == 2) {
+            document.getElementById('ac1').value = ac1[0];
+            ChangeEquipment('ac1');
+            document.getElementById('ac1_att').value = ac1[1];
         }
 
         let ac2 = params.get('ac2').split('_');
         if (ac2 && ac2.length == 2) {
-        document.getElementById('ac1').value = ac2[0];
-        ChangeEquipment('ac2');
-        document.getElementById('ac2_att').value = ac2[1];
+            document.getElementById('ac2').value = ac2[0];
+            ChangeEquipment('ac2');
+            document.getElementById('ac2_att').value = ac2[1];
         }
 
         let ac3 = params.get('ac3').split('_');
         if (ac3 && ac3.length == 2) {
-        document.getElementById('ac3').value = ac3[0];
-        ChangeEquipment('ac3');
-        document.getElementById('ac3_att').value = ac3[1];
+            document.getElementById('ac3').value = ac3[0];
+            ChangeEquipment('ac3');
+            document.getElementById('ac3_att').value = ac3[1];
         }
 
 
