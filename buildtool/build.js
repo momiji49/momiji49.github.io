@@ -388,62 +388,81 @@ function InitialSet() {
     let params = new URL(document.location).searchParams;
     if (params != 0) {
         let lvsc = params.get('lvsc');
-        document.getElementById('lvsync_select').value = lvsc;
+        console.log(lvsc);
+        if (lvsc) { document.getElementById('lvsync_select').value = lvsc; }
 
         let st = params.get('st').split('_');
-        for (let int = 0; int < 6; int++) { document.getElementById(Sttnum(int)).value = st[int]; }
+        if (st && st.length == 6) { for (let int = 0; int < 6; int++) { document.getElementById(Sttnum(int)).value = st[int]; } }
 
         let cl = params.get('cl');
-        document.getElementById('class_select').value = cl;
-        ChangeClass(cl);
+        if (cl) {
+            document.getElementById('class_select').value = cl;
+            ChangeClass(cl);
+        }
 
         let sk = params.get('sk').split('_');
-        for (let int = 2; int < 6; int++) { document.getElementById('sk_sel' + int).value = sk[int - 2]; }
+        if (sk && sk.length == 4) { for (let int = 2; int < 6; int++) { document.getElementById('sk_sel' + int).value = sk[int - 2]; } }
 
         let skl = params.get('skl').split('_');
-        for (let int = 0; int < 6; int++) { ChangeSkill(int); document.getElementById('lv_sel' + int).value = skl[int] }
+        if (skl && skl.length == 6) { for (let int = 0; int < 6; int++) { ChangeSkill(int); document.getElementById('lv_sel' + int).value = skl[int] } }
 
         let wep = params.get('wep').split('_');
-        document.getElementById('weapon').value = wep[0];
-        ChangeEquipment('weapon');
-        document.getElementById('weapon_att').value = wep[1];
+        if (wep && wep.length == 2) {
+            document.getElementById('weapon').value = wep[0];
+            ChangeEquipment('weapon');
+            document.getElementById('weapon_att').value = wep[1];
+        }
 
         let shi = params.get('shi').split('_');
-        document.getElementById('shield').value = shi[0];
+        if (shi && shi.length == 2) {
+                    document.getElementById('shield').value = shi[0];
         ChangeEquipment('shield');
         document.getElementById('shield_att').value = shi[1];
 
+        }
+
         let hel = params.get('hel').split('_');
+        if (hel && hel.length == 2) {
         document.getElementById('helmet').value = hel[0];
         ChangeEquipment('helmet');
         document.getElementById('helmet_att').value = hel[1];
-
+        }
 
         let arm = params.get('arm').split('_');
-        document.getElementById('armor').value = arm[0];
+        if (arm && arm.length == 2) {
+         document.getElementById('armor').value = arm[0];
         ChangeEquipment('armor');
         document.getElementById('armor_att').value = arm[1];
+        }
+       
 
         let sho = params.get('sho').split('_');
-        document.getElementById('shoes').value = sho[0];
+        if (sho && sho.length == 2) {
+         document.getElementById('shoes').value = sho[0];
         ChangeEquipment('shoes');
         document.getElementById('shoes_att').value = sho[1];
+        }
 
         let ac1 = params.get('ac1').split('_');
+if (ac1 && ac1.length == 2) {
         document.getElementById('ac1').value = ac1[0];
         ChangeEquipment('ac1');
         document.getElementById('ac1_att').value = ac1[1];
-
+        }
 
         let ac2 = params.get('ac2').split('_');
-        document.getElementById('ac2').value = ac2[0];
+        if (ac2 && ac2.length == 2) {
+        document.getElementById('ac1').value = ac2[0];
         ChangeEquipment('ac2');
         document.getElementById('ac2_att').value = ac2[1];
+        }
 
         let ac3 = params.get('ac3').split('_');
+        if (ac3 && ac3.length == 2) {
         document.getElementById('ac3').value = ac3[0];
         ChangeEquipment('ac3');
         document.getElementById('ac3_att').value = ac3[1];
+        }
 
 
     }
@@ -486,7 +505,7 @@ function BuildSave() {
     let ac3 = [document.getElementById('ac3').value, document.getElementById('ac3_att').value];
 
     let url = new URL(window.location.href);
-    url.searchParams.set('lvsc',lvsc)
+    url.searchParams.set('lvsc', lvsc)
     url.searchParams.set('st', st.join('_'));
     url.searchParams.set('cl', cl);
     url.searchParams.set('sk', sk.join('_'));
