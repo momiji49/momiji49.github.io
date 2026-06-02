@@ -151,10 +151,10 @@ function ChangeParam() {
     let prmatk = 0;
     switch (weapondata.type) {
         case 'dagger':
-            prmatk += Math.ceil(modi['str']) + Math.ceil(modi['dex']) + effects['atk'];
+            prmatk += Math.ceil(modi['str']*1.5 + modi['dex']*0.5) + effects['atk'];
             break;
         case 'axe':
-            prmatk += Math.ceil(modi['str']) + Math.ceil(modi['con']) + effects['atk'];
+            prmatk += Math.ceil(modi['str']*1.5 + modi['con']*0.5) + effects['atk'];
             break;
         case 'bow':
             prmatk += modi['dex'] + effects['atk'];
