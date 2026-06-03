@@ -96,6 +96,8 @@ function ChangeParam() {
         'int': 0
     };
 
+    const lvsync_val = document.getElementById('lvsync_select').value;
+
     for (es of document.getElementsByClassName("equipmentselect")) {
         for (eseff of equipment[es.value].effect) {
             let fanfan = eseff.split(',');
@@ -136,10 +138,12 @@ function ChangeParam() {
 
     let weapondata = equipment[document.getElementById('weapon').value];
 
+    const prmlevel = lvsync_val == 0 ? 30 : lvsync_val == 1 ? 20 : lvsync_val == 2 ? 10 : 5;
+
     //HP＝（30＋筋力＋体力×2）÷4＋(レベル+2)÷3＋各種補正(鎧、アクセサリ等)
-    document.getElementById("prm_hp").innerText = Math.trunc(((30 + status["str"] + status["con"] * 2) / 4) + (32 / 3)) + effects['hp'];
+    document.getElementById("prm_hp").innerText = Math.trunc(((30 + status["str"] + status["con"] * 2) / 4) + ((prmlevel + 2) / 3)) + effects['hp'];
     //SP＝（30＋知力＋感覚×2）÷4＋(レベル+2)÷3＋各種補正(兜、鎧等)
-    document.getElementById("prm_sp").innerText = Math.trunc(((30 + status["int"] + status["sen"] * 2) / 4) + (32 / 3)) + effects['sp'];
+    document.getElementById("prm_sp").innerText = Math.trunc(((30 + status["int"] + status["sen"] * 2) / 4) + ((prmlevel + 2) / 3)) + effects['sp'];
     //atkめんどすぎ
     /*  剣、短剣、杖、鈍器、槍、装備なしの場合：　筋力補正値×2＋各種補正
         短剣の場合：　筋力補正値×1.5(切り上げ)＋器用補正値×0.5(切り上げ)＋各種補正
@@ -151,10 +155,10 @@ function ChangeParam() {
     let prmatk = 0;
     switch (weapondata.type) {
         case 'dagger':
-            prmatk += Math.ceil(modi['str']*1.5 + modi['dex']*0.5) + effects['atk'];
+            prmatk += Math.ceil(modi['str'] * 1.5 + modi['dex'] * 0.5) + effects['atk'];
             break;
         case 'axe':
-            prmatk += Math.ceil(modi['str']*1.5 + modi['con']*0.5) + effects['atk'];
+            prmatk += Math.ceil(modi['str'] * 1.5 + modi['con'] * 0.5) + effects['atk'];
             break;
         case 'bow':
             prmatk += modi['dex'] + effects['atk'];
@@ -200,7 +204,6 @@ function ChangeParam() {
 
 
     //cp計算;
-    const lvsync_val = document.getElementById('lvsync_select').value;
     let cpmax = lvsync_val == 0 ? 300 : lvsync_val == 1 ? 220 : lvsync_val == 2 ? 140 : 100;
     let cpval = 0;
 
@@ -300,35 +303,7 @@ function ChangeEquipment(id) {
 }
 
 function ChangeSync(lvsync_value) {
-    let cp = {
-        'str': Number.parseInt(document.getElementById('str').value),
-        'con': Number.parseInt(document.getElementById('con').value),
-        'dex': Number.parseInt(document.getElementById('dex').value),
-        'agi': Number.parseInt(document.getElementById('agi').value),
-        'sen': Number.parseInt(document.getElementById('sen').value),
-        'int': Number.parseInt(document.getElementById('int').value),
-        'skilllv_0': document.getElementById('lv_sel0').value,
-        'skilllv_1': document.getElementById('lv_sel1').value,
-        'skilllv_2': document.getElementById('lv_sel2').value,
-        'skilllv_3': document.getElementById('lv_sel3').value,
-        'skilllv_4': document.getElementById('lv_sel4').value,
-        'skilllv_5': document.getElementById('lv_sel5').value
-    }
-
-    let cpmax = lvsync_value == 0 ? 300 : lvsync_value == 1 ? 220 : lvsync_value == 2 ? 140 : 100;
-    let cpval = 0;
-
-    for (let int = 0; int < 6; int++) {
-        let sttname = Sttnum(int);
-        if (cp[sttname] <= 20) { cpval += (cp[sttname] - 6) * 2; }
-        else if (cp[sttname] <= 40) { cpval += (cp[sttname] - 20) * 3 + 28; }
-        else if (cp[sttname] <= 60) { cpval += (cp[sttname] - 40) * 4 + 88; }
-        else if (cp[sttname] <= 80) { cpval += (cp[sttname] - 60) * 5 + 168; }
-        else if (cp[sttname] <= 100) { cpval += (cp[sttname] - 80) * 6 + 268; }
-        cpval += (cp['skilllv_' + int] - 1) * 3;
-    }
-    document.getElementById('cp').innerText = `CP ${cpmax - cpval}`;
-    document.getElementById('cp').style.color = cpval <= cpmax ? '#000' : '#F00';
+    ChangeParam();
 }
 
 function SkillEffect(skillname, level, weapontype, ifshield) {
