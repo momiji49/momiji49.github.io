@@ -3,8 +3,9 @@ function Expected() {
     let modi = Number.parseInt(document.getElementById('exp_modi').value);
     let remodi = Number.parseInt(document.getElementById('exp_remodi').value);
 
+    document.getElementById('exp_result').innerText = `計算結果：${(dicecount*3.5)+modi+remodi}`;
 
-
+    /* 何を考えてこんなコードを書いた？
     let d = [];
     for (let i = 0; i < dicecount; i++) { d.push(1) }
 
@@ -30,9 +31,7 @@ function Expected() {
             }
         }
     }
-
-    console.log((results.reduce((sum, res) => { return sum + res }) / results.length) + modi + remodi);
-    document.getElementById('exp_result').innerText = `計算結果：${(results.reduce((sum, res) => { return sum + res }) / results.length) + modi + remodi}`;
+    */
 }
 
 function Simulation() {
