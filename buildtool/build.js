@@ -174,11 +174,7 @@ function ChangeParam() {
         'int': 0
     };
 
-    //チェックマーク確認
     if (document.getElementById('buff_charge_check').checked) effects['atk_d'] += 2;
-    if (document.getElementById('buff_rage_check').checked) {
-
-    }
 
     const lvsync_val = document.getElementById('lvsync_select').value;
 
@@ -189,10 +185,22 @@ function ChangeParam() {
         }
         let attval = document.getElementById(es.id + '_att').value;
         if (equipment[es.value]['addeffect'][attval] != undefined) {
-            for (effe of equipment[es.value]['addeffect'][attval]) {
-                let fanfan = effe.split(',');
-                effects[fanfan[0]] += Number.parseInt(fanfan[1]);
+            if (attval == 8) {
+                if (!document.getElementById(`buff_rage_check`).checked && !document.getElementById(`buff_guts_check`).checked && !document.getElementById(`buff_overload_check`).checked) {
+                    for (effe of equipment[es.value]['addeffect'][attval]) {
+                        let fanfan = effe.split(',');
+                        effects[fanfan[0]] += Number.parseInt(fanfan[1]);
+                    }
+                }
             }
+            else {
+                for (effe of equipment[es.value]['addeffect'][attval]) {
+                    let fanfan = effe.split(',');
+                    effects[fanfan[0]] += Number.parseInt(fanfan[1]);
+                }
+            }
+
+
         }
     }
 
