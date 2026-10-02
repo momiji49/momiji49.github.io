@@ -57,9 +57,87 @@ function ChangeSkill(num) {
         }
         document.getElementById(`lv_sel${num}`).innerHTML = lv_opts.join('\n');
     }
+    ChangeParam();
+}
+
+function BuffSkillCheck() {
+
+    //チャージ
+    {
+        let banzoku = 0;
+        banzoku += document.getElementById('weapon_att').value == 3 ? 2 : 0;
+        banzoku += document.getElementById('shield_att').value == 3 ? 1 : 0;
+        banzoku += document.getElementById('helmet_att').value == 3 ? 1 : 0;
+        banzoku += document.getElementById('armor_att').value == 3 ? 1 : 0;
+        banzoku += document.getElementById('shoes_att').value == 3 ? 1 : 0;
+        banzoku += document.getElementById('ac1_att').value == 3 ? 1 : 0;
+        banzoku += document.getElementById('ac2_att').value == 3 ? 1 : 0;
+        banzoku += document.getElementById('ac3_att').value == 3 ? 1 : 0;
+        if (banzoku >= 2) {
+            document.getElementById('buff_charge').hidden = false;
+        }
+        else {
+            document.getElementById('buff_charge').hidden = true;
+            document.getElementById('buff_charge_check').checked = false;
+        }
+    }
+
+    let checker = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    let rage4 = false;
+
+    {
+        checker[5] = document.getElementById('sk_sel0').innerText == 'オーバーロード' ? 1 : 0;
+        for (let x = 2; x < 6; x++) {
+            switch (skill_hozon[document.getElementById(`sk_sel${x}`).value]) {
+                case 'レイジ':
+                    checker[0] = 1;
+                    rage4 = document.getElementById(`lv_sel${x}`).value == 4;
+                    break;
+                case 'アサルトスタンス':
+                    checker[1] = 1;
+                    break;
+                case 'バックスタブ':
+                    checker[2] = 1;
+                    break;
+                case 'ガッツ':
+                    checker[3] = 1;
+                    break;
+                case 'フューリー':
+                    checker[4] = 1;
+                    break;
+                case 'ブレードワーク':
+                    checker[6] = 1;
+                    break;
+                case 'デュエリスト':
+                    checker[7] = 1;
+                    break;
+                case 'エタニティ':
+                    checker[8] = 1;
+                    break;
+                case 'サンアンドムーン':
+                    checker[9] = 1;
+                    break;
+            }
+        }
+
+        const buff = ['rage', 'assult', 'backstab', 'guts', 'fury', 'overload', 'bladework', 'duelist', 'eternity', 'sunmoon'];
+        for (let x = 0; x < 10; x++) {
+            if (checker[x] == 1) {
+                document.getElementById(`buff_${buff[x]}`).hidden = false;
+            }
+            else {
+                document.getElementById(`buff_${buff[x]}`).hidden = true;
+                document.getElementById(`buff_${buff[x]}_check`).checked = false;
+            }
+        }
+        if (rage4) document.getElementById(`buff_rage_growth`).hidden = false;
+        else document.getElementById(`buff_rage_growth`).hidden = true;
+    }
 }
 
 function ChangeParam() {
+    BuffSkillCheck();
+
     let cp = {
         'str': Number.parseInt(document.getElementById('str').value),
         'con': Number.parseInt(document.getElementById('con').value),
@@ -96,6 +174,12 @@ function ChangeParam() {
         'int': 0
     };
 
+    //チェックマーク確認
+    if (document.getElementById('buff_charge_check').checked) effects['atk_d'] += 2;
+    if (document.getElementById('buff_rage_check').checked) {
+
+    }
+
     const lvsync_val = document.getElementById('lvsync_select').value;
 
     for (es of document.getElementsByClassName("equipmentselect")) {
@@ -112,10 +196,19 @@ function ChangeParam() {
         }
     }
 
+
+    let checklist = [];
+    let bufftype = [document.getElementById('buff_rage_growth').value, document.getElementById('buff_sunmoon_round').value];
+    {
+        const buff = ['rage', 'assult', 'backstab', 'guts', 'fury', 'overload', 'bladework', 'duelist', 'eternity', 'sunmoon'];
+        for (let x = 0; x < 10; x++)checklist.push(document.getElementById(`buff_${buff[x]}_check`).checked);
+    }
+
     for (let xac = 2; xac < 6; xac++) {
-        let aa = SkillEffect(skill_hozon[document.getElementById(`sk_sel${xac}`).value], document.getElementById(`lv_sel${xac}`).value, equipment[document.getElementById('weapon').value].type, document.getElementById('shield').value != 'なし');
-        if (aa[0]) {
-            effects[aa[1]] += aa[2];
+        let aa = SkillEffect(skill_hozon[document.getElementById(`sk_sel${xac}`).value], document.getElementById(`lv_sel${xac}`).value, equipment[document.getElementById('weapon').value].type, document.getElementById('shield').value != 'なし', checklist, bufftype);
+        for (effect of aa) {
+            let fang = effect.split(',');
+            effects[fang[0]] += Number.parseInt(fang[1]);
         }
     }
 
@@ -139,6 +232,9 @@ function ChangeParam() {
     let weapondata = equipment[document.getElementById('weapon').value];
 
     const prmlevel = lvsync_val == 0 ? 30 : lvsync_val == 1 ? 20 : lvsync_val == 2 ? 10 : 5;
+
+
+
 
     //HP＝（30＋筋力＋体力×2）÷4＋(レベル+2)÷3＋各種補正(鎧、アクセサリ等)
     document.getElementById("prm_hp").innerText = Math.trunc(((30 + status["str"] + status["con"] * 2) / 4) + ((prmlevel + 2) / 3)) + effects['hp'];
@@ -171,6 +267,7 @@ function ChangeParam() {
             break;
     }
     if (weapondata.size == 'large') prmatk += Math.trunc(modi['str'] / 3);
+    if (document.getElementById('buff_overload_check').checked) { prmatk += Math.trunc((document.getElementById("prm_hp").innerText - 1) / 3) };
     document.getElementById('prm_atk').innerText = `${effects['atk_d'] != 0 ? effects['atk_d'] + 'd' : ''}${(prmatk < 0 ? '' : '+') + prmatk}`;
     //MATK=知力補正値×1＋各種補正
     let prmmatk = weapondata.type == 'rod' ? Math.floor(modi['int'] * 1.5) + effects['matk'] : modi['int'] + effects['matk'];
@@ -306,41 +403,77 @@ function ChangeSync(lvsync_value) {
     ChangeParam();
 }
 
-function SkillEffect(skillname, level, weapontype, ifshield) {
-    let effect = [false];
+function SkillEffect(skillname, level, weapontype, ifshield, checklist, bufftype) {
+    let effect = [];
     switch (skillname) {
         case 'ソードマスタリー':
-            if (weapontype == 'sword') { if (level == 1) effect = [true, 'hit', 1]; else if (level == 2) effect = [true, 'hit', 2]; else if (level == 3) effect = [true, 'hit', 3]; }
+            if (weapontype == 'sword') { if (level == 1) effect.push('hit,1'); else if (level == 2) effect.push('hit,2'); else if (level == 3) effect.push('hit,3'); }
             break;
         case 'シールドマスタリー':
-            if (weapontype == 'shield' || ifshield == true) { if (level == 1) effect = [true, 'def_re', 1]; else if (level == 2) effect = [true, 'def_re', 2]; else if (level == 3) effect = [true, 'def_re', 3]; }
+            if (weapontype == 'shield' || ifshield == true) { if (level == 1) effect.push('def_re,1'); else if (level == 2) effect.push('def_re,2'); else if (level == 3) effect.push('def_re,3'); }
             break;
         case 'ダガーマスタリー':
-            if (weapontype == 'dagger') { if (level == 1) effect = [true, 'hit', 1]; else if (level == 2) effect = [true, 'hit', 2]; else if (level == 3) effect = [true, 'hit', 3]; }
+            if (weapontype == 'dagger') { if (level == 1) effect.push('hit,1'); else if (level == 2) effect.push('hit,2'); else if (level == 3) effect.push('hit,3'); }
             break;
         case 'バタフライダンス':
-            if (level == 1) effect = [true, 'flee', 1]; else if (level == 2) effect = [true, 'flee', 2]; else if (level == 3) effect = [true, 'flee', 3];
+            if (level == 1) effect.push('flee,1'); else if (level == 2) effect.push('flee,2'); else if (level == 3) effect = effect.push('flee,3');
             break;
         case 'ボウマスタリー':
-            if (weapontype == 'bow') { if (level == 1) effect = [true, 'hit', 1]; else if (level == 2) effect = [true, 'hit', 2]; else if (level == 3) effect = [true, 'hit', 3]; }
+            if (weapontype == 'bow') { if (level == 1) effect.push('hit,1'); else if (level == 2) effect.push('hit,2'); else if (level == 3) effect.push('hit,3'); }
             break;
         case 'マジックマスタリー':
-            if (weapontype == 'rod') { if (level == 1) effect = [true, 'hit', 1]; else if (level == 2) effect = [true, 'hit', 2]; else if (level == 3) effect = [true, 'hit', 3]; }
+            if (weapontype == 'rod') { if (level == 1) effect.push('hit,1'); else if (level == 2) effect.push('hit,2'); else if (level == 3) effect.push('hit,3'); }
             break;
         case 'メイスマスタリー':
-            if (weapontype == 'mace') { if (level == 1) effect = [true, 'hit', 1]; else if (level == 2) effect = [true, 'hit', 2]; else if (level == 3) effect = [true, 'hit', 3]; }
+            if (weapontype == 'mace') { if (level == 1) effect.push('hit,1'); else if (level == 2) effect.push('hit,2'); else if (level == 3) effect.push('hit,3'); }
             break;
         case 'マジックヴェール':
-            if (level == 1) effect = [true, 'resist', 1]; else if (level == 2) effect = [true, 'resist', 2]; else if (level == 3) effect = [true, 'resist', 3];
+            if (level == 1) effect.push('resist,1'); else if (level == 2) effect.push('resist,2'); else if (level == 3) effect.push('resist,3');
             break;
         case 'スピアマスタリー':
-            if (weapontype == 'spear') { if (level == 1) effect = [true, 'hit', 1]; else if (level == 2) effect = [true, 'hit', 2]; else if (level == 3) effect = [true, 'hit', 3]; }
+            if (weapontype == 'spear') { if (level == 1) effect.push('hit,1'); else if (level == 2) effect.push('hit,2'); else if (level == 3) effect.push('hit,3'); }
             break;
         case 'アクスマスタリー':
-            if (weapontype == 'axe') { if (level == 1) effect = [true, 'hit', 1]; else if (level == 2) effect = [true, 'hit', 2]; else if (level == 3) effect = [true, 'hit', 3]; }
+            if (weapontype == 'axe') { if (level == 1) effect.push('hit,1'); else if (level == 2) effect.push('hit,2'); else if (level == 3) effect.push('hit,3'); }
             break;
         case 'タフネス':
-            if (level == 1) effect = [true, 'hp', 3]; else if (level == 2) effect = [true, 'hp', 5]; else if (level == 3) effect = [true, 'hp', 7]; else if (level == 4) effect = [true, 'hp', 9];
+            if (level == 1) effect.push('hp,3'); else if (level == 2) effect.push('hp,5'); else if (level == 3) effect.push('hp,7'); else if (level == 4) effect.push('hp,9');
+            break;
+
+        case 'レイジ':
+            if (checklist[0]) { if (level == 1) effect.push('atk_d,1'); else if (level == 2) effect.push('atk_d,1', 'atk,1'); else if (level == 3) effect.push('atk_d,1', 'atk,2'); else if (level == 4) { if (bufftype[0] == 0) effect.push('atk_d,1', 'atk,3'); else if (bufftype[0] == 1) effect.push('atk_d,2'); }; }
+            break;
+
+        case 'アサルトスタンス':
+            if (checklist[1]) { if (level == 1) effect.push('atk,1'); else if (level == 2) effect.push('atk,2'); else if (level == 3) effect.push('atk,3'); else if (level == 4) effect.push('atk,4'); }
+            break;
+
+        case 'バックスタブ':
+            if (checklist[2]) { if (level == 1) effect.push('atk_d,1'); else if (level == 2) effect.push('atk_d,1', 'atk,1'); else if (level == 3) effect.push('atk_d,1', 'atk,2'); else if (level == 4) effect.push('atk_d,1', 'atk,3'); }
+            break;
+
+        case 'ガッツ':
+            if (checklist[3]) { if (level == 1) effect.push('der,1'); else if (level == 2) effect.push('def,2'); else if (level == 3) effect.push('def,3'); else if (level == 4) effect.push('def,4'); }
+            break;
+
+        case 'フューリー':
+            if (checklist[4]) { if (level == 1) effect.push('atk,3'); else if (level == 2) effect.push('atk,4'); else if (level == 3) effect.push('atk,5'); else if (level == 4) effect.push('atk,6'); }
+            break;
+
+        case 'ブレードワーク':
+            if (checklist[6]) { if (level == 1) effect.push('hit,1', 'flee,1'); else if (level == 2) effect.push('hit,2', 'flee,2'); else if (level == 3) effect.push('hit,3', 'flee,3'); }
+            break;
+
+        case 'デュエリスト':
+            if (checklist[7]) { if (level == 1) effect.push('atk,1'); else if (level == 2) effect.push('atk,2'); else if (level == 3) effect.push('atk,3'); else if (level == 4) effect.push('atk,4'); }
+            break;
+
+        case 'エタニティ':
+            if (checklist[8]) { if (level == 1) effect.push('atk,2', 'matk,2'); else if (level == 2) effect.push('atk,3', 'matk,3'); else if (level == 3) effect.push('atk,4', 'matk,4'); else if (level == 4) effect.push('atk,5', 'matk,5'); }
+            break;
+
+        case 'サンアンドムーン':
+            if (checklist[9]) { if (level == 1) { if (bufftype[1] == 0) effect.push('hit,1'); else effect.push('flee,1', 'resist,1'); } else if (level == 2) { if (bufftype[1] == 0) effect.push('hit,2'); else effect.push('flee,2', 'resist,2'); } else if (level == 3) { if (bufftype[1] == 0) effect.push('hit,3'); else effect.push('flee,3', 'resist,3'); } else if (level == 4) { if (bufftype[1] == 0) effect.push('hit,4'); else effect.push('flee,4', 'resist,4'); } }
             break;
     }
     return effect;
