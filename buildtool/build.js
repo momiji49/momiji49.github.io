@@ -424,7 +424,7 @@ function SkillEffect(skillname, level, weapontype, ifshield, checklist, bufftype
             if (weapontype == 'dagger') { if (level == 1) effect.push('hit,1'); else if (level == 2) effect.push('hit,2'); else if (level == 3) effect.push('hit,3'); }
             break;
         case 'バタフライダンス':
-            if (level == 1) effect.push('flee,1'); else if (level == 2) effect.push('flee,2'); else if (level == 3) effect = effect.push('flee,3');
+            if (level == 1) effect.push('flee,1'); else if (level == 2) effect.push('flee,2'); else if (level == 3) effect.push('flee,3');
             break;
         case 'ボウマスタリー':
             if (weapontype == 'bow') { if (level == 1) effect.push('hit,1'); else if (level == 2) effect.push('hit,2'); else if (level == 3) effect.push('hit,3'); }
