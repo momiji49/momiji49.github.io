@@ -453,7 +453,7 @@ function SkillEffect(skillname, level, weapontype, ifshield, checklist, bufftype
             break;
 
         case 'ガッツ':
-            if (checklist[3]) { if (level == 1) effect.push('der,1'); else if (level == 2) effect.push('def,2'); else if (level == 3) effect.push('def,3'); else if (level == 4) effect.push('def,4'); }
+            if (checklist[3]) { if (level == 1) effect.push('def,1'); else if (level == 2) effect.push('def,2'); else if (level == 3) effect.push('def,3'); else if (level == 4) effect.push('def,4'); }
             break;
 
         case 'フューリー':
