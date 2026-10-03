@@ -82,9 +82,10 @@ function BuffSkillCheck() {
         }
     }
 
-    let checker = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    let checker = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     let rage4 = false;
-
+    let conce4 = false;
+    let medi4 = false;
     {
         checker[5] = document.getElementById('sk_sel0').innerText == 'オーバーロード' ? 1 : 0;
         for (let x = 2; x < 6; x++) {
@@ -117,11 +118,20 @@ function BuffSkillCheck() {
                 case 'サンアンドムーン':
                     checker[9] = 1;
                     break;
+                case 'コンセントレイション':
+                    checker[10] = 1;
+                    conce4 = document.getElementById(`lv_sel${x}`).value == 4;
+                    break;
+                case 'メディテーション':
+                    checker[11] = 1;
+                    medi4 = document.getElementById(`lv_sel${x}`).value == 4;
+                    break;
+
             }
         }
 
-        const buff = ['rage', 'assult', 'backstab', 'guts', 'fury', 'overload', 'bladework', 'duelist', 'eternity', 'sunmoon'];
-        for (let x = 0; x < 10; x++) {
+        const buff = ['rage', 'assult', 'backstab', 'guts', 'fury', 'overload', 'bladework', 'duelist', 'eternity', 'sunmoon', 'conce','medi'];
+        for (let x = 0; x < 12; x++) {
             if (checker[x] == 1) {
                 document.getElementById(`buff_${buff[x]}`).hidden = false;
             }
@@ -132,6 +142,10 @@ function BuffSkillCheck() {
         }
         if (rage4) document.getElementById(`buff_rage_growth`).hidden = false;
         else document.getElementById(`buff_rage_growth`).hidden = true;
+        if (conce4) document.getElementById(`buff_conce_growth`).hidden = false;
+        else document.getElementById(`buff_conce_growth`).hidden = true;
+        if (medi4) document.getElementById(`buff_medi_growth`).hidden = false;
+        else document.getElementById(`buff_medi_growth`).hidden = true;
     }
 }
 
@@ -164,8 +178,11 @@ function ChangeParam() {
         "matk_d": 0,
         "mdef": 0,
         "hit": 0,
+        'hit_d': 0,
         "flee": 0,
+        'flee_d': 0,
         "resist": 0,
+        'resist_d': 0,
         'str': 0,
         'con': 0,
         'dex': 0,
@@ -206,10 +223,10 @@ function ChangeParam() {
 
 
     let checklist = [];
-    let bufftype = [document.getElementById('buff_rage_growth').value, document.getElementById('buff_sunmoon_round').value];
+    let bufftype = [document.getElementById('buff_rage_growth').value, document.getElementById('buff_sunmoon_round').value, document.getElementById('buff_conce_growth').value, document.getElementById('buff_medi_growth').value];
     {
-        const buff = ['rage', 'assult', 'backstab', 'guts', 'fury', 'overload', 'bladework', 'duelist', 'eternity', 'sunmoon'];
-        for (let x = 0; x < 10; x++)checklist.push(document.getElementById(`buff_${buff[x]}_check`).checked);
+        const buff = ['rage', 'assult', 'backstab', 'guts', 'fury', 'overload', 'bladework', 'duelist', 'eternity', 'sunmoon', 'conce', 'medi'];
+        for (let x = 0; x < 12; x++)checklist.push(document.getElementById(`buff_${buff[x]}_check`).checked);
     }
 
     for (let xac = 2; xac < 6; xac++) {
@@ -279,7 +296,7 @@ function ChangeParam() {
     document.getElementById('prm_atk').innerText = `${effects['atk_d'] != 0 ? effects['atk_d'] + 'd' : ''}${(prmatk < 0 ? '' : '+') + prmatk}`;
     //MATK=知力補正値×1＋各種補正
     let prmmatk = weapondata.type == 'rod' ? Math.floor(modi['int'] * 1.5) + effects['matk'] : modi['int'] + effects['matk'];
-    document.getElementById('prm_matk').innerText = `${effects['matk_d'] != 0 ? effects['matk_d'] + 'd' : ''}${(prmmatk < 0 ? '' : '+') + prmmatk}`
+    document.getElementById('prm_matk').innerText = `${effects['matk_d'] != 0 ? effects['matk_d'] + 'd' : ''}${(prmmatk < 0 ? '' : effects['matk_d'] != 0 ? '+' : '') + prmmatk}`
     //DEF=体力補正値×1+各種補正
     let prmdef = modi["con"] + effects['def'];
     document.getElementById("prm_def").innerText = prmdef + `(${prmdef + Math.ceil(prmdef / 2) + effects['def_re']})`;
@@ -287,11 +304,11 @@ function ChangeParam() {
     let prmmdef = modi['sen'] + effects['mdef'];
     document.getElementById("prm_mdef").innerText = prmmdef + `(${prmmdef + Math.ceil(prmmdef / 2)})`;
     //HIT=器用補正値×1+各種補正
-    document.getElementById("prm_hit").innerText = modi["dex"] + effects['hit'];
+    document.getElementById("prm_hit").innerText = `${effects['hit_d'] != 0 ? effects['hit_d'] + 'd' : ''}${(modi["dex"] + effects['hit'] < 0 ? '' : effects['hit_d'] != 0 ? '+' : '') + (modi["dex"] + effects['hit'])}`;
     //FLEE=敏捷補正値×1+各種補正
-    document.getElementById("prm_flee").innerText = modi["agi"] + effects['flee'];
+    document.getElementById("prm_flee").innerText = `${effects['flee_d'] != 0 ? effects['flee_d'] + 'd' : ''}${(modi['agi'] + effects['flee'] < 0 ? '' : effects['flee_d'] != 0 ? '+' : '') + (modi["agi"] + effects['flee'])}`;
     //RESIST=感覚補正値×1+各種補正
-    document.getElementById("prm_resist").innerText = modi["sen"] + effects['resist'];
+    document.getElementById("prm_resist").innerText = `${effects['resist_d'] != 0 ? effects['resist_d'] + 'd' : ''}${(modi['sen'] + effects['resist'] < 0 ? '' : effects['resist_d'] != 0 ? '+' : '') + (modi["sen"] + effects['resist'])}`;
 
     document.getElementById('ac_str').innerText = `${effects['str'] >= 0 ? '+' : ''}` + effects['str'];
     document.getElementById('ac_con').innerText = `${effects['con'] >= 0 ? '+' : ''}` + effects['con'];
@@ -483,7 +500,15 @@ function SkillEffect(skillname, level, weapontype, ifshield, checklist, bufftype
         case 'サンアンドムーン':
             if (checklist[9]) { if (level == 1) { if (bufftype[1] == 0) effect.push('hit,1'); else effect.push('flee,1', 'resist,1'); } else if (level == 2) { if (bufftype[1] == 0) effect.push('hit,2'); else effect.push('flee,2', 'resist,2'); } else if (level == 3) { if (bufftype[1] == 0) effect.push('hit,3'); else effect.push('flee,3', 'resist,3'); } else if (level == 4) { if (bufftype[1] == 0) effect.push('hit,4'); else effect.push('flee,4', 'resist,4'); } }
             break;
+
+        case 'コンセントレイション':
+            if (checklist[10]) { if (level == 1) effect.push('flee_d,1', 'hit_d,1'); else if (level == 2) effect.push('flee_d,1', 'hit_d,1', 'flee,1', 'hit,1'); else if (level == 3) effect.push('flee_d,1', 'hit_d,1', 'flee,2', 'hit,2'); else if (level == 4) { if (bufftype[2] == 0) effect.push('flee_d,1', 'hit_d,1', 'flee,2', 'hit,2'); else if (bufftype[2] == 1) effect.push('flee_d,1', 'hit_d,1', 'flee,3', 'hit,3'); else if (bufftype[2] == 2) effect.push('flee_d,2', 'hit_d,2'); } }
+            break;
+        case 'メディテーション':
+            if (checklist[11]) { if (level == 1) effect.push('resist_d,1', 'hit_d,1'); else if (level == 2) effect.push('resist_d,1', 'hit_d,1', 'resist,1', 'hit,1'); else if (level == 3) effect.push('resist_d,1', 'hit_d,1', 'resist,2', 'hit,2'); else if (level == 4) { if (bufftype[3] == 0) effect.push('resist_d,1', 'hit_d,1', 'resist,2', 'hit,2'); else if (bufftype[3] == 1) effect.push('resist_d,1', 'hit_d,1', 'resist,3', 'hit,3'); else if (bufftype[3] == 2) effect.push('resist_d,2', 'hit_d,2'); } }
+            break;
     }
+
     return effect;
 }
 
