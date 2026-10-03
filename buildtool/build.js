@@ -262,9 +262,9 @@ function ChangeParam() {
 
 
     //HP＝（30＋筋力＋体力×2）÷4＋(レベル+2)÷3＋各種補正(鎧、アクセサリ等)
-    document.getElementById("prm_hp").innerText = Math.trunc(((31 + status["str"] + status["con"] * 2) / 4) + ((prmlevel + 2) / 3)) + effects['hp'];
+    document.getElementById("prm_hp").innerText = Math.trunc(((31 + cp["str"] + cp["con"] * 2) / 4) + ((prmlevel + 2) / 3)) + effects['hp'];
     //SP＝（30＋知力＋感覚×2）÷4＋(レベル+2)÷3＋各種補正(兜、鎧等)
-    document.getElementById("prm_sp").innerText = Math.trunc(((31 + status["int"] + status["sen"] * 2) / 4) + ((prmlevel + 2) / 3)) + effects['sp'];
+    document.getElementById("prm_sp").innerText = Math.trunc(((31 + cp["int"] + cp["sen"] * 2) / 4) + ((prmlevel + 2) / 3)) + effects['sp'];
     //atkめんどすぎ
     /*  剣、短剣、杖、鈍器、槍、装備なしの場合：　筋力補正値×2＋各種補正
         短剣の場合：　筋力補正値×1.5(切り上げ)＋器用補正値×0.5(切り上げ)＋各種補正
