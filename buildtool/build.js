@@ -130,7 +130,7 @@ function BuffSkillCheck() {
             }
         }
 
-        const buff = ['rage', 'assult', 'backstab', 'guts', 'fury', 'overload', 'bladework', 'duelist', 'eternity', 'sunmoon', 'conce','medi'];
+        const buff = ['rage', 'assult', 'backstab', 'guts', 'fury', 'overload', 'bladework', 'duelist', 'eternity', 'sunmoon', 'conce', 'medi'];
         for (let x = 0; x < 12; x++) {
             if (checker[x] == 1) {
                 document.getElementById(`buff_${buff[x]}`).hidden = false;
@@ -276,10 +276,10 @@ function ChangeParam() {
     let prmatk = 0;
     switch (weapondata.type) {
         case 'dagger':
-            prmatk += Math.ceil(modi['str'] * 1.5 + modi['dex'] * 0.5) + effects['atk'];
+            prmatk += Math.trunc(modi['str'] * 1.5 + modi['dex'] * 0.5) + effects['atk'];
             break;
         case 'axe':
-            prmatk += Math.ceil(modi['str'] * 1.5 + modi['con'] * 0.5) + effects['atk'];
+            prmatk += Math.trunc(modi['str'] * 1.5 + modi['con'] * 0.5) + effects['atk'];
             break;
         case 'bow':
             prmatk += modi['dex'] + effects['atk'];
@@ -612,6 +612,7 @@ function InitialSet() {
 }
 
 function BuildSave() {
+
     let lvsc = document.getElementById('lvsync_select').value;
     let st = [
         document.getElementById('str').value,
@@ -661,4 +662,5 @@ function BuildSave() {
     url.searchParams.set('ac2', ac2.join('_'));
     url.searchParams.set('ac3', ac3.join('_'));
     location.href = url;
+
 }
