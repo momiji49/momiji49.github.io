@@ -1,0 +1,504 @@
+<html>
+
+<head>
+    <title>クエストノーツ ビルドツール</title>
+    <LINK REL="stylesheet" href="buildtool.css">
+        <meta name="viewport" content="width=device-width, initial-scale=0.6">
+</head>
+
+<body>
+    <div class="card1">
+        <h1 style="margin: 0px;">クエストノーツ ビルドツール+&alpha;</h1>
+        <div style="font-size: 12px;">最終更新日 2026/10/04 <a
+                href="https://marshmallow-qa.com/54hp6vc7wt3b8lb">バグ報告などはこちらから</a></div>
+    </div>
+
+    <div class="card1">
+        <div class="cardinline">
+            <div id="btn-10" class="status_ui">
+                <input type="button" class="status_button" id="str_-10" value="-10" onclick=ChangeStatusButton(this.id)>
+                <input type="button" class="status_button" id="con_-10" value="-10" onclick=ChangeStatusButton(this.id)>
+                <input type="button" class="status_button" id="dex_-10" value="-10" onclick=ChangeStatusButton(this.id)>
+                <input type="button" class="status_button" id="agi_-10" value="-10" onclick=ChangeStatusButton(this.id)>
+                <input type="button" class="status_button" id="sen_-10" value="-10" onclick=ChangeStatusButton(this.id)>
+                <input type="button" class="status_button" id="int_-10" value="-10" onclick=ChangeStatusButton(this.id)>
+            </div>
+            <div id="btn-4" class="status_ui">
+                <input type="button" class="status_button" id="str_-4" value="-4" onclick=ChangeStatusButton(this.id)>
+                <input type="button" class="status_button" id="con_-4" value="-4" onclick=ChangeStatusButton(this.id)>
+                <input type="button" class="status_button" id="dex_-4" value="-4" onclick=ChangeStatusButton(this.id)>
+                <input type="button" class="status_button" id="agi_-4" value="-4" onclick=ChangeStatusButton(this.id)>
+                <input type="button" class="status_button" id="sen_-4" value="-4" onclick=ChangeStatusButton(this.id)>
+                <input type="button" class="status_button" id="int_-4" value="-4" onclick=ChangeStatusButton(this.id)>
+            </div>
+            <div id="btn-1" class="status_ui">
+                <input type="button" class="status_button" id="str_-1" value="-1" onclick=ChangeStatusButton(this.id)>
+                <input type="button" class="status_button" id="con_-1" value="-1" onclick=ChangeStatusButton(this.id)>
+                <input type="button" class="status_button" id="dex_-1" value="-1" onclick=ChangeStatusButton(this.id)>
+                <input type="button" class="status_button" id="agi_-1" value="-1" onclick=ChangeStatusButton(this.id)>
+                <input type="button" class="status_button" id="sen_-1" value="-1" onclick=ChangeStatusButton(this.id)>
+                <input type="button" class="status_button" id="int_-1" value="-1" onclick=ChangeStatusButton(this.id)>
+            </div>
+            <div class="status_ui">
+                <div class="stlabel">STR</div>
+                <div class="stlabel">CON</div>
+                <div class="stlabel">DEX</div>
+                <div class="stlabel">AGI</div>
+                <div class="stlabel">SEN</div>
+                <div class="stlabel">INT</div>
+            </div>
+            <div id="st_value" class="status_ui">
+                <input type="number" class="status_value" value="6" id="str" onchange=ChangeStatus(this.id,this.value)>
+                <input type="number" class="status_value" value="6" id="con" onchange=ChangeStatus(this.id,this.value)>
+                <input type="number" class="status_value" value="6" id="dex" onchange=ChangeStatus(this.id,this.value)>
+                <input type="number" class="status_value" value="6" id="agi" onchange=ChangeStatus(this.id,this.value)>
+                <input type="number" class="status_value" value="6" id="sen" onchange=ChangeStatus(this.id,this.value)>
+                <input type="number" class="status_value" value="6" id="int" onchange=ChangeStatus(this.id,this.value)>
+            </div>
+            <div class="status_ui">
+                <div class="aclabel" id="ac_str">+0</div>
+                <div class="aclabel" id="ac_con">+0</div>
+                <div class="aclabel" id="ac_dex">+0</div>
+                <div class="aclabel" id="ac_agi">+0</div>
+                <div class="aclabel" id="ac_sen">+0</div>
+                <div class="aclabel" id="ac_int">+0</div>
+            </div>
+            <div class="status_ui">
+                <div class="stlabel" id="modi_str">-1</div>
+                <div class="stlabel" id="modi_con">-1</div>
+                <div class="stlabel" id="modi_dex">-1</div>
+                <div class="stlabel" id="modi_agi">-1</div>
+                <div class="stlabel" id="modi_sen">-1</div>
+                <div class="stlabel" id="modi_int">-1</div>
+            </div>
+            <div id="btn+1" class="status_ui">
+                <input type="button" class="status_button" id="str_+1" value="+1" onclick=ChangeStatusButton(this.id)>
+                <input type="button" class="status_button" id="con_+1" value="+1" onclick=ChangeStatusButton(this.id)>
+                <input type="button" class="status_button" id="dex_+1" value="+1" onclick=ChangeStatusButton(this.id)>
+                <input type="button" class="status_button" id="agi_+1" value="+1" onclick=ChangeStatusButton(this.id)>
+                <input type="button" class="status_button" id="sen_+1" value="+1" onclick=ChangeStatusButton(this.id)>
+                <input type="button" class="status_button" id="int_+1" value="+1" onclick=ChangeStatusButton(this.id)>
+            </div>
+            <div id="btn+4" class="status_ui">
+                <input type="button" class="status_button" id="str_+4" value="+4" onclick=ChangeStatusButton(this.id)>
+                <input type="button" class="status_button" id="con_+4" value="+4" onclick=ChangeStatusButton(this.id)>
+                <input type="button" class="status_button" id="dex_+4" value="+4" onclick=ChangeStatusButton(this.id)>
+                <input type="button" class="status_button" id="agi_+4" value="+4" onclick=ChangeStatusButton(this.id)>
+                <input type="button" class="status_button" id="sen_+4" value="+4" onclick=ChangeStatusButton(this.id)>
+                <input type="button" class="status_button" id="int_+4" value="+4" onclick=ChangeStatusButton(this.id)>
+            </div>
+            <div id="btn+10" class="status_ui">
+                <input type="button" class="status_button" id="str_+10" value="+10" onclick=ChangeStatusButton(this.id)>
+                <input type="button" class="status_button" id="con_+10" value="+10" onclick=ChangeStatusButton(this.id)>
+                <input type="button" class="status_button" id="dex_+10" value="+10" onclick=ChangeStatusButton(this.id)>
+                <input type="button" class="status_button" id="agi_+10" value="+10" onclick=ChangeStatusButton(this.id)>
+                <input type="button" class="status_button" id="sen_+10" value="+10" onclick=ChangeStatusButton(this.id)>
+                <input type="button" class="status_button" id="int_+10" value="+10" onclick=ChangeStatusButton(this.id)>
+            </div>
+        </div>
+    </div>
+
+    <div class="card1">
+        <div class="cardinline">
+            <div style="display: inline-flex;flex-direction: column; margin:auto 0px;padding: 0px 10px;">
+                <spam id="cp" style="font-size: large;text-align: center;">CP 300</spam>
+                <select id="lvsync_select" onchange=ChangeSync(this.value)
+                    style="width: 60px;height: 27px;border-radius: 5px;margin:5px auto">
+                    <option value="0">Lv30</option>
+                    <option value="1">Lv20</option>
+                    <option value="2">Lv10</option>
+                    <option value="3">Lv5</option>
+                </select>
+                <select id="class_select" onchange=ChangeClass(this.value)
+                    style="width: 150px;height: 27px;border-radius: 5px;">
+                    <option value="0">無職</option>
+                    <option value="1">ウォリアー</option>
+                    <option value="2">シーフ</option>
+                    <option value="3">アーチャー</option>
+                    <option value="4">メイジ</option>
+                    <option value="5">アコライト</option>
+                    <option value="6">ダンサー</option>
+                    <option value="7">アサシン</option>
+                    <option value="8">ナイト</option>
+                    <option value="9">ドルイド</option>
+                    <option value="10">バード</option>
+                    <option value="11">バーサーカー</option>
+                    <option value="12">ウォーロック</option>
+                    <option value="13">クラウン</option>
+                    <option value="14">セージ</option>
+                    <option value="15">フェンサー</option>
+                    <option value="16">アストロロジャ</option>
+                </select>
+                
+                
+            </div>
+
+            <div style="display: flex; flex-direction: row;">
+                <div style="display: flex; flex-direction: column; width: min-content;">
+                    <div
+                        style="height: 23px;background-color: #f4ffd9; border-radius: 5px;border: 1px solid #7a7a7a;font-size: 15px;align-content: center;">
+                        <span id="sk_sel0" style="padding-left: 4px;">-</span>
+                    </div>
+                    <div
+                        style="height: 23px;background-color: #f4ffd9; border-radius: 5px;border: 1px solid #7a7a7a;font-size: 15px;align-content: center;">
+                        <span id="sk_sel1" style="padding-left: 4px;">-</span>
+                    </div>
+                    <select id="sk_sel2" class="skill_select" onchange=ChangeSkill(2,this.value)>
+                        <option value="0">-</option>
+                    </select>
+                    <select id="sk_sel3" class="skill_select" onchange=ChangeSkill(3,this.value)>
+                        <option value="0">-</option>
+                    </select>
+                    <select id="sk_sel4" class="skill_select" onchange=ChangeSkill(4,this.value)>
+                        <option value="0">-</option>
+                    </select>
+                    <select id="sk_sel5" class="skill_select" onchange=ChangeSkill(5,this.value)>
+                        <option value="0">-</option>
+                    </select>
+                </div>
+                <div style="display: flex; flex-direction: column; width: min-content;">
+                    <select id="lv_sel0" class="level_select" onchange=ChangeSkillLv(0,this.value)>
+                        <option value=1>Level 1</option>
+                    </select>
+                    <select id="lv_sel1" class="level_select" onchange=ChangeSkillLv(1,this.value)>
+                        <option value=1>Level 1</option>
+                    </select>
+                    <select id="lv_sel2" class="level_select" onchange=ChangeSkillLv(2,this.value)>
+                        <option value=1>Level 1</option>
+                    </select>
+                    <select id="lv_sel3" class="level_select" onchange=ChangeSkillLv(3,this.value)>
+                        <option value=1>Level 1</option>
+                    </select>
+                    <select id="lv_sel4" class="level_select" onchange=ChangeSkillLv(4,this.value)>
+                        <option value=1>Level 1</option>
+                    </select>
+                    <select id="lv_sel5" class="level_select" onchange=ChangeSkillLv(5,this.value)>
+                        <option value=1>Level 1</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card1">
+        <div class="cardinline">
+            <div style="border-right:3px double #2481ce;">
+                <div class="labeltext">HP</div>
+                <div class="labeltext">SP</div>
+                <div class="labeltext">ATK</div>
+                <div class="labeltext">DEF</div>
+                <div class="labeltext">MATK</div>
+                <div class="labeltext">MDEF</div>
+                <div class="labeltext">HIT</div>
+                <div class="labeltext">FLEE </div>
+                <div class="labeltext">RESIST</div>
+            </div>
+            <div style="padding: 0 10;border-right:3px solid #11b7c0;">
+                <div id="prm_hp" class="parametertext">0</div>
+                <div id="prm_sp" class="parametertext">0</div>
+                <div id="prm_atk" class="parametertext">0</div>
+                <div id="prm_def" class="parametertext">0</div>
+                <div id="prm_matk" class="parametertext">0</div>
+                <div id="prm_mdef" class="parametertext">0</div>
+                <div id="prm_hit" class="parametertext">0</div>
+                <div id="prm_flee" class="parametertext">0</div>
+                <div id="prm_resist" class="parametertext">0</div>
+            </div>
+            <div style="border-right:3px double #2481ce;">
+                <div class="labeltext">右手</div>
+                <div class="labeltext">左手</div>
+                <div class="labeltext">兜</div>
+                <div class="labeltext">鎧</div>
+                <div class="labeltext">靴</div>
+                <div class="labeltext">アクセ1</div>
+                <div class="labeltext">アクセ2</div>
+                <div class="labeltext">アクセ3</div>
+            </div>
+            <div style="width: min-content; padding-left: 5px;">
+                <select class="equipmentselect" id="weapon" onchange=ChangeEquipment(this.id,this.value)>
+                    <option value="0">なし</option>
+                    <optgroup label="剣">
+                        <option value="1">ロングソード</option>
+                        <option value="2">ショートソード</option>
+                        <option value="3">ファルシオン</option>
+                        <option value="4">レイピア</option>
+                        <option value="5">ブロードソード</option>
+                        <option value="6">クレイモア</option>
+                        <option value="7">ツヴァイハンダー</option>
+                    </optgroup>
+                    <optgroup label="短剣">
+                        <option value="8">ダガー</option>
+                        <option value="9">マインゴーシュ</option>
+                        <option value="10">スティレット</option>
+                        <option value="11">ククリ</option>
+                    </optgroup>
+                    <optgroup label="弓">
+                        <option value="12">ショートボウ</option>
+                        <option value="13">ロングボウ</option>
+                        <option value="14">クロスボウ</option>
+                        <option value="15">アーバレスト</option>
+                        <option value="16">コンポジットボウ</option>
+                    </optgroup>
+                    <optgroup label="杖">
+                        <option value="17">ロッド</option>
+                        <option value="18">スタッフ</option>
+                        <option value="19">ワンド</option>
+                    </optgroup>
+                    <optgroup label="鈍器">
+                        <option value="20">メイス</option>
+                        <option value="21">フレイル</option>
+                        <option value="22">ウォーハンマー</option>
+                    </optgroup>
+                    <optgroup label="槍">
+                        <option value="23">スピア</option>
+                        <option value="24">ショートスピア</option>
+                        <option value="25">ハルバード</option>
+                        <option value="26">パイク</option>
+                        <option value="27">ランス</option>
+                    </optgroup>
+                    <optgroup label="斧">
+                        <option value="28">ハンドアクス</option>
+                        <option value="29">ブロードアクス</option>
+                        <option value="30">ブローヴァ</option>
+                        <option value="31">フランキスカ</option>
+                        <option value="32">バトルアクス</option>
+                    </optgroup>
+                    <optgroup label="楽器">
+                        <option value="33">リュート</option>
+                        <option value="34">タンバリン</option>
+                        <option value="35">フィドル</option>
+                        <option value="36">ハープ</option>
+                    </optgroup>
+                    <optgroup label="盾">
+                        <option value="37">バックラー</option>
+                        <option value="38">カイトシールド</option>
+                        <option value="39">ラウンドシールド</option>
+                        <option value="40">ルーンシールド</option>
+                    </optgroup>
+
+                </select>
+                <select class="equipmentselect" id="shield" onchange=ChangeEquipment(this.id,this.value)>
+                    <option value="0">なし</option>
+                    <option value="37">バックラー</option>
+                    <option value="38">カイトシールド</option>
+                    <option value="39">ラウンドシールド</option>
+                    <option value="40">ルーンシールド</option>
+                </select>
+                <select class="equipmentselect" id="helmet" onchange=ChangeEquipment(this.id,this.value)>
+                    <option value="0">なし</option>
+                    <option value="41">ドミノ</option>
+                    <option value="42">ハット</option>
+                    <option value="43">ビレッタ</option>
+                    <option value="44">ヘルム</option>
+                    <option value="45">メイジハット</option>
+                    <option value="46">サークレット</option>
+                    <option value="47">ねじり鉢巻き</option>
+                    <option value="48">疾風のバンダナ</option>
+                    <option value="49">鷹羽のフード</option>
+                    <option value="50">司祭帽</option>
+                    <option value="51">学者の帽子</option>
+                </select>
+                <select class="equipmentselect" id="armor" onchange=ChangeEquipment(this.id,this.value)>
+                    <option value="0">なし</option>
+                    <option value="52">クロースアーマー</option>
+                    <option value="53">プレートメイル</option>
+                    <option value="54">ローブ</option>
+                    <option value="55">チェインメイル</option>
+                    <option value="56">レザーアーマー</option>
+                    <option value="57">スケイルアーマー</option>
+                </select>
+                <select class="equipmentselect" id="shoes" onchange=ChangeEquipment(this.id,this.value)>
+                    <option value="0">なし</option>
+                    <option value="58">サンダル</option>
+                    <option value="59">シューズ</option>
+                    <option value="60">ブーツ</option>
+                </select>
+                <select class="equipmentselect" id="ac1" onchange=ChangeEquipment(this.id,this.value)>
+                    <option value="0">なし</option>
+                    <option value="61">バングル(+STR)</option>
+                    <option value="62">ベルト(+CON)</option>
+                    <option value="63">リング(+DEX)</option>
+                    <option value="64">ブローチ(+AGI)</option>
+                    <option value="65">ペンダント(+SEN)</option>
+                    <option value="66">イヤリング(+INT)</option>
+                    <option value="67">牙のお守り(+ATK)</option>
+                    <option value="68">甲羅のお守り(+DEF)</option>
+                    <option value="69">角のお守り(+MATK)</option>
+                    <option value="70">爪のお守り(+HIT)</option>
+                    <option value="71">翼のお守り(+FLEE)</option>
+                    <option value="72">鱗のお守り(+RESIST)</option>
+                </select>
+                <select class="equipmentselect" id="ac2" onchange=ChangeEquipment(this.id,this.value)>
+                    <option value="0">なし</option>
+                    <option value="61">バングル(+STR)</option>
+                    <option value="62">ベルト(+CON)</option>
+                    <option value="63">リング(+DEX)</option>
+                    <option value="64">ブローチ(+AGI)</option>
+                    <option value="65">ペンダント(+SEN)</option>
+                    <option value="66">イヤリング(+INT)</option>
+                    <option value="67">牙のお守り(+ATK)</option>
+                    <option value="68">甲羅のお守り(+DEF)</option>
+                    <option value="69">角のお守り(+MATK)</option>
+                    <option value="70">爪のお守り(+HIT)</option>
+                    <option value="71">翼のお守り(+FLEE)</option>
+                    <option value="72">鱗のお守り(+RESIST)</option>
+                </select>
+                <select class="equipmentselect" id="ac3" onchange=ChangeEquipment(this.id,this.value)>
+                    <option value="0">なし</option>
+                    <option value="61">バングル(+STR)</option>
+                    <option value="62">ベルト(+CON)</option>
+                    <option value="63">リング(+DEX)</option>
+                    <option value="64">ブローチ(+AGI)</option>
+                    <option value="65">ペンダント(+SEN)</option>
+                    <option value="66">イヤリング(+INT)</option>
+                    <option value="67">牙のお守り(+ATK)</option>
+                    <option value="68">甲羅のお守り(+DEF)</option>
+                    <option value="69">角のお守り(+MATK)</option>
+                    <option value="70">爪のお守り(+HIT)</option>
+                    <option value="71">翼のお守り(+FLEE)</option>
+                    <option value="72">鱗のお守り(+RESIST)</option>
+                </select>
+            </div>
+            <div style="width: min-content; padding-left: 5px;">
+                <select class="equipmentattselect" id="weapon_att" onchange=ChangeAttribute(this.id,this.value)>
+                    <option value="0">(無名)</option>
+                    <option value="1" disabled>熟練</option>
+                    <option value="2" disabled>小鬼</option>
+                    <option value="3" disabled>蛮族</option>
+                    <option value="4" disabled>古樹</option>
+                    <option value="5" disabled>骨</option>
+                    <option value="6" disabled>湿潤</option>
+                </select>
+                <select class="equipmentattselect" id="shield_att" onchange=ChangeAttribute(this.id,this.value)>
+                    <option value="0">(無名)</option>
+                    <option value="1" disabled>熟練</option>
+                    <option value="2" disabled>小鬼</option>
+                    <option value="3" disabled>蛮族</option>
+                    <option value="4" disabled>古樹</option>
+                    <option value="5" disabled>骨</option>
+                    <option value="6" disabled>湿潤</option>
+                </select>
+                <select class="equipmentattselect" id="helmet_att" onchange=ChangeAttribute(this.id,this.value)>
+                    <option value="0">(無名)</option>
+                    <option value="1" disabled>熟練</option>
+                    <option value="2" disabled>小鬼</option>
+                    <option value="3" disabled>蛮族</option>
+                    <option value="4" disabled>古樹</option>
+                    <option value="5" disabled>骨</option>
+                    <option value="6" disabled>湿潤</option>
+                </select>
+                <select class="equipmentattselect" id="armor_att" onchange=ChangeAttribute(this.id,this.value)>
+                    <option value="0">(無名)</option>
+                    <option value="1" disabled>熟練</option>
+                    <option value="2" disabled>小鬼</option>
+                    <option value="3" disabled>蛮族</option>
+                    <option value="4" disabled>古樹</option>
+                    <option value="5" disabled>骨</option>
+                    <option value="6" disabled>湿潤</option>
+                </select>
+                <select class="equipmentattselect" id="shoes_att" onchange=ChangeAttribute(this.id,this.value)>
+                    <option value="0">(無名)</option>
+                    <option value="1" disabled>熟練</option>
+                    <option value="2" disabled>小鬼</option>
+                    <option value="3" disabled>蛮族</option>
+                    <option value="4" disabled>古樹</option>
+                    <option value="5" disabled>骨</option>
+                    <option value="6" disabled>湿潤</option>
+                </select>
+                <select class="equipmentattselect" id="ac1_att" onchange=ChangeAttribute(this.id,this.value)>
+                    <option value="0">(無名)</option>
+                    <option value="1" disabled>熟練</option>
+                    <option value="2" disabled>小鬼</option>
+                    <option value="3" disabled>蛮族</option>
+                    <option value="4" disabled>古樹</option>
+                    <option value="5" disabled>骨</option>
+                    <option value="6" disabled>湿潤</option>
+                    <option value="7" disabled>勝利</option>
+                    <option value="8" disabled>泰然</option>
+                    <option value="9" disabled>勇気</option>
+                </select>
+                <select class="equipmentattselect" id="ac2_att" onchange=ChangeAttribute(this.id,this.value)>
+                    <option value="0">(無名)</option>
+                    <option value="1" disabled>熟練</option>
+                    <option value="2" disabled>小鬼</option>
+                    <option value="3" disabled>蛮族</option>
+                    <option value="4" disabled>古樹</option>
+                    <option value="5" disabled>骨</option>
+                    <option value="6" disabled>湿潤</option>
+                    <option value="7" disabled>勝利</option>
+                    <option value="8" disabled>泰然</option>
+                    <option value="9" disabled>勇気</option>
+                </select>
+                <select class="equipmentattselect" id="ac3_att" onchange=ChangeAttribute(this.id,this.value)>
+                    <option value="0">(無名)</option>
+                    <option value="1" disabled>熟練</option>
+                    <option value="2" disabled>小鬼</option>
+                    <option value="3" disabled>蛮族</option>
+                    <option value="4" disabled>古樹</option>
+                    <option value="5" disabled>骨</option>
+                    <option value="6" disabled>湿潤</option>
+                    <option value="7" disabled>勝利</option>
+                    <option value="8" disabled>泰然</option>
+                    <option value="9" disabled>勇気</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="card1">
+        <div id="buff_charge" hidden><input type="checkbox" id="buff_charge_check" onchange=BuffSkillCheck(0,this.checked)>チャージ</div>
+        <div id="buff_rage" hidden><input type="checkbox" id="buff_rage_check" onchange=BuffSkillCheck(1,this.checked)>レイジ<select id="buff_rage_growth" onchange=BuffTypeChange(0,this.value) hidden><option value="0">+3</option><option value="1">+1d</option></select></div>
+        <div id="buff_backstab" hidden><input type="checkbox" id="buff_backstab_check" onchange=BuffSkillCheck(2,this.checked)>バックスタブ</div>
+        <div id="buff_assult" hidden><input type="checkbox" id="buff_assult_check" onchange=BuffSkillCheck(3,this.checked)>アサルトスタンス</div>
+        <div id="buff_guts" hidden><input type="checkbox" id="buff_guts_check" onchange=BuffSkillCheck(4,this.checked)>ガッツ</div>
+        <div id="buff_fury" hidden><input type="checkbox" id="buff_fury_check" onchange=BuffSkillCheck(5,this.checked)>フューリー</div>
+        <div id="buff_overload" hidden><input type="checkbox" id="buff_overload_check" onchange=BuffSkillCheck(6,this.checked)>オーバーロード</div>
+        <div id="buff_bladework" hidden><input type="checkbox" id="buff_bladework_check" onchange=BuffSkillCheck(7,this.checked)>ブレードワーク</div>
+        <div id="buff_duelist" hidden><input type="checkbox" id="buff_duelist_check" onchange=BuffSkillCheck(8,this.checked)>デュエリスト</div>
+        <div id="buff_eternity" hidden><input type="checkbox" id="buff_eternity_check" onchange=BuffSkillCheck(9,this.checked)>エタニティ</div>
+        <div id="buff_sunmoon" hidden><input type="checkbox" id="buff_sunmoon_check" onchange=BuffSkillCheck(10,this.checked)>サンアンドムーン<select id="buff_sunmoon_round" onchange=BuffTypeChange(1,this.value)><option value="0">HIT</option><option value="1">FLEE, RESIST</option></select></div>
+        <div id="buff_conce" hidden><input type="checkbox" id="buff_conce_check" onchange=BuffSkillCheck(11,this.checked)>コンセントレイション<select id="buff_conce_growth" onchange=BuffTypeChange(2,this.value) hidden><option value="0">+2</option><option value="1">+3</option><option value="2">+1d</option></select></div>
+        <div id="buff_medi" hidden><input type="checkbox" id="buff_medi_check" onchange=BuffSkillCheck(12,this.checked)>メディテーション<select id="buff_medi_growth" onchange=BuffTypeChange(3,this.value) hidden><option value="0">+2</option><option value="1">+3</option><option value="2">+1d</option></select></div>
+
+    </div>
+
+    <div class="card2">
+        <div class="cardinline"><input class="save_button" type="button" value="ビルドを保存" onclick=BuildSave()></div>
+    </div>    
+
+    <div class="card1">
+        <h2>期待値計算機<span style="font-size: 20px;"> &シミュレーター</span></h2>
+        <div class="cardinline" style="margin-bottom: 10px;align-items: center;">
+            <div style="height: min-content;">
+                <div style="display:flex;;">
+                    <div style="width: 110px;">
+                        <div class="labeltext">ダイス数</div>
+                        <div class="labeltext">修正値</div>
+                        <div class="labeltext">追加修正値</div>
+                    </div>
+                    <div style="width: min-content;">
+                        <input id="exp_dice" type="number" value="1"
+                            style="width: 50px; height: 27px; border: 1px solid #BBB;border-radius: 5px;">
+                        <input id="exp_modi" type="number" value="0"
+                            style="width: 50px; height: 27px; border: 1px solid #BBB;border-radius: 5px;">
+                        <input id="exp_remodi" type="number" value="0"
+                            style="width: 50px; height: 27px; border: 1px solid #BBB;border-radius: 5px;">
+                    </div>
+                </div>
+            </div>
+            <div style="align-content: center; width: min-content;">
+                <input type="button" class="save_button" value="計算開始" onclick=Expected()>
+                <input type="button" class="save_button" value="試し振り" onclick=Simulation()>
+            </div>
+        </div>
+        <div class="cardinline">
+            <div style="flex-direction: column;">
+                <div id="exp_result"></div>
+                <div id="simu_result"></div>
+            </div>
+        </div>
+</body>
+
+<script src="build.js"></script>
+
+</html>
