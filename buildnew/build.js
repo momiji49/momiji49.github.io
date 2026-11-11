@@ -672,7 +672,7 @@ function StatusCalc() {
     result.DEF += modi.con + effects.def;
     result.DEFre += Math.ceil(result.DEF / 2) + effects.def_re + result.DEF;
     result.MDEF += modi.sen + effects.mdef;
-    result.MDEFre += Math.ceil(result.MDEF / 2) + result.MATKDEF;
+    result.MDEFre += Math.ceil(result.MDEF / 2) + result.MDEF;
     result.HIT += modi.dex + effects.hit;
     result.FLEE += modi.agi + effects.flee;
     result.RESIST += modi.sen + effects.resist;
