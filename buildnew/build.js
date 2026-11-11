@@ -670,9 +670,9 @@ function StatusCalc() {
     if (eqlist[eq.weapon[0]].size == 'large') result.ATK += Math.trunc(modi.str / 3);
     if (buffskills[6]) result.ATK += Math.trunc((result.HP - 1) / 3);
     result.DEF += modi.con + effects.def;
-    result.DEFre += Math.ceil(result.DEF / 2) + effects.def_re;
+    result.DEFre += Math.ceil(result.DEF / 2) + effects.def_re + result.DEF;
     result.MDEF += modi.sen + effects.mdef;
-    result.MDEFre += Math.ceil(result.MDEF / 2);
+    result.MDEFre += Math.ceil(result.MDEF / 2) + result.MATKDEF;
     result.HIT += modi.dex + effects.hit;
     result.FLEE += modi.agi + effects.flee;
     result.RESIST += modi.sen + effects.resist;
