@@ -619,10 +619,10 @@ function StatusCalc() {
                 if (skl[x + 2] == 1) { effectlist.push(bufftype[1] == 0 ? 'hit,+1' : 'flee,+1') } else if (skl[x + 2] == 2) { effectlist.push(bufftype[1] == 0 ? 'hit,+2' : 'flee,+2') } else if (skl[x + 2] == 3) { effectlist.push(bufftype[1] == 0 ? 'hit,+3' : 'flee,+3') } else { effectlist.push(bufftype[1] == 0 ? 'hit,+4' : 'flee,+4') }
                 break;
             case buffskills[11] && cl == 4 && sk[x] == 7: ;
-                if (skl[x + 2] == 1) { effectlist.push('hit_d,+1', 'flee_d,+1') } else if (skl[x + 2] == 2) { effectlist.push('hit_d,+1', 'flee_d,+1', 'hit,+1', 'flee,+1') } else if (skl[x + 2] == 3) { effectlist.push('hit_d,+1', 'flee_d,+1', 'hit,+2', 'flee,+2') } else { if (bufftype[2] == 0) { effectlist.push('hit_d,+1', 'flee_d,+1', 'hit,+2', 'flee,+2') } else if (bufftype[2] == 1) { effectlist.push('hit_d,+1', 'flee_d,+1', 'hit,+3', 'flee,+3') } else { 'hit_d,+2', 'flee_d,+2' } }
+                if (skl[x + 2] == 1) { effectlist.push('hit_d,+1', 'flee_d,+1') } else if (skl[x + 2] == 2) { effectlist.push('hit_d,+1', 'flee_d,+1', 'hit,+1', 'flee,+1') } else if (skl[x + 2] == 3) { effectlist.push('hit_d,+1', 'flee_d,+1', 'hit,+2', 'flee,+2') } else { if (bufftype[2] == 0) { effectlist.push('hit_d,+1', 'flee_d,+1', 'hit,+2', 'flee,+2') } else if (bufftype[2] == 1) { effectlist.push('hit_d,+1', 'flee_d,+1', 'hit,+3', 'flee,+3') } else { effectlist.push('hit_d,+2', 'flee_d,+2') } }
                 break;
             case buffskills[12] && cl == 9 && sk[x] == 4:
-                if (skl[x + 2] == 1) { effectlist.push('hit_d,+1', 'resist_d,+1') } else if (skl[x + 2] == 2) { effectlist.push('hit_d,+1', 'resist_d,+1', 'hit,+1', 'resist,+1') } else if (skl[x + 2] == 3) { effectlist.push('hit_d,+1', 'resist_d,+1', 'hit,+2', 'resist,+2') } else { if (bufftype[2] == 0) { effectlist.push('hit_d,+1', 'resist_d,+1', 'hit,+2', 'resist,+2') } else if (bufftype[2] == 1) { effectlist.push('hit_d,+1', 'resist_d,+1', 'hit,+3', 'resist,+3') } else { 'hit_d,+2', 'resist_d,+2' } }
+                if (skl[x + 2] == 1) { effectlist.push('hit_d,+1', 'resist_d,+1') } else if (skl[x + 2] == 2) { effectlist.push('hit_d,+1', 'resist_d,+1', 'hit,+1', 'resist,+1') } else if (skl[x + 2] == 3) { effectlist.push('hit_d,+1', 'resist_d,+1', 'hit,+2', 'resist,+2') } else { if (bufftype[3] == 0) { effectlist.push('hit_d,+1', 'resist_d,+1', 'hit,+2', 'resist,+2') } else if (bufftype[3] == 1) { effectlist.push('hit_d,+1', 'resist_d,+1', 'hit,+3', 'resist,+3') } else { effectlist.push('hit_d,+2', 'resist_d,+2') } }
                 break;
         }
     }
@@ -667,8 +667,8 @@ function StatusCalc() {
             result.MATK += modi.int + effects.matk;
             break;
     }
-    if (eqlist[eq.weapon[0]].size == 'large') result.atk += Math.trunc(modi.str / 3);
-    if (buffskills[6]) result.atk += Math.trunc((result.HP - 1) / 3);
+    if (eqlist[eq.weapon[0]].size == 'large') result.ATK += Math.trunc(modi.str / 3);
+    if (buffskills[6]) result.ATK += Math.trunc((result.HP - 1) / 3);
     result.DEF += modi.con + effects.def;
     result.DEFre += Math.ceil(result.DEF / 2) + effects.def_re;
     result.MDEF += modi.sen + effects.mdef;
