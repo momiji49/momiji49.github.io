@@ -281,7 +281,7 @@ function ChangeSync(value) {
     StatusCalc();
 }
 function ChangeStatus(id, value) {
-    st[id] = value;
+    st[id] = Number.parseInt(value);
     if (st[id] < 6) st[id] = 6;
     document.getElementById(id).value = st[id];
 
