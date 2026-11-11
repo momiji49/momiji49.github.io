@@ -31,7 +31,7 @@ const skillset_Warrior = {
 const skillset_Thief = {
     '0': { name: 'クイックトリック', maxlv: 4 },
     '1': { name: '絶対回避', maxlv: 1 },
-    'pass': [{ name: 'ダガーマスタリー', maxlv: 3 }, { name: 'バタフライダンス', maxlv: 3 }, { name: 'トラップマスタリー', maxlv: 3 }],
+    'pass': [{ name: 'ダガーマスタリー', maxlv: 3 }, { name: 'バタフライダンス', maxlv: 3 }, { name: 'トラップマスタリー', maxlv: 1 }],
     'act': [{ name: 'インビジブルアタック', maxlv: 4 }, { name: 'フェイント', maxlv: 3 }, { name: 'ダッシュ', maxlv: 2 }, { name: 'プレパレーション', maxlv: 3 }],
     'react': [{ name: 'バックステップ', maxlv: 4 }]
 }
@@ -123,15 +123,15 @@ const skillset_Fencer = {
     '0': { name: 'ファント', maxlv: 4 },
     '1': { name: 'フラッシュリープ', maxlv: 1 },
     'pass': [{ name: 'ブレードワーク', maxlv: 3 }, { name: 'デュエリスト', maxlv: 4 }, { name: 'オブリージュ', maxlv: 3 }, { name: 'ペネトレイト', maxlv: 3 }],
-    'act': [{ name: 'パリィ', maxlv: 2 }, { name: 'チャレンジ', maxlv: 32 }],
+    'act': [{ name: 'パリィ', maxlv: 2 }, { name: 'チャレンジ', maxlv: 2 }],
     'react': [{ name: 'リポスト', maxlv: 4 }, { name: 'スイッチ', maxlv: 2 }]
 }
 const skillset_Astrologer = {
     '0': { name: 'アルカナドロー', maxlv: 1 },
     '1': { name: 'オラクル', maxlv: 1 },
-    'pass': [{ name: 'エタニティ', maxlv: 3 }, { name: 'サンアンドムーン', maxlv: 3 }],
-    'act': [{ name: 'スターゲイザー', maxlv: 3 }, { name: 'シューティングスター', maxlv: 3 }, { name: 'エクリプス', maxlv: 3 }, { name: 'リパルション', maxlv: 3 }, { name: 'ワイルドカード', maxlv: 3 }],
-    'react': [{ name: 'フェイト', maxlv: 3 }]
+    'pass': [{ name: 'エタニティ', maxlv: 4 }, { name: 'サンアンドムーン', maxlv: 4 }],
+    'act': [{ name: 'スターゲイザー', maxlv: 2 }, { name: 'シューティングスター', maxlv: 4 }, { name: 'エクリプス', maxlv: 2 }, { name: 'リパルション', maxlv: 2 }, { name: 'ワイルドカード', maxlv: 2 }],
+    'react': [{ name: 'フェイト', maxlv: 4 }]
 }
 const eqlist = [
     { name: "なし", type: 'other', size: 'none', effect: [], 'att': [false, false, false, false, false, false], addeffect: {} },
