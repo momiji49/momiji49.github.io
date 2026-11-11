@@ -616,7 +616,7 @@ function StatusCalc() {
                 if (skl[x + 2] == 1) { effectlist.push('atk,+2', 'matk,+2') } else if (skl[x + 2] == 2) { effectlist.push('atk,+3', 'matk,+3') } else if (skl[x + 2] == 3) { effectlist.push('atk,+4', 'matk,+4') } else { effectlist.push('atk,+5', 'matk,+5') }
                 break;
             case buffskills[10] && cl == 16 && sk[x] == 2:
-                if (skl[x + 2] == 1) { effectlist.push(bufftype[1] == 0 ? 'hit,+1' : 'flee,+1') } else if (skl[x + 2] == 2) { effectlist.push(bufftype[1] == 0 ? 'hit,+2' : 'flee,+2') } else if (skl[x + 2] == 3) { effectlist.push(bufftype[1] == 0 ? 'hit,+3' : 'flee,+3') } else { effectlist.push(bufftype[1] == 0 ? 'hit,+4' : 'flee,+4') }
+                if(bufftype[1] == 0){if (skl[x + 2] == 1){ effectlist.push('hit,+1')}else if (skl[x + 2] == 2){effectlist.push('hit,+2')} else if (skl[x + 2] == 3){effectlist.push('hit,+3')} else{effectlist.push('hit,+4') }}else{if (skl[x + 2] == 1){ effectlist.push('flee,+1','resist,+1')}else if (skl[x + 2] == 2){effectlist.push('flee,+2','resist,+2')} else if (skl[x + 2] == 3){effectlist.push('flee,+3','resist,+3')} else{effectlist.push('flee,+4','resist,+4') }};    
                 break;
             case buffskills[11] && cl == 4 && sk[x] == 7: ;
                 if (skl[x + 2] == 1) { effectlist.push('hit_d,+1', 'flee_d,+1') } else if (skl[x + 2] == 2) { effectlist.push('hit_d,+1', 'flee_d,+1', 'hit,+1', 'flee,+1') } else if (skl[x + 2] == 3) { effectlist.push('hit_d,+1', 'flee_d,+1', 'hit,+2', 'flee,+2') } else { if (bufftype[2] == 0) { effectlist.push('hit_d,+1', 'flee_d,+1', 'hit,+2', 'flee,+2') } else if (bufftype[2] == 1) { effectlist.push('hit_d,+1', 'flee_d,+1', 'hit,+3', 'flee,+3') } else { effectlist.push('hit_d,+2', 'flee_d,+2') } }
