@@ -381,8 +381,8 @@ function ChangeEquipment(id, value) {
         let wepsel = document.getElementById('weapon');
         let shisel = document.getElementById('shield');
 
-        { for (element of shisel.children) if (element.value != 0) element.disabled = element.value == wepsel.value }
-        { for (element of wepsel.children) if (element.value != 0) element.disabled = element.value == shisel.value }
+        { for (element of shisel.children) if (element.value != 0) element.disabled = element.value == eq.weapon[0] }
+        { for (element of wepsel.children[9].children) if (element.value != 0) element.disabled = element.value == eq.shield[0] }
     }
 
     if (id == 'ac1' || id == 'ac2' || id == 'ac3') {
@@ -416,12 +416,12 @@ function BuffSkillHidden() {
         a += eq.shield[1] == 3 ? 1 : 0;
         a += eq.helmet[1] == 3 ? 1 : 0;
         a += eq.armor[1] == 3 ? 1 : 0;
-        a += eq.helmet[1] == 3 ? 1 : 0;
+        a += eq.shoes[1] == 3 ? 1 : 0;
         a += eq.ac1[1] == 3 ? 1 : 0;
         a += eq.ac2[1] == 3 ? 1 : 0;
         a += eq.ac3[1] == 3 ? 1 : 0;
 
-        checklist[0] = a >= 3;
+        checklist[0] = a >= 2;
     }
     //オーバーロード
     checklist[6] = cl == 11;
